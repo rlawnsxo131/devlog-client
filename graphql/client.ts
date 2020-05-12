@@ -11,12 +11,13 @@ const httpLink = createHttpLink({
   fetch: fetch as any,
 });
 
-const client = new ApolloClient<NormalizedCacheObject>({
-  ssrMode: true,
-  link: httpLink,
-  cache: new InMemoryCache().restore({}),
-});
+const apollo = (initialState?: any): ApolloClient<NormalizedCacheObject> => {
+  const client = new ApolloClient<NormalizedCacheObject>({
+    ssrMode: true,
+    link: httpLink,
+    cache: new InMemoryCache().restore(initialState || {}),
+  });
+  return client;
+};
 
-console.log(typeof window, 'client');
-
-export default client;
+export default apollo;

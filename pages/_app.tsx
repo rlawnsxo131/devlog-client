@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
-import client from '../graphql/client';
+import apollo from '../graphql/client';
+import ApolloClient from 'apollo-client';
+import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 
 type _appProps = {
   Component: any;
@@ -8,8 +10,9 @@ type _appProps = {
 };
 
 function _app({ Component, pageProps }: _appProps) {
-  console.log(Component);
-  console.log(pageProps);
+  let client: ApolloClient<NormalizedCacheObject> | any = undefined;
+  client = apollo();
+
   return (
     <ApolloProvider client={client}>
       <Component {...pageProps} />
