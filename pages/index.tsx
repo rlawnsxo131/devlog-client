@@ -3,7 +3,7 @@ import Layout from '../components/layout/Layout';
 
 type IndexProps = {};
 
-function Index(props: IndexProps) {
+function Index(props: any) {
   return <Layout />;
 }
 
