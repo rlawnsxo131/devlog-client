@@ -67,7 +67,6 @@ function withApollo(PageComponent: NextPage) {
         console.error('getDataTextFromTree erorr', e);
       }
       const apolloState = client.extract();
-      console.log('state', apolloState);
       return {
         apolloState,
       };
