@@ -22,7 +22,6 @@ function initHttpLink(): ApolloLink {
     httpLink = createHttpLink({
       uri: graphqlURI,
       credentials: 'include',
-      fetch: fetch as any,
     });
   }
   return httpLink;
