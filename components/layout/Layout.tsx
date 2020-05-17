@@ -12,7 +12,7 @@ function Layout(props: LayoutProps) {
       <GlobalStyle />
       <Header />
       <Main>
-        <div>main content</div>
+        <div style={{ flex: 4.5 }}>main content</div>
       </Main>
     </Block>
   );

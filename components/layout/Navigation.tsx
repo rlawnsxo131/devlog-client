@@ -28,6 +28,7 @@ const Block = styled.div`
     flex-flow: row wrap;
   }
   ${media.medium} {
+    flex: 1.25;
     flex-direction: column;
   }
 `;
@@ -40,11 +41,20 @@ const StyledLink = styled.a`
   font-size: 1.25rem;
   font-weight: bold;
   color: ${palette.gray8};
-  border-left: 3px solid white;
-  &:hover {
-    cursor: pointer;
-    border-left: 3px solid ${palette.pink5};
-    background-color: ${palette.pink0};
+  ${media.xsmall} {
+    border-bottom: 3px solid white;
+    &:hover {
+      cursor: pointer;
+      border-bottom: 3px solid ${palette.pink5};
+      background-color: ${palette.pink0};
+    }
+  }
+  ${media.medium} {
+    border-left: 3px solid white;
+    &:hover {
+      border-bottom: none;
+      border-left: 3px solid ${palette.pink5};
+    }
   }
 `;
 
