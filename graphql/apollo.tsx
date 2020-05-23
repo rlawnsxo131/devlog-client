@@ -39,6 +39,8 @@ function createApolloClient(
   });
 }
 
+let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
+
 // Initialize Apollo Client
 function initApolloClient(initialState?: NormalizedCacheObject) {
   // Make sure to create a new client for every server-side request so that data
@@ -54,8 +56,6 @@ function initApolloClient(initialState?: NormalizedCacheObject) {
 
   return apolloClient;
 }
-
-let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 export function withApollo<PageProps>(
   PageComponent: NextPage<PageProps>,
