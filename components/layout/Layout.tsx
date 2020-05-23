@@ -4,16 +4,16 @@ import Main from './Main';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
-type LayoutProps = {};
+type LayoutProps = {
+  children: React.ReactNode;
+};
 
-function Layout(props: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   return (
     <Block>
       <GlobalStyle />
       <Header />
-      <Main>
-        <div style={{ flex: 4.5 }}>main content</div>
-      </Main>
+      <Main>{children}</Main>
     </Block>
   );
 }

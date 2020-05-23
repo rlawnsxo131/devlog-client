@@ -12,10 +12,10 @@ function Navigation(props: NavigationProps) {
       <Link href="/">
         <StyledLink>NEW</StyledLink>
       </Link>
-      <Link href="/">
-        <StyledLink>TagList</StyledLink>
+      <Link href="/tags">
+        <StyledLink>Tags</StyledLink>
       </Link>
-      <Link href="/">
+      <Link href="/info">
         <StyledLink>Info</StyledLink>
       </Link>
     </Block>
@@ -28,7 +28,7 @@ const Block = styled.div`
     flex-flow: row wrap;
   }
   ${media.medium} {
-    flex: 1.25;
+    flex: 1.125;
     flex-direction: column;
   }
 `;

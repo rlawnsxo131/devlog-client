@@ -3,13 +3,17 @@ import { NextComponentType } from 'next';
 import { AppContext, AppInitialProps, AppProps } from 'next/app';
 import { AppContextType } from 'next/dist/next-server/lib/utils';
 import { Router } from 'next/dist/client/router';
-import ReactDOMServer from 'react-dom/server';
+import Layout from '../components/layout/Layout';
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
   pageProps,
 }) => {
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 };
 
 MyApp.getInitialProps = async (appContext: AppContextType<Router>) => {

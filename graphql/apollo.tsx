@@ -1,16 +1,16 @@
-import { ApolloClient } from 'apollo-client';
+import React from 'react';
+import Head from 'next/head';
 import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient } from 'apollo-client';
 import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import fetch from 'node-fetch';
+import { NextPage } from 'next';
 import { ApolloLink } from 'apollo-link';
-import { NextPage, NextPageContext } from 'next';
-import { getDataFromTree } from '@apollo/react-ssr';
 
-const graphqlURI = 'http://localhost:3001/graphql';
-
-// Create ApolloLink
+// CreateHttpLink
 function initHttpLink(): ApolloLink {
+  const graphqlURI = 'http://localhost:3001/graphql';
   let httpLink: ApolloLink;
   if (typeof window === 'undefined') {
     httpLink = createHttpLink({
@@ -27,46 +27,122 @@ function initHttpLink(): ApolloLink {
   return httpLink;
 }
 
-// Create ApolloClinet
-function initApolloClient(
-  initialState?: any,
+// Create ApolloClient
+function createApolloClient(
+  initialState: NormalizedCacheObject = {},
 ): ApolloClient<NormalizedCacheObject> {
-  const ssrMode = typeof window === 'undefined' ? true : false;
-  const client = new ApolloClient({
-    ssrMode: ssrMode,
-    link: initHttpLink(),
-    cache: new InMemoryCache().restore(initialState || {}),
+  const link = initHttpLink();
+  return new ApolloClient({
+    ssrMode: typeof window === 'undefined',
+    link,
+    cache: new InMemoryCache().restore(initialState),
   });
-  return client;
 }
 
-// with Apollo
-function withApollo(PageComponent: NextPage) {
-  const WithApollo = ({ apolloState }: { apolloState: any }) => {
-    const client = initApolloClient(apolloState);
+// Initialize Apollo Client
+function initApolloClient(initialState?: NormalizedCacheObject) {
+  // Make sure to create a new client for every server-side request so that data
+  // isn't shared between connections (which would be bad)
+  if (typeof window === 'undefined') {
+    return createApolloClient(initialState);
+  }
+
+  // Reuse client on the client-side
+  if (!apolloClient) {
+    apolloClient = createApolloClient(initialState);
+  }
+
+  return apolloClient;
+}
+
+let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
+
+export function withApollo<PageProps>(
+  PageComponent: NextPage<PageProps>,
+  { ssr = true } = {},
+) {
+  type ApolloPageProps = PageProps & {
+    apolloClient?: ApolloClient<NormalizedCacheObject> | null;
+    apolloState?: NormalizedCacheObject;
+  };
+  const WithApollo: NextPage<ApolloPageProps> = ({
+    apolloClient,
+    apolloState,
+    ...pageProps
+  }) => {
+    const client = apolloClient || initApolloClient(apolloState);
     return (
       <ApolloProvider client={client}>
-        <PageComponent />
+        <PageComponent {...((pageProps as any) as PageProps)} />
       </ApolloProvider>
     );
   };
 
-  if (typeof window === 'undefined') {
-    console.log('server');
-    WithApollo.getInitialProps = async (ctx: NextPageContext) => {
-      const client = initApolloClient();
-      const Root = (
-        <ApolloProvider client={client}>
-          <PageComponent />
-        </ApolloProvider>
-      );
-      try {
-        await getDataFromTree(Root);
-      } catch (e) {
-        console.error('getDataTextFromTree erorr', e);
+  // Set the correct displayName in development
+  if (process.env.NODE_ENV !== 'production') {
+    const displayName =
+      PageComponent.displayName || PageComponent.name || 'Component';
+
+    if (displayName === 'App') {
+      console.warn('This withApollo HOC only works with PageComponents.');
+    }
+
+    WithApollo.displayName = `withApollo(${displayName})`;
+  }
+
+  if (ssr || PageComponent.getInitialProps) {
+    WithApollo.getInitialProps = async (ctx: any) => {
+      const { AppTree } = ctx;
+
+      // Initialize ApolloClient, add it to the ctx object so
+      // we can use it in `PageComponent.getInitialProp`.
+      const apolloClient = (ctx.apolloClient = initApolloClient({}));
+
+      // Run wrapped getInitialProps methods
+      let pageProps = {} as PageProps;
+      if (PageComponent.getInitialProps) {
+        pageProps = await PageComponent.getInitialProps(ctx);
       }
-      const apolloState = client.extract();
+
+      // Only on the server:
+      if (typeof window === 'undefined') {
+        // When redirecting, the response is finished.
+        // No point in continuing to render
+        if (ctx.res && ctx.res.finished) {
+          return pageProps;
+        }
+
+        // Only if ssr is enabled
+        if (ssr) {
+          try {
+            // Run all GraphQL queries
+            const { getDataFromTree } = await import('@apollo/react-ssr');
+            await getDataFromTree(
+              <AppTree
+                pageProps={{
+                  ...pageProps,
+                  apolloClient,
+                }}
+              />,
+            );
+          } catch (error) {
+            // Prevent Apollo Client GraphQL errors from crashing SSR.
+            // Handle them in components via the data.error prop:
+            // https://www.apollographql.com/docs/react/api/react-apollo.html#graphql-query-data-error
+            console.error('Error while running `getDataFromTree`', error);
+          }
+
+          // getDataFromTree does not call componentWillUnmount
+          // head side effect therefore need to be cleared manually
+          Head.rewind();
+        }
+      }
+
+      // Extract query data from the Apollo store
+      const apolloState = apolloClient.cache.extract();
+
       return {
+        ...pageProps,
         apolloState,
       };
     };
@@ -74,5 +150,3 @@ function withApollo(PageComponent: NextPage) {
 
   return WithApollo;
 }
-
-export default withApollo;
