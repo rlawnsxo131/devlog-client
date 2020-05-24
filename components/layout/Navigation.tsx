@@ -23,12 +23,12 @@ function Navigation(props: NavigationProps) {
 }
 
 const Block = styled.div`
+  flex: 1;
   display: flex;
   ${media.xsmall} {
     flex-flow: row wrap;
   }
   ${media.medium} {
-    flex: 1.125;
     flex-direction: column;
   }
 `;

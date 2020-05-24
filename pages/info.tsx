@@ -2,8 +2,8 @@ import * as React from 'react';
 
 type InfoProps = {};
 
-function Info(props: InfoProps) {
+function InfoPage(props: InfoProps) {
   return <div>info</div>;
 }
 
-export default Info;
+export default InfoPage;

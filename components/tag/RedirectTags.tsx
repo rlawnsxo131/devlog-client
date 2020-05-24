@@ -1,18 +1,18 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import BlockTag from './BlockTag';
+import RedirectTag from './RedirectTag';
 import { TagType } from '../../graphql/tag';
 
-type BlockTagsProps = {
+type RedirectTagsProps = {
   tags: Array<TagType>;
 };
 
 const { memo } = React;
-function BlockTags({ tags }: BlockTagsProps) {
+function RedirectTags({ tags }: RedirectTagsProps) {
   return (
     <Block>
       {tags.map((val, idx) => (
-        <BlockTag key={`${val}${idx}`} tag={val.name} count={val.count} />
+        <RedirectTag key={`${val}${idx}`} tag={val.name} count={val.count} />
       ))}
     </Block>
   );
@@ -23,4 +23,4 @@ const Block = styled.div`
   flex-flow: row wrap;
 `;
 
-export default memo(BlockTags);
+export default memo(RedirectTags);

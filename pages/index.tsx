@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { withApollo } from '../graphql/apollo';
+import PostCards from '../components/post/PostCards';
 
 type IndexProps = {};
 
-function Index(props: IndexProps) {
-  return <div>content</div>;
+function IndexPage(props: IndexProps) {
+  return <PostCards />;
 }
 
-export default withApollo(Index);
+export default withApollo(IndexPage);

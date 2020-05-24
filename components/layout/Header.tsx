@@ -2,12 +2,18 @@ import * as React from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import media from '../../lib/styles/media';
+import { useRouter } from 'next/dist/client/router';
 
 type HeaderProps = {};
 
+const { useCallback } = React;
 function Header(props: HeaderProps) {
+  const router = useRouter();
+  const redirectHome = useCallback(() => {
+    router.push('/');
+  }, []);
   return (
-    <Block>
+    <Block onClick={redirectHome}>
       <h1>Development Log</h1>
     </Block>
   );
@@ -25,7 +31,7 @@ const Block = styled.div`
     }
   }
   ${media.xsmall} {
-    padding-left: 7vw;
+    padding-left: 3vw;
   }
   ${media.medium} {
     padding-left: 10vw;

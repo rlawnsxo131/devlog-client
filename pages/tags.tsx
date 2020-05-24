@@ -1,13 +1,13 @@
 import * as React from 'react';
-import BlockTags from '../components/tag/BlockTags';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_TAGS } from '../graphql/tag';
 import { withApollo } from '../graphql/apollo';
 import styled from 'styled-components';
+import RedirectTags from '../components/tag/RedirectTags';
 
 type TagProps = {};
 
-function Tags(props: TagProps) {
+function TagsPage(props: TagProps) {
   const { loading, error, data } = useQuery(GET_TAGS);
 
   if (loading) return <div>loading</div>;
@@ -15,7 +15,7 @@ function Tags(props: TagProps) {
 
   return (
     <Block>
-      <BlockTags tags={data.tags} />
+      <RedirectTags tags={data.tags} />
     </Block>
   );
 }
@@ -24,4 +24,4 @@ const Block = styled.div`
   padding: 1rem;
 `;
 
-export default withApollo(Tags);
+export default withApollo(TagsPage);

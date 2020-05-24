@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { useRouter } from 'next/dist/client/router';
 
-type BlockTagProps = {
+type RedirectTagProps = {
   tag: string;
   count: string;
 };
 
 const { useCallback } = React;
-function BlockTag({ tag, count }: BlockTagProps) {
+function RedirectTag({ tag, count }: RedirectTagProps) {
   const router = useRouter();
   const handleClick = useCallback(() => {
-    router.push(`/[tag]`, `/${tag}`);
+    router.push(`/posts/[tag]`, `/posts/${tag}`);
   }, []);
   return (
     <Block onClick={handleClick}>
@@ -45,4 +45,4 @@ const Block = styled.div`
   }
 `;
 
-export default BlockTag;
+export default RedirectTag;
