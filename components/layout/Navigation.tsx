@@ -12,10 +12,10 @@ function Navigation(props: NavigationProps) {
       <Link href="/">
         <StyledLink>NEW</StyledLink>
       </Link>
-      <Link href="/tags">
+      <Link href="/TagsPage" as="tags">
         <StyledLink>Tags</StyledLink>
       </Link>
-      <Link href="/info">
+      <Link href="/InfoPage" as="info">
         <StyledLink>Info</StyledLink>
       </Link>
     </Block>
