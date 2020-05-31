@@ -22,9 +22,9 @@ const Block = styled.main`
   @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
   font-family: 'Nanum Gothic', sans-serif;
   ${media.xsmall} {
+    flex-direction: column;
     padding-left: 3vw;
     padding-right: 3vw;
-    flex-flow: column;
     .main-content {
       flex: 1;
     }
@@ -33,9 +33,9 @@ const Block = styled.main`
     }
   }
   ${media.medium} {
+    flex-direction: row;
     padding-left: 10vw;
     padding-right: 10vw;
-    flex-flow: row;
     .main-content {
       flex: 4.5;
     }

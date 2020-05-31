@@ -1,9 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import DefaultInput from '../../input/DefaultInput';
+import DefaultInput from '../../common/DefaultInput';
 import useInputs from '../../../lib/hooks/useInputs';
-import DefaultTextarea from '../../input/DefaultTextarea';
-import useInput from '../../../lib/hooks/useInput';
+import DefaultTextarea from '../../common/DefaultTextarea';
 import { useRouter } from 'next/dist/client/router';
 
 type CommentWriteProps = {};

@@ -22,3 +22,11 @@ export function formatDate(date?: Date): string | undefined {
   }
   return format(d, 'yyyy년 M월 d일');
 }
+
+export function normalizedInputCheck(input: string): boolean {
+  return input.replace(/(\s*)/gi, '') ? true : false;
+}
+
+export function normalizedInputChange(input: string): string {
+  return input.replace(/(\s*)/gi, '');
+}
