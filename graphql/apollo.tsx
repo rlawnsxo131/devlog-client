@@ -9,7 +9,7 @@ import { NextPage } from 'next';
 import { ApolloLink } from 'apollo-link';
 
 // CreateHttpLink
-function initHttpLink(): ApolloLink {
+function initHttpLink(headers: { cookie?: string } | undefined): ApolloLink {
   const graphqlURI = 'http://localhost:3001/graphql';
   let httpLink: ApolloLink;
   if (typeof window === 'undefined') {
@@ -17,11 +17,13 @@ function initHttpLink(): ApolloLink {
       uri: graphqlURI,
       credentials: 'include',
       fetch: fetch as any,
+      headers,
     });
   } else {
     httpLink = createHttpLink({
       uri: graphqlURI,
       credentials: 'include',
+      headers,
     });
   }
   return httpLink;
@@ -30,8 +32,10 @@ function initHttpLink(): ApolloLink {
 // Create ApolloClient
 function createApolloClient(
   initialState: NormalizedCacheObject = {},
+  cookie?: string,
 ): ApolloClient<NormalizedCacheObject> {
-  const link = initHttpLink();
+  const headers = cookie ? { cookie } : undefined;
+  const link = initHttpLink(headers);
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
     link,

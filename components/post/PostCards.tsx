@@ -4,6 +4,7 @@ import PostCard from './PostCard';
 import { useRouter } from 'next/dist/client/router';
 import { GET_POSTS, PostType } from '../../graphql/post';
 import { useQuery } from '@apollo/react-hooks';
+import media from '../../lib/styles/media';
 
 type PostCardsProps = {};
 
@@ -31,6 +32,12 @@ function PostCards(props: PostCardsProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+  ${media.xsmall} {
+    padding-top: 0;
+  }
+  ${media.medium} {
+    padding-top: 1rem;
+  }
 `;
 
 export default PostCards;

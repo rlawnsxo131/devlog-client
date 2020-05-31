@@ -12,7 +12,7 @@ const { useCallback } = React;
 function RedirectTag({ tag, count }: RedirectTagProps) {
   const router = useRouter();
   const handleClick = useCallback(() => {
-    router.push(`/posts/[tag]`, `/posts/${tag}`);
+    router.push(`/posts/${tag}`);
   }, []);
   return (
     <Block onClick={handleClick}>
