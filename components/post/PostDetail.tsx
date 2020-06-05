@@ -52,7 +52,7 @@ const Block = styled.div`
   padding-bottom: 1rem;
   .post-header {
     color: ${palette.pink7};
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
     h2 {
       all: unset;

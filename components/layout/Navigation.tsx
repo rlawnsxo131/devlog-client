@@ -26,11 +26,11 @@ const Block = styled.div`
   flex: 1;
   display: flex;
   ${media.xsmall} {
-    padding-top: 0;
+    padding-bottom: 0.5rem;
     flex-flow: row wrap;
   }
   ${media.medium} {
-    padding-top: 1rem;
+    padding-bottom: 0;
     flex-direction: column;
   }
 `;

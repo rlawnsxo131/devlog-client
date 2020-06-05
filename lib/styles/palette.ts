@@ -68,4 +68,11 @@ const palette = {
   indigo9: '#364fc7',
 };
 
+export const buttonColorMap = {
+  gray: { backgroundColor: '', color: '', hoverColor: '' },
+  teal: { backgroundColor: '', color: '', hoverColor: '' },
+  indigo: { backgroundColor: '', color: '', hoverColor: '' },
+  red: { backgroundColor: '', color: '', hoverColor: '' },
+};
+
 export default palette;

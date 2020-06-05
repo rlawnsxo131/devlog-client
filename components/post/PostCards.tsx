@@ -32,12 +32,6 @@ function PostCards(props: PostCardsProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  ${media.xsmall} {
-    padding-top: 0;
-  }
-  ${media.medium} {
-    padding-top: 1rem;
-  }
 `;
 
 export default PostCards;

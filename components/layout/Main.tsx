@@ -34,6 +34,7 @@ const Block = styled.main`
   }
   ${media.medium} {
     flex-direction: row;
+    padding-top: 1rem;
     padding-left: 10vw;
     padding-right: 10vw;
     .main-content {
