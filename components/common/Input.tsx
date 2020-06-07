@@ -1,39 +1,48 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import palette from '../../lib/styles/palette';
 import media from '../../lib/styles/media';
 
+type InputSize = 'default' | 'responsive';
 type DefaultInputProps = {
   type: string;
   name: string;
   placeholder: string;
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputSize?: InputSize;
 };
 
 const { memo } = React;
-function DefaultInput({
+function Input({
   type,
   name,
   placeholder,
   value,
   handleChange,
+  inputSize = 'default',
 }: DefaultInputProps) {
   return (
-    <Input
+    <InputBlock
       type={type}
       name={name}
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
+      inputSize={inputSize}
     />
   );
 }
 
-const Input = styled.input`
+const InputBlock = styled.input<{ inputSize: InputSize }>`
   all: unset;
+  ${(props) =>
+    props.inputSize === 'responsive' &&
+    css`
+      flex: 1;
+    `}
   padding: 0.5rem;
-  border: 1px solid ${palette.gray5};
+  border: 0.5px solid ${palette.gray3};
   border-radius: 0.3rem;
   box-shadow: none;
   background-color: white;
@@ -48,4 +57,4 @@ const Input = styled.input`
   }
 `;
 
-export default memo(DefaultInput);
+export default memo(Input);

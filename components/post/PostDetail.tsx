@@ -49,7 +49,7 @@ function PostDetail(props: PostDetailProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 1rem;
+  padding-bottom: 10vh;
   .post-header {
     color: ${palette.pink7};
     margin-top: 0.5rem;

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import DefaultInput from '../../common/DefaultInput';
+import DefaultInput from '../../common/Input';
 import useInputs from '../../../lib/hooks/useInputs';
-import DefaultTextarea from '../../common/DefaultTextarea';
+import Textarea from '../../common/Textarea';
 import { useRouter } from 'next/dist/client/router';
+import Button from '../../common/Button';
 
 type CommentWriteProps = {};
 
@@ -35,11 +36,17 @@ function CommentWrite(props: CommentWriteProps) {
         />
       </div>
       <div className="comment">
-        <DefaultTextarea
+        <Textarea
           name="comment"
           value={state.comment}
+          placeholder="댓글을 작성하세요"
           handleChange={onChange}
         />
+      </div>
+      <div className="comment-button-area">
+        <Button handleClick={() => console.log('a')} color="teal">
+          댓글 작성
+        </Button>
       </div>
     </Block>
   );
@@ -51,6 +58,14 @@ const Block = styled.div`
   .user-info {
     display: flex;
     flex-flow: row wrap;
+    margin-bottom: 0.125rem;
+  }
+  .comment {
+    margin-bottom: 2vh;
+  }
+  .comment-button-area {
+    display: flex;
+    justify-content: flex-end;
   }
 `;
 

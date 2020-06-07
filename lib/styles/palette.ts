@@ -69,10 +69,18 @@ const palette = {
 };
 
 export const buttonColorMap = {
-  gray: { backgroundColor: '', color: '', hoverColor: '' },
-  teal: { backgroundColor: '', color: '', hoverColor: '' },
-  indigo: { backgroundColor: '', color: '', hoverColor: '' },
-  red: { backgroundColor: '', color: '', hoverColor: '' },
+  gray: {
+    background: palette.gray5,
+    color: palette.gray0,
+    hoverBackground: palette.gray4,
+  },
+  teal: {
+    background: palette.teal6,
+    color: palette.gray0,
+    hoverBackground: palette.teal5,
+  },
+  indigo: { background: '', color: '', hoverBackground: '' },
+  red: { background: '', color: '', hoverBackground: '' },
 };
 
 export default palette;

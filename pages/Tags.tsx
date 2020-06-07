@@ -4,9 +4,9 @@ import { GET_TAGS } from '../graphql/tag';
 import { withApollo } from '../graphql/apollo';
 import RedirectTags from '../components/tag/RedirectTags';
 
-type TagProps = {};
+type TagsProps = {};
 
-function TagsPage(props: TagProps) {
+function Tags(props: TagsProps) {
   const { loading, error, data } = useQuery(GET_TAGS);
 
   if (loading) return <div>loading</div>;
@@ -15,4 +15,4 @@ function TagsPage(props: TagProps) {
   return <RedirectTags tags={data.tags} />;
 }
 
-export default withApollo(TagsPage);
+export default withApollo(Tags);

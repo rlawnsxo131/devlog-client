@@ -6,27 +6,42 @@ import media from '../../lib/styles/media';
 type DefaultTextareaProps = {
   name: string;
   value: string;
+  placeholder?: string;
   handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
 const { memo } = React;
-function DefaultTextarea(props: DefaultTextareaProps) {
+function Textarea({
+  name,
+  value,
+  placeholder,
+  handleChange,
+}: DefaultTextareaProps) {
   return (
     <Block>
-      <Textarea />
+      <TextareaBlock
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        onChange={handleChange}
+      />
     </Block>
   );
 }
 
 const Block = styled.div`
-  min-height: 7.8rem;
+  display: flex;
+  min-height: 6rem;
   background-color: white;
-  border: 1px solid ${palette.gray5};
+
   border-radius: 0.3rem;
 `;
 
-const Textarea = styled.textarea`
+const TextareaBlock = styled.textarea`
   all: unset;
+  flex: 1;
+  border: 0.5px solid ${palette.gray3};
+  border-radius: 0.3rem;
   line-height: 1.5;
   background-color: white;
   ::placeholder {
@@ -42,4 +57,4 @@ const Textarea = styled.textarea`
   }
 `;
 
-export default memo(DefaultTextarea);
+export default memo(Textarea);
