@@ -5,17 +5,29 @@ import useInputs from '../../../lib/hooks/useInputs';
 import Textarea from '../../common/Textarea';
 import { useRouter } from 'next/dist/client/router';
 import Button from '../../common/Button';
+import commentWrite from './hooks/commentWrite';
 
 type CommentWriteProps = {};
 
+const { useCallback } = React;
 function CommentWrite(props: CommentWriteProps) {
   const router = useRouter();
-  const post_id = router.query.id;
-  const [state, onChange, onReset, dispatch] = useInputs({
+  const post_id = router.query.id as string;
+  const [state, onChange, onReset] = useInputs({
     writer: '',
     password: '',
     comment: '',
   });
+  const { createComment } = commentWrite();
+  const handleCreateComment = useCallback(async () => {
+    await createComment({
+      post_id: Number(post_id),
+      writer: state.writer,
+      password: state.password,
+      comment: state.comment,
+    });
+    onReset();
+  }, [state]);
 
   return (
     <Block>
@@ -44,7 +56,7 @@ function CommentWrite(props: CommentWriteProps) {
         />
       </div>
       <div className="comment-button-area">
-        <Button handleClick={() => console.log('a')} color="teal">
+        <Button handleClick={handleCreateComment} color="teal">
           댓글 작성
         </Button>
       </div>
