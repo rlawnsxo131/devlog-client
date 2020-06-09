@@ -11,8 +11,8 @@ function DefaultTags({ tags }: DefaultTagsProps) {
   if (!tags.length) return <Block>태그가 없습니다.</Block>;
   return (
     <Block>
-      {tags.map((val, idx) => (
-        <DefaultTag key={`${val}${idx}`} name={val} />
+      {tags.map((v, i) => (
+        <DefaultTag key={`${v}${i}`} tag={v} />
       ))}
     </Block>
   );

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { buttonColorMap } from '../../lib/styles/palette';
 import media from '../../lib/styles/media';
 
-type ColorType = 'gray' | 'teal' | 'indigo' | 'red';
+type ColorType = 'gray' | 'pink' | 'teal' | 'indigo' | 'red';
 type ButtonSize = 'default' | 'responsive';
 type ButtonProps = {
   name?: string;
@@ -61,7 +61,9 @@ const Block = styled.button<{
   ${(props) =>
     props.size === 'default' &&
     css`
-      padding: 0.5rem 1.25rem 0.5rem 1.25rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      height: 2rem;
     `}
   ${(props) =>
     props.size === 'responsive' &&
@@ -72,7 +74,7 @@ const Block = styled.button<{
     `}
   
   ${media.xsmall} {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
   }
   ${media.medium} {
     font-size: 1rem;

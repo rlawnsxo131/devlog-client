@@ -4,6 +4,9 @@ import CommentWrite from './CommentWrite';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_COMMENTS } from '../../../graphql/comment';
 import { useRouter } from 'next/dist/client/router';
+import CommentCards from './CommentCards';
+import media from '../../../lib/styles/media';
+import palette from '../../../lib/styles/palette';
 
 type CommentsProps = {};
 
@@ -17,11 +20,11 @@ function Comments(props: CommentsProps) {
   if (loading) return <div>loading</div>;
   if (error) return <div>error</div>;
 
-  console.log(data);
-
   return (
     <Block>
+      <div className="comment-count">{data.comments.length}개의 댓글</div>
       <CommentWrite />
+      <CommentCards replies={data.comments} />
     </Block>
   );
 }
@@ -29,6 +32,19 @@ function Comments(props: CommentsProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+
+  .comment-count {
+    font-weight: bold;
+    color: ${palette.gray8};
+    margin-bottom: 1rem;
+    padding-left: 0.125rem;
+    ${media.xsmall} {
+      font-size: 0.875rem;
+    }
+    ${media.medium} {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export default Comments;

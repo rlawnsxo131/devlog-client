@@ -23,8 +23,6 @@ const Block = styled.div`
   display: flex;
   box-shadow: 1px 1px 10px 2px ${palette.gray1};
   h1 {
-    @import url('https://fonts.googleapis.com/css?family=Candal&display=swap');
-    font-family: 'Candal', sans-serif;
     font-size: 1.8rem;
     &:hover {
       cursor: pointer;

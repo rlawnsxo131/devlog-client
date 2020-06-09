@@ -56,7 +56,7 @@ function CommentWrite(props: CommentWriteProps) {
         />
       </div>
       <div className="comment-button-area">
-        <Button handleClick={handleCreateComment} color="teal">
+        <Button handleClick={handleCreateComment} color="pink">
           댓글 작성
         </Button>
       </div>
@@ -67,6 +67,8 @@ function CommentWrite(props: CommentWriteProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 1.5rem;
+
   .user-info {
     display: flex;
     flex-flow: row wrap;

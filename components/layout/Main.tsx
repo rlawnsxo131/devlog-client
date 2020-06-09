@@ -19,8 +19,7 @@ function Main({ children }: MainProps) {
 
 const Block = styled.main`
   display: flex;
-  @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
-  font-family: 'Nanum Gothic', sans-serif;
+
   ${media.xsmall} {
     flex-direction: column;
     padding-left: 3vw;

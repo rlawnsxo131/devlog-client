@@ -1,18 +1,18 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import RedirectTag from './RedirectTag';
+import CountTag from './CountTag';
 import { TagType } from '../../graphql/tag';
 
-type RedirectTagsProps = {
+type CountTagsProps = {
   tags: Array<TagType>;
 };
 
 const { memo } = React;
-function RedirectTags({ tags }: RedirectTagsProps) {
+function CountTags({ tags }: CountTagsProps) {
   return (
     <Block>
       {tags.map((val, idx) => (
-        <RedirectTag key={`${val}${idx}`} tag={val.name} count={val.count} />
+        <CountTag key={`${val}${idx}`} tag={val.name} count={val.count} />
       ))}
     </Block>
   );
@@ -23,4 +23,4 @@ const Block = styled.div`
   flex-flow: row wrap;
 `;
 
-export default memo(RedirectTags);
+export default memo(CountTags);

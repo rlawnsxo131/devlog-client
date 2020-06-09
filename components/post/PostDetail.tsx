@@ -28,7 +28,6 @@ function PostDetail(props: PostDetailProps) {
       <div className="post-header">
         <h2>{data.post.post_header}</h2>
       </div>
-      <div className="short-description">{data.post.short_description}</div>
       <div className="tags">
         {data.post.tags.length ? <DefaultTags tags={data.post.tags} /> : null}
       </div>
@@ -36,6 +35,7 @@ function PostDetail(props: PostDetailProps) {
         <span>작성: {formatDate(data.post.created_at)}</span>
         <span>수정: {formatDate(data.post.updated_at)}</span>
       </div>
+      <div className="short-description">{data.post.short_description}</div>
       <div className="post-body">
         <PostViewer content={data.post.post_body} />
       </div>
@@ -50,6 +50,7 @@ const Block = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 10vh;
+
   .post-header {
     color: ${palette.pink7};
     margin-top: 0.5rem;
@@ -60,24 +61,29 @@ const Block = styled.div`
       font-weight: bold;
     }
   }
-  .short-description {
-    color: ${palette.gray8};
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
+
   .tags {
     margin-bottom: 1rem;
   }
+
   .post-date {
     display: flex;
     flex-flow: row wrap;
+    font-size: 0.95rem;
     color: ${palette.gray6};
     margin-bottom: 1rem;
     span + span {
       margin-left: 1rem;
     }
   }
+
+  .short-description {
+    color: ${palette.gray8};
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
   .post-body {
     margin-bottom: 1rem;
   }

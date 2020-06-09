@@ -34,6 +34,7 @@ function Navigation(props: NavigationProps) {
 const Block = styled.div`
   flex: 1;
   display: flex;
+
   ${media.xsmall} {
     padding-bottom: 0.5rem;
     flex-flow: row wrap;
@@ -61,9 +62,11 @@ const StyledLink = styled.a`
   font-size: 1.25rem;
   font-weight: bold;
   color: ${palette.gray8};
+
   &:hover {
     cursor: pointer;
   }
+
   ${media.xsmall} {
     border-bottom: 3px solid white;
   }

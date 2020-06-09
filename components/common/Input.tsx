@@ -46,9 +46,11 @@ const InputBlock = styled.input<{ inputSize: InputSize }>`
   border-radius: 0.3rem;
   box-shadow: none;
   background-color: white;
+
   ::placeholder {
     color: ${palette.gray5};
   }
+
   ${media.xsmall} {
     font-size: 0.8rem;
   }

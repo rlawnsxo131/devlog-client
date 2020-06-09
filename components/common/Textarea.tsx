@@ -44,9 +44,11 @@ const TextareaBlock = styled.textarea`
   border-radius: 0.3rem;
   line-height: 1.5;
   background-color: white;
+
   ::placeholder {
     color: ${palette.gray5};
   }
+
   ${media.xsmall} {
     font-size: 0.8rem;
     padding: 0.5rem;
