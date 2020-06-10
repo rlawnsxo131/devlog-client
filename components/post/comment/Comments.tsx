@@ -8,9 +8,11 @@ import CommentCards from './CommentCards';
 import media from '../../../lib/styles/media';
 import palette from '../../../lib/styles/palette';
 
-type CommentsProps = {};
+type CommentsProps = {
+  comments_count: number;
+};
 
-function Comments(props: CommentsProps) {
+function Comments({ comments_count }: CommentsProps) {
   const router = useRouter();
   const { loading, error, data } = useQuery(GET_COMMENTS, {
     variables: {
@@ -22,7 +24,7 @@ function Comments(props: CommentsProps) {
 
   return (
     <Block>
-      <div className="comment-count">{data.comments.length}개의 댓글</div>
+      <div className="comment-count">{comments_count}개의 댓글</div>
       <CommentWrite />
       <CommentCards replies={data.comments} />
     </Block>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import DefaultInput from '../../common/Input';
 import useInputs from '../../../lib/hooks/useInputs';
 import Textarea from '../../common/Textarea';
@@ -7,10 +7,16 @@ import { useRouter } from 'next/dist/client/router';
 import Button from '../../common/Button';
 import commentWrite from './hooks/commentWrite';
 
-type CommentWriteProps = {};
+type CommentWriteProps = {
+  reply_comment_id?: number;
+  setShowCommentWrite?: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 const { useCallback } = React;
-function CommentWrite(props: CommentWriteProps) {
+function CommentWrite({
+  reply_comment_id,
+  setShowCommentWrite,
+}: CommentWriteProps) {
   const router = useRouter();
   const post_id = router.query.id as string;
   const [state, onChange, onReset] = useInputs({
@@ -25,12 +31,14 @@ function CommentWrite(props: CommentWriteProps) {
       writer: state.writer,
       password: state.password,
       comment: state.comment,
+      reply_comment_id,
     });
+    if (setShowCommentWrite) setShowCommentWrite(false);
     onReset();
   }, [state]);
 
   return (
-    <Block>
+    <Block reply_comment_id={reply_comment_id}>
       <div className="user-info">
         <DefaultInput
           type="text"
@@ -64,10 +72,17 @@ function CommentWrite(props: CommentWriteProps) {
   );
 }
 
-const Block = styled.div`
+const Block = styled.div<{ reply_comment_id?: number }>`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
+  ${(props) =>
+    props.reply_comment_id &&
+    css`
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1.5rem;
+    `}
 
   .user-info {
     display: flex;

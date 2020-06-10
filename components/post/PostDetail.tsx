@@ -40,7 +40,7 @@ function PostDetail(props: PostDetailProps) {
         <PostViewer content={data.post.post_body} />
       </div>
       <div className="comments">
-        <Comments />
+        <Comments comments_count={data.post.comments_count} />
       </div>
     </Block>
   );

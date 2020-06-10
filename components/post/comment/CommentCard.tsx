@@ -1,17 +1,45 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CommentType } from '../../../graphql/comment';
 import { formatDate } from '../../../lib/utils';
 import media from '../../../lib/styles/media';
 import palette from '../../../lib/styles/palette';
+import CommentCards from './CommentCards';
+import CommentWrite from './CommentWrite';
+import Button from '../../common/Button';
 
 type CommentCardProps = {
   reply: CommentType;
 };
 
+const { useState, useCallback } = React;
 function CommentCard({ reply }: CommentCardProps) {
+  const [showReply, setShowReply] = useState<boolean>(false);
+  const [showCommentWrite, setShowCommentWrite] = useState<boolean>(false);
+
+  const handleShowReply = useCallback(() => {
+    if (showReply && reply.has_replies) {
+      setShowReply(!showReply);
+      return;
+    }
+    if (!showReply && reply.has_replies) {
+      setShowReply(!showReply);
+      setShowCommentWrite(!setShowCommentWrite);
+      return;
+    }
+    if (!reply.has_replies) {
+      setShowReply(!showReply);
+      setShowCommentWrite(!showCommentWrite);
+      return;
+    }
+  }, [showReply]);
+
+  const handleShowCommentWrite = useCallback(() => {
+    setShowCommentWrite(!showCommentWrite);
+  }, [showCommentWrite]);
+
   return (
-    <Block>
+    <Block level={reply.level}>
       <CommentCardHeader>
         <div className="writer-date">
           <span className="writer">{reply.writer}</span>
@@ -24,16 +52,55 @@ function CommentCard({ reply }: CommentCardProps) {
         <div className="edit">수정/삭제</div>
       </CommentCardHeader>
       <CommentCardBody>{reply.comment}</CommentCardBody>
-      <CommentCardFooter>{reply.replies.length}</CommentCardFooter>
+      <CommentCardFooter>
+        {reply.level < 2 && !reply.deleted && (
+          <div className="replies-trigger" onClick={handleShowReply}>
+            {reply.has_replies && reply.replies.length
+              ? `${showReply ? '숨기기' : `+${reply.replies.length}개의 답글`}`
+              : `${showReply ? '숨기기' : '답글 남기기'}`}
+          </div>
+        )}
+      </CommentCardFooter>
+      {showReply && <CommentCards replies={reply.replies} />}
+      <div className="last-comment-write">
+        {showReply && showCommentWrite && (
+          <CommentWrite
+            reply_comment_id={reply.id}
+            setShowCommentWrite={setShowCommentWrite}
+          />
+        )}
+        {showReply && reply.has_replies && !reply.deleted && (
+          <Button
+            color="pink"
+            size="responsive"
+            handleClick={handleShowCommentWrite}
+          >
+            {showCommentWrite ? '숨기기' : '답글 달기'}
+          </Button>
+        )}
+      </div>
     </Block>
   );
 }
 
-const Block = styled.div`
+const Block = styled.div<{ level: number }>`
   display: flex;
   flex-direction: column;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  ${(props) =>
+    props.level > 0 &&
+    css`
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: ${palette.gray0};
+    `}
+
+  .last-comment-write {
+    display: flex;
+    flex-direction: column;
+    background-color: ${palette.gray0};
+  }
 
   ${media.xsmall} {
     font-size: 0.875rem;
@@ -92,6 +159,15 @@ const CommentCardBody = styled.div`
 const CommentCardFooter = styled.div`
   display: flex;
   flex-flow: row wrap;
+  .replies-trigger {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: ${palette.pink7};
+    &:hover {
+      cursor: pointer;
+      color: ${palette.pink5};
+    }
+  }
 `;
 
 export default CommentCard;

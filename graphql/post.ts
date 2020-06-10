@@ -10,6 +10,7 @@ export type PostType = {
   created_at: Date;
   updated_at: Date;
   tags: Array<string>;
+  comments_count: number;
 };
 
 export const GET_POST = gql`
@@ -24,6 +25,7 @@ export const GET_POST = gql`
       created_at
       updated_at
       tags
+      comments_count
     }
   }
 `;
