@@ -10,10 +10,11 @@ import Button from '../../common/Button';
 
 type CommentCardProps = {
   reply: CommentType;
+  repliesFullCount: number;
 };
 
-const { useState, useCallback } = React;
-function CommentCard({ reply }: CommentCardProps) {
+const { useState, useCallback, memo } = React;
+function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
   const [showReply, setShowReply] = useState<boolean>(false);
   const [showCommentWrite, setShowCommentWrite] = useState<boolean>(false);
 
@@ -56,7 +57,15 @@ function CommentCard({ reply }: CommentCardProps) {
         {reply.level < 2 && !reply.deleted && (
           <div className="replies-trigger" onClick={handleShowReply}>
             {reply.has_replies && reply.replies.length
-              ? `${showReply ? '숨기기' : `+${reply.replies.length}개의 답글`}`
+              ? `${
+                  showReply
+                    ? '숨기기'
+                    : `+${
+                        reply.level === 0
+                          ? repliesFullCount
+                          : reply.replies.length
+                      }개의 답글`
+                }`
               : `${showReply ? '숨기기' : '답글 남기기'}`}
           </div>
         )}
@@ -170,4 +179,4 @@ const CommentCardFooter = styled.div`
   }
 `;
 
-export default CommentCard;
+export default memo(CommentCard);

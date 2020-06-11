@@ -25,8 +25,8 @@ function CommentWrite({
     comment: '',
   });
   const { createComment } = commentWrite();
-  const handleCreateComment = useCallback(async () => {
-    await createComment({
+  const handleCreateComment = useCallback(() => {
+    createComment({
       post_id: Number(post_id),
       writer: state.writer,
       password: state.password,
