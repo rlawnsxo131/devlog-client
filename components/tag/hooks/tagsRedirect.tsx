@@ -9,7 +9,7 @@ export default function tagsRedirect({ tag }: { tag: string }): CountType {
   const router = useRouter();
   const redirectTagPosts = useCallback((e) => {
     e.stopPropagation();
-    router.push(`/posts/${tag}`);
+    router.push('/posts/[tag]', `/posts/${tag}`);
   }, []);
 
   return {

@@ -14,10 +14,10 @@ const { useCallback } = React;
 function PostCard({ post }: PostCardProps) {
   const router = useRouter();
   const redirectPostDetail = useCallback(() => {
-    router.push({
-      pathname: `/post/${post.post_header}`,
-      query: { id: post.id },
-    });
+    router.push(
+      `/post/[title]/?id=${post.id}`,
+      `/post/${post.post_header}/?id=${post.id}`,
+    );
   }, []);
   return (
     <Block onClick={redirectPostDetail}>
