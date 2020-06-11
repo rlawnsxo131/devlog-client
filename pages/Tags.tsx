@@ -6,7 +6,7 @@ import CountTags from '../components/tag/CountTags';
 
 type TagsProps = {};
 
-function Tags(props: TagsProps) {
+function TagsPage(props: TagsProps) {
   const { loading, error, data } = useQuery(GET_TAGS);
 
   if (loading) return <div>loading</div>;
@@ -15,4 +15,4 @@ function Tags(props: TagsProps) {
   return <CountTags tags={data.tags} />;
 }
 
-export default withApollo(Tags);
+export default withApollo(TagsPage);
