@@ -31,7 +31,9 @@ function CommentCards({ replies }: CommentCardsProps) {
           <CommentCard
             key={`comment${v.id}`}
             reply={v}
-            repliesFullCount={repliesFullCountArr[i]}
+            repliesFullCount={
+              v.level === 0 ? repliesFullCountArr[i] : undefined
+            }
           />
         ))}
     </>

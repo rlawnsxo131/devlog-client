@@ -10,7 +10,7 @@ import Button from '../../common/Button';
 
 type CommentCardProps = {
   reply: CommentType;
-  repliesFullCount: number;
+  repliesFullCount?: number;
 };
 
 const { useState, useCallback, memo } = React;
