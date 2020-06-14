@@ -8,6 +8,7 @@ import palette from '../../lib/styles/palette';
 import DefaultTags from '../tag/DefaultTags';
 import PostViewer from './PostViewer';
 import Comments from './comment/Comments';
+import Head from 'next/head';
 
 type PostDetailProps = {};
 
@@ -25,6 +26,10 @@ function PostDetail(props: PostDetailProps) {
 
   return (
     <Block>
+      <Head>
+        <title>{data.post.post_header}</title>
+        <meta name="description" content={data.post.short_description} />
+      </Head>
       <div className="post-header">
         <h2>{data.post.post_header}</h2>
       </div>

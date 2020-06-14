@@ -5,6 +5,7 @@ import { useRouter } from 'next/dist/client/router';
 import { GET_POSTS, PostType } from '../../graphql/post';
 import { useQuery } from '@apollo/react-hooks';
 import media from '../../lib/styles/media';
+import Head from 'next/head';
 
 type PostCardsProps = {};
 
@@ -22,6 +23,12 @@ function PostCards(props: PostCardsProps) {
 
   return (
     <Block>
+      <Head>
+        <title>
+          Development Log{router.query.tag ? `: ${router.query.tag}` : ''}
+        </title>
+        <meta name="description" content={`${router.query.tag}에 관한 글`} />
+      </Head>
       {data.posts.map((val: PostType, idx: number) => (
         <PostCard key={`${val.id}${idx}`} post={val} />
       ))}
