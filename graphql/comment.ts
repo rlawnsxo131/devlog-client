@@ -85,3 +85,28 @@ export const CREATE_COMMENT = gql`
     }
   }
 `;
+
+export const CONFIRM_PASSWORD = gql`
+  query ConfirmPassword($comment_id: ID!, $password: String!) {
+    confirmPassword(comment_id: $comment_id, password: $password) {
+      email
+    }
+  }
+`;
+
+export type UpdateCommentType = {
+  comment_id: number;
+  email?: string;
+  comment: string;
+};
+export const UPDATE_COMMENT = gql`
+  mutation UpdateComment($comment_id: ID!, $email: String, $comment: String!) {
+    updateComment(comment_id: $comment_id, email: $email, comment: $comment)
+  }
+`;
+
+export const REMOVE_COMMENT = gql`
+  mutation RemoveComment($comment_id: ID!) {
+    removeComment(comment_id: $comment_id)
+  }
+`;

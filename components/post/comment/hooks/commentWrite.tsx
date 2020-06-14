@@ -54,7 +54,7 @@ export default function commentWrite(): CommentWriteHook {
         password,
         comment,
       });
-      if (!normalized) return alert('정확한 항목 입력');
+      if (!normalized) return alert('모든 항목을 입력해주세요!');
       try {
         await CreateComment({
           variables: {

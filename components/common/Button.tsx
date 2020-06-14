@@ -23,7 +23,6 @@ function Button({
   handleClick,
   color = 'gray',
   size = 'default',
-  inline = false,
   children,
 }: ButtonProps) {
   return (
@@ -33,7 +32,6 @@ function Button({
       onClick={handleClick}
       color={color}
       size={size}
-      inline={inline}
     >
       {children}
     </Block>
@@ -43,7 +41,6 @@ function Button({
 const Block = styled.button<{
   color: ColorType;
   size: ButtonSize;
-  inline: boolean;
 }>`
   all: unset;
   display: inline-flex;
@@ -78,6 +75,10 @@ const Block = styled.button<{
   }
   ${media.medium} {
     font-size: 1rem;
+  }
+
+  & + & {
+    margin-left: 0.25rem;
   }
 `;
 

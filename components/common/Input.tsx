@@ -10,6 +10,7 @@ type DefaultInputProps = {
   placeholder: string;
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   inputSize?: InputSize;
 };
 
@@ -20,6 +21,7 @@ function Input({
   placeholder,
   value,
   handleChange,
+  handleKeyPress,
   inputSize = 'default',
 }: DefaultInputProps) {
   return (
@@ -29,6 +31,7 @@ function Input({
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
+      onKeyPress={handleKeyPress}
       inputSize={inputSize}
     />
   );

@@ -7,6 +7,10 @@ import palette from '../../../lib/styles/palette';
 import CommentCards from './CommentCards';
 import CommentWrite from './CommentWrite';
 import Button from '../../common/Button';
+import Input from '../../common/Input';
+import useInputs from '../../../lib/hooks/useInputs';
+import commentCard from './hooks/commentCard';
+import CommentEdit from './CommentEdit';
 
 type CommentCardProps = {
   reply: CommentType;
@@ -17,6 +21,16 @@ const { useState, useCallback, memo } = React;
 function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
   const [showReply, setShowReply] = useState<boolean>(false);
   const [showCommentWrite, setShowCommentWrite] = useState<boolean>(false);
+  const [state, onChange, onReset] = useInputs({
+    password: '',
+    editComment: reply.comment,
+  });
+  const [showEditPassword, setShowEditPassword] = useState<boolean>(false);
+  const { data, editMode, setEditMode, handleConfirmPassword } = commentCard({
+    comment_id: reply.id,
+    password: state.password,
+    setShowEditPassword,
+  });
 
   const handleShowReply = useCallback(() => {
     if (showReply && reply.has_replies) {
@@ -39,6 +53,26 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
     setShowCommentWrite(!showCommentWrite);
   }, [showCommentWrite]);
 
+  const handleShowEditPassword = useCallback(() => {
+    onReset();
+    setShowEditPassword(!showEditPassword);
+  }, [showEditPassword]);
+
+  const resetEditMode = useCallback(() => {
+    onReset();
+    setEditMode(false);
+    setShowEditPassword(false);
+  }, []);
+
+  const handleKeyPress = useCallback(
+    async (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        await handleConfirmPassword();
+      }
+    },
+    [],
+  );
+
   return (
     <Block level={reply.level}>
       <CommentCardHeader>
@@ -50,9 +84,38 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
               : formatDate(reply.created_at)}
           </span>
         </div>
-        <div className="edit">수정/삭제</div>
+        <div className="edit">
+          {!reply.deleted && (
+            <>
+              <span onClick={handleShowEditPassword}>수정/삭제</span>
+              {showEditPassword && (
+                <div className="edit-password">
+                  <Input
+                    type="password"
+                    name="password"
+                    placeholder="비밀번호를 입력하세요"
+                    value={state.password}
+                    handleChange={onChange}
+                    handleKeyPress={handleKeyPress}
+                  />
+                  <Button handleClick={handleConfirmPassword}>확인</Button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </CommentCardHeader>
-      <CommentCardBody>{reply.comment}</CommentCardBody>
+      <CommentCardBody>
+        {editMode ? (
+          <CommentEdit
+            comment_id={reply.id}
+            comment={reply.comment}
+            resetEditMode={resetEditMode}
+          />
+        ) : (
+          reply.comment
+        )}
+      </CommentCardBody>
       <CommentCardFooter>
         {reply.level < 2 && !reply.deleted && (
           <div className="replies-trigger" onClick={handleShowReply}>
@@ -148,11 +211,15 @@ const CommentCardHeader = styled.div`
   }
 
   .edit {
-    padding-right: 0.25rem;
-    color: ${palette.gray6};
-    &:hover {
-      cursor: pointer;
-      color: ${palette.gray5};
+    display: flex;
+    flex-direction: column;
+    span {
+      padding-right: 0.25rem;
+      color: ${palette.gray6};
+      &:hover {
+        cursor: pointer;
+        color: ${palette.gray5};
+      }
     }
   }
 `;
