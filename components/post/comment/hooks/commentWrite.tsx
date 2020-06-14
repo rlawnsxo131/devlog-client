@@ -65,7 +65,6 @@ export default function commentWrite(): CommentWriteHook {
             comment: normalized.comment,
           },
         });
-        alert('성공');
       } catch (e) {
         console.error(e);
       }

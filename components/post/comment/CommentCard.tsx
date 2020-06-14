@@ -117,7 +117,7 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
         )}
       </CommentCardBody>
       <CommentCardFooter>
-        {reply.level < 2 && !reply.deleted && (
+        {reply.level < 2 && (
           <div className="replies-trigger" onClick={handleShowReply}>
             {reply.has_replies && reply.replies.length
               ? `${
@@ -129,7 +129,7 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
                           : reply.replies.length
                       }개의 답글`
                 }`
-              : `${showReply ? '숨기기' : '답글 남기기'}`}
+              : `${reply.deleted ? '' : '답글 남기기'}`}
           </div>
         )}
       </CommentCardFooter>
