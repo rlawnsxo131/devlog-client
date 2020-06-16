@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { buttonColorMap } from '../../lib/styles/palette';
 import media from '../../lib/styles/media';
 
-type ColorType = 'gray' | 'pink' | 'teal' | 'indigo' | 'red';
+type ColorType = 'gray' | 'pink' | 'teal';
 type ButtonSize = 'default' | 'responsive';
 type ButtonProps = {
   name?: string;

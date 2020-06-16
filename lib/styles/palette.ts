@@ -22,17 +22,6 @@ const palette = {
   teal7: '#0CA678',
   teal8: '#099268',
   teal9: '#087F5B',
-  /* red */
-  red0: '#fff5f5',
-  red1: '#ffe3e3',
-  red2: '#ffc9c9',
-  red3: '#ffa8a8',
-  red4: '#ff8787',
-  red5: '#ff6b6b',
-  red6: '#fa5252',
-  red7: '#f03e3e',
-  red8: '#e03131',
-  red9: '#c92a2a',
   /* pink */
   pink0: '#fff0f6',
   pink1: '#ffdeeb',
@@ -84,8 +73,6 @@ export const buttonColorMap = {
     color: palette.gray0,
     hoverBackground: palette.teal5,
   },
-  indigo: { background: '', color: '', hoverBackground: '' },
-  red: { background: '', color: '', hoverBackground: '' },
 };
 
 export default palette;

@@ -3,6 +3,7 @@ import Header from './Header';
 import Main from './Main';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
+import ScrollTop from '../common/ScrollTop';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ function Layout({ children }: LayoutProps) {
       <GlobalStyle />
       <Header />
       <Main>{children}</Main>
+      {typeof window && <ScrollTop />}
     </Block>
   );
 }
