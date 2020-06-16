@@ -4,8 +4,8 @@ import PostCard from './PostCard';
 import { useRouter } from 'next/dist/client/router';
 import { GET_POSTS, PostType } from '../../graphql/post';
 import { useQuery } from '@apollo/react-hooks';
-import media from '../../lib/styles/media';
 import Head from 'next/head';
+import PostCardsSkelleton from './PostCardsSkelleton';
 
 type PostCardsProps = {};
 
@@ -18,7 +18,7 @@ function PostCards(props: PostCardsProps) {
     },
   });
 
-  if (loading) return <div>loading</div>;
+  if (loading) return <PostCardsSkelleton />;
   if (error) return <div>error</div>;
 
   return (

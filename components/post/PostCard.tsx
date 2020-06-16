@@ -75,6 +75,7 @@ const Block = styled.div`
   .post-date {
     display: flex;
     flex-direction: column;
+    font-size: 1rem;
     span {
       margin-bottom: 0.5rem;
     }

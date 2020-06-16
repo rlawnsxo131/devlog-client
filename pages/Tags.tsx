@@ -4,13 +4,14 @@ import { GET_TAGS } from '../graphql/tag';
 import { withApollo } from '../graphql/apollo';
 import CountTags from '../components/tag/CountTags';
 import Head from 'next/head';
+import TagsSkelleton from '../components/tag/TagsSkelleton';
 
 type TagsProps = {};
 
 function TagsPage(props: TagsProps) {
   const { loading, error, data } = useQuery(GET_TAGS);
 
-  if (loading) return <div>loading</div>;
+  if (loading) return <TagsSkelleton />;
   if (error) return <div>error</div>;
 
   return (

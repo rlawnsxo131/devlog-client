@@ -9,6 +9,7 @@ import DefaultTags from '../tag/DefaultTags';
 import PostViewer from './PostViewer';
 import Comments from './comment/Comments';
 import Head from 'next/head';
+import PostDetailSkelleton from './PostDetailSkelleton';
 
 type PostDetailProps = {};
 
@@ -21,7 +22,7 @@ function PostDetail(props: PostDetailProps) {
     },
   });
 
-  if (loading) return <div>loading</div>;
+  if (loading) return <PostDetailSkelleton />;
   if (error) return <div>error</div>;
 
   return (

@@ -13,6 +13,7 @@ function DefaultTag({ tag }: DefaultTagProps) {
 }
 
 const Block = styled.div`
+  font-size: 1rem;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   color: ${palette.gray9};
   background-color: ${palette.gray1};
