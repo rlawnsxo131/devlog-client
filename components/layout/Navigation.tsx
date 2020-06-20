@@ -31,7 +31,7 @@ function Navigation(props: NavigationProps) {
   );
 }
 
-const Block = styled.div`
+const Block = styled.nav`
   flex: 1;
   display: flex;
 

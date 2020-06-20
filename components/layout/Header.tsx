@@ -19,7 +19,7 @@ function Header(props: HeaderProps) {
   );
 }
 
-const Block = styled.div`
+const Block = styled.header`
   display: flex;
   box-shadow: 1px 1px 10px 2px ${palette.gray1};
   h1 {
