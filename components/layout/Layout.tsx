@@ -23,6 +23,7 @@ function Layout({ children }: LayoutProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 `;
 
 const GlobalStyle = createGlobalStyle`

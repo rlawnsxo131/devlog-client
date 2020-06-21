@@ -18,6 +18,7 @@ function Main({ children }: MainProps) {
 }
 
 const Block = styled.main`
+  flex: 1;
   display: flex;
 
   ${media.xsmall} {
