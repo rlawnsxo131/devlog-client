@@ -4,6 +4,7 @@ import Main from './Main';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import ScrollTop from '../common/ScrollTop';
+import media from '../../lib/styles/media';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -23,7 +24,9 @@ function Layout({ children }: LayoutProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  ${media.medium} {
+    min-height: 100vh;  
+  }
 `;
 
 const GlobalStyle = createGlobalStyle`
