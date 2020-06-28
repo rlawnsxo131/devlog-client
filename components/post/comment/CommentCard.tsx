@@ -26,6 +26,7 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
     editComment: reply.comment,
   });
   const [showEditPassword, setShowEditPassword] = useState<boolean>(false);
+  // data -> email 기능 추가시 필요
   const { data, editMode, setEditMode, handleConfirmPassword } = commentCard({
     comment_id: reply.id,
     password: state.password,
@@ -230,6 +231,7 @@ const CommentCardBody = styled.div`
   font-weight: normal;
   white-space: pre-wrap;
   line-height: 1.5;
+  word-break: break-all;
 `;
 
 const CommentCardFooter = styled.div`
