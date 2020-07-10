@@ -14,7 +14,6 @@ function PostCards(props: PostCardsProps) {
   const { loading, error, data } = useQuery(GET_POSTS, {
     variables: {
       tag: router.query.tag,
-      all: false,
     },
   });
 

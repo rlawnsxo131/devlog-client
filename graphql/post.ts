@@ -31,8 +31,8 @@ export const GET_POST = gql`
 `;
 
 export const GET_POSTS = gql`
-  query GetPosts($tag: String, $all: Boolean!) {
-    posts(tag: $tag, all: $all) {
+  query GetPosts($tag: String) {
+    posts(tag: $tag) {
       id
       post_header
       short_description
