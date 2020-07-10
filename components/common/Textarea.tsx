@@ -31,9 +31,8 @@ function Textarea({
 
 const Block = styled.div`
   display: flex;
-  min-height: 6rem;
+  height: 6rem;
   background-color: white;
-
   border-radius: 0.3rem;
 `;
 

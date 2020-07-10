@@ -39,8 +39,7 @@ function PostCard({ post }: PostCardProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 14rem;
-  max-height: 14rem;
+  height: 14rem;
   margin-bottom: 1rem;
   padding: 2rem;
   border-radius: 10px;
