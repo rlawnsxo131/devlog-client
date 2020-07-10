@@ -17,6 +17,7 @@ type ButtonProps = {
   children: React.ReactNode;
 };
 
+const { memo } = React;
 function Button({
   name = '',
   value = '',
@@ -82,4 +83,4 @@ const Block = styled.button<{
   }
 `;
 
-export default Button;
+export default memo(Button);

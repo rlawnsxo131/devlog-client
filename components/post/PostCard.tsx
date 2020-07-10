@@ -14,14 +14,11 @@ const { useCallback } = React;
 function PostCard({ post }: PostCardProps) {
   const router = useRouter();
   const redirectPostDetail = useCallback(() => {
-    router.push(
-      `/post/[title]/?id=${post.id}`,
-      `/post/${post.post_header}/?id=${post.id}`,
-    );
+    router.push(`/post/[title]/?id=${post.id}`, `/post/${post.post_header}`);
   }, []);
   return (
     <Block onClick={redirectPostDetail}>
-      <div className="post-title">
+      <div className="post-header">
         <h3>{post.post_header}</h3>
       </div>
       <div className="short-description">{post.short_description}</div>
@@ -42,11 +39,11 @@ const Block = styled.div`
   height: 14rem;
   margin-bottom: 1rem;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 0.25rem;
   box-shadow: 1px 1px 10px 2px ${palette.gray1};
   overflow: auto;
 
-  .post-title {
+  .post-header {
     h3 {
       all: unset;
     }

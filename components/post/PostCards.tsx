@@ -10,10 +10,10 @@ import PostCardsSkelleton from './PostCardsSkelleton';
 type PostCardsProps = {};
 
 function PostCards(props: PostCardsProps) {
-  const router = useRouter();
+  const { query } = useRouter();
   const { loading, error, data } = useQuery(GET_POSTS, {
     variables: {
-      tag: router.query.tag,
+      tag: query.tag,
     },
   });
 
@@ -23,10 +23,8 @@ function PostCards(props: PostCardsProps) {
   return (
     <Block>
       <Head>
-        <title>
-          Development Log{router.query.tag ? `: ${router.query.tag}` : ''}
-        </title>
-        <meta name="description" content={`${router.query.tag}에 관한 글`} />
+        <title>Development Log{query.tag ? `: ${query.tag}` : ''}</title>
+        <meta name="description" content={`${query.tag}에 관한 글`} />
       </Head>
       {data.posts.map((val: PostType, idx: number) => (
         <PostCard key={`${val.id}${idx}`} post={val} />

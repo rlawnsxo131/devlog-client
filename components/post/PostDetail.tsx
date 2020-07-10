@@ -14,11 +14,11 @@ import PostDetailSkelleton from './PostDetailSkelleton';
 type PostDetailProps = {};
 
 function PostDetail(props: PostDetailProps) {
-  const router = useRouter();
-  if (!router.query.id) return <div>not found id</div>;
+  const { query } = useRouter();
+  if (!query.id) return <div>not found id</div>;
   const { loading, error, data } = useQuery(GET_POST, {
     variables: {
-      id: router.query.id,
+      id: query.id,
     },
   });
 
