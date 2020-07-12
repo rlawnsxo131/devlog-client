@@ -32,7 +32,7 @@ function Textarea({
 const Block = styled.div`
   display: flex;
   height: 6rem;
-  background-color: white;
+  background: white;
   border-radius: 0.3rem;
 `;
 
@@ -42,7 +42,7 @@ const TextareaBlock = styled.textarea`
   border: 0.5px solid ${palette.gray3};
   border-radius: 0.3rem;
   line-height: 1.5;
-  background-color: white;
+  background: white;
 
   ::placeholder {
     color: ${palette.gray5};

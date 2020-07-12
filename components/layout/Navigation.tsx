@@ -41,7 +41,7 @@ const Block = styled.nav`
     .active {
       border-bottom: 3px solid white;
       border-bottom: 3px solid ${palette.pink5};
-      background-color: ${palette.pink0};
+      background: ${palette.pink0};
     }
   }
   ${media.medium} {

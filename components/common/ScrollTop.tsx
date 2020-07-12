@@ -45,7 +45,7 @@ const Block = styled.div<{ showScrollTop: boolean }>`
   font-size: 2rem;
   z-index: 10;
   color: white;
-  background-color: ${palette.teal5};
+  background: ${palette.teal5};
   opacity: 0.8;
   transition: all 0.3s;
   &:hover {

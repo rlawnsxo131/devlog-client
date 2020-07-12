@@ -22,12 +22,12 @@ const Block = styled.div`
   font-size: 1rem;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   color: ${palette.gray9};
-  background-color: ${palette.gray1};
+  background: ${palette.gray1};
   border-radius: 1rem;
 
   .count {
     border-radius: 100%;
-    background-color: ${palette.pink3};
+    background: ${palette.pink3};
     margin-left: 0.5rem;
     padding-left: 0.25rem;
     padding-right: 0.25rem;

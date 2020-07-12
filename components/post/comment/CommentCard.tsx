@@ -166,13 +166,13 @@ const Block = styled.div<{ level: number }>`
     css`
       padding-left: 1rem;
       padding-right: 1rem;
-      background-color: ${palette.gray0};
+      background: ${palette.gray0};
     `}
 
   .last-comment-write {
     display: flex;
     flex-direction: column;
-    background-color: ${palette.gray0};
+    background: ${palette.gray0};
   }
 
   ${media.xsmall} {

@@ -31,7 +31,7 @@ const Block = styled.div`
   overflow: auto;
   .tui-editor-contents {
     pre {
-      background-color: rgb(251, 252, 253);
+      background: rgb(251, 252, 253);
       code {
         ${media.xsmall} {
           font-size: 0.75rem;

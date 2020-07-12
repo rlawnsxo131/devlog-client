@@ -26,7 +26,7 @@ const shining = keyframes`
 const PharagraphBlock = styled.div<PharagraphProps>`
   width: ${(props) => `${props.width}rem`};
   height: ${(props) => `${props.height}rem`};
-  background-color: ${palette.gray1};
+  background: ${palette.gray1};
   animation: ${shining} 1s ease-in-out infinite;
   display: inline-block;
   border-radius: 0.25rem;
