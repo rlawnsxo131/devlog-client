@@ -25,12 +25,12 @@ const Block = styled.div`
   display: flex;
   flex-direction: column;
   ${media.medium} {
-    min-height: 100vh;  
+    min-height: 100vh;
   }
 `;
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,6 +39,12 @@ const GlobalStyle = createGlobalStyle`
     'Nanum Gothic', 'Noto Sans KR', 'Noto Sans CJK KR', arial, 돋움, Dotum,
     Tahoma, Geneva, sans-serif;
     -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    all: unset;
+  }
+  a {
+    all: unset;
   }
 `;
 

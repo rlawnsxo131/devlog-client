@@ -23,6 +23,8 @@ const Block = styled.header`
   display: flex;
   box-shadow: 1px 1px 10px 2px ${palette.gray1};
   h1 {
+    padding: 1rem;
+    font-weight: bold;
     font-size: 1.8rem;
     &:hover {
       cursor: pointer;
