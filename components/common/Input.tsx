@@ -46,7 +46,7 @@ const InputBlock = styled.input<{ inputSize: InputSize }>`
     `}
   padding: 0.5rem;
   border: 0.5px solid ${palette.gray3};
-  border-radius: 0.3rem;
+  border-radius: 0.25rem;
   box-shadow: none;
   background: white;
 

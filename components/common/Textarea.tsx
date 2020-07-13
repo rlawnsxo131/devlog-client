@@ -40,7 +40,7 @@ const TextareaBlock = styled.textarea`
   all: unset;
   flex: 1;
   border: 0.5px solid ${palette.gray3};
-  border-radius: 0.3rem;
+  border-radius: 0.25rem;
   line-height: 1.5;
   background: white;
 

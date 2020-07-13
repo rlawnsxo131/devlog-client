@@ -13,8 +13,8 @@ function Header(props: HeaderProps) {
     router.push('/');
   }, []);
   return (
-    <Block onClick={redirectHome}>
-      <h1>Development Log</h1>
+    <Block>
+      <h1 onClick={redirectHome}>Development Log</h1>
     </Block>
   );
 }

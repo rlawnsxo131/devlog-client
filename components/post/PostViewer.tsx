@@ -30,21 +30,25 @@ const Block = styled.div`
   flex-flow: row wrap;
   overflow: auto;
   .tui-editor-contents {
+    h1 {
+      border-bottom: 2px solid #dbdbdb;
+    }
+    p,
+    code {
+      ${media.xsmall} {
+        font-size: 0.75rem;
+      }
+
+      ${media.medium} {
+        font-size: 0.875rem;
+      }
+
+      ${media.xlarge} {
+        font-size: 1rem;
+      }
+    }
     pre {
       background: rgb(251, 252, 253);
-      code {
-        ${media.xsmall} {
-          font-size: 0.75rem;
-        }
-
-        ${media.medium} {
-          font-size: 0.875rem;
-        }
-
-        ${media.xlarge} {
-          font-size: 1rem;
-        }
-      }
     }
   }
 `;
