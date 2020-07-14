@@ -11,9 +11,9 @@ function ScrollTop(props: ScrollTopProps) {
 
   const handleScroll = useThrottle(() => {
     if (window.scrollY > window.screen.availHeight) {
-      setShowScrollTop(true);
+      setShowScrollTop((showScrollTop) => true);
     } else {
-      setShowScrollTop(false);
+      setShowScrollTop((showScrollTop) => false);
     }
   }, 300);
 

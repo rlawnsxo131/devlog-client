@@ -35,34 +35,34 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
 
   const handleShowReply = useCallback(() => {
     if (showReply && reply.has_replies) {
-      setShowReply(!showReply);
+      setShowReply((showReply) => !showReply);
       return;
     }
     if (!showReply && reply.has_replies) {
-      setShowReply(!showReply);
-      setShowCommentWrite(!setShowCommentWrite);
+      setShowReply((showReply) => !showReply);
+      setShowCommentWrite((setShowCommentWrite) => !setShowCommentWrite);
       return;
     }
     if (!reply.has_replies) {
-      setShowReply(!showReply);
-      setShowCommentWrite(!showCommentWrite);
+      setShowReply((showReply) => !showReply);
+      setShowCommentWrite((showCommentWrite) => !showCommentWrite);
       return;
     }
   }, [showReply]);
 
   const handleShowCommentWrite = useCallback(() => {
-    setShowCommentWrite(!showCommentWrite);
+    setShowCommentWrite((showCommentWrite) => !showCommentWrite);
   }, [showCommentWrite]);
 
   const handleShowEditPassword = useCallback(() => {
     onReset();
-    setShowEditPassword(!showEditPassword);
+    setShowEditPassword((showEditPassword) => !showEditPassword);
   }, [showEditPassword]);
 
   const resetEditMode = useCallback(() => {
     onReset();
-    setEditMode(false);
-    setShowEditPassword(false);
+    setEditMode((editMode) => false);
+    setShowEditPassword((showEditPassword) => false);
   }, []);
 
   const handleKeyPress = useCallback(

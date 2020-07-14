@@ -4,7 +4,7 @@ export default function useInput(initialState: string) {
   const [state, setState] = useState(initialState);
   const onChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setState(e.target.value);
+      setState((state) => e.target.value);
     },
     [],
   );
