@@ -48,16 +48,16 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
       setShowCommentWrite((showCommentWrite) => !showCommentWrite);
       return;
     }
-  }, [showReply]);
+  }, []);
 
   const handleShowCommentWrite = useCallback(() => {
     setShowCommentWrite((showCommentWrite) => !showCommentWrite);
-  }, [showCommentWrite]);
+  }, []);
 
   const handleShowEditPassword = useCallback(() => {
     onReset();
     setShowEditPassword((showEditPassword) => !showEditPassword);
-  }, [showEditPassword]);
+  }, []);
 
   const resetEditMode = useCallback(() => {
     onReset();
