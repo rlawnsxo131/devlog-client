@@ -87,7 +87,7 @@ const Block = styled.div`
     color: ${palette.gray8};
     font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
   }
 
   .post-body {

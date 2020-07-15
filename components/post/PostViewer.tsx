@@ -30,9 +30,15 @@ const Block = styled.div`
   flex-flow: row wrap;
   overflow: auto;
   .tui-editor-contents {
-    h1 {
-      border-bottom: 2px solid #dbdbdb;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      border-bottom: none;
     }
+
     p,
     code {
       ${media.xsmall} {
@@ -47,6 +53,7 @@ const Block = styled.div`
         font-size: 1rem;
       }
     }
+
     pre {
       background: rgb(251, 252, 253);
     }
