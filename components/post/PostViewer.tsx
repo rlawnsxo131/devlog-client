@@ -54,6 +54,7 @@ const Block = styled.div`
     }
 
     ${media.medium} {
+      width: 768px;
       h2 {
         font-size: 1.25rem;
       }
@@ -68,6 +69,7 @@ const Block = styled.div`
     }
 
     ${media.large} {
+      width: 800px;
       h2 {
         font-size: 1.5rem;
       }
@@ -79,6 +81,10 @@ const Block = styled.div`
       code {
         font-size: 1rem;
       }
+    }
+
+    ${media.xlarge} {
+      width: 1024px;
     }
 
     pre {

@@ -33,7 +33,7 @@ const Block = styled.header`
   ${media.xsmall} {
     padding-left: 3vw;
   }
-  ${media.medium} {
+  ${media.large} {
     padding-left: 10vw;
   }
 `;
