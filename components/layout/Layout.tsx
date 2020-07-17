@@ -46,6 +46,44 @@ const GlobalStyle = createGlobalStyle`
   a {
     all: unset;
   }
+
+  ${media.xsmall} {
+    h2 {
+      font-weight: bold;
+      font-size: 1.125rem;
+    }
+    h3 {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    span, p {
+      font-size: 0.85rem;
+    }
+  }
+
+  ${media.medium} {
+    h2 {
+      font-size: 1.25rem;
+    }
+    h3 {
+      font-size: 1.125rem;
+    }
+    span, p {
+      font-size: 0.875rem;
+    }
+  }
+
+  ${media.large} {
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    span, p {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export default Layout;

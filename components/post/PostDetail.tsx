@@ -10,6 +10,7 @@ import PostViewer from './PostViewer';
 import Comments from './comment/Comments';
 import Head from 'next/head';
 import PostDetailSkelleton from './PostDetailSkelleton';
+import media from '../../lib/styles/media';
 
 type PostDetailProps = {};
 
@@ -55,17 +56,13 @@ function PostDetail(props: PostDetailProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: ${media.small};
   padding-bottom: 10vh;
 
   .post-header {
     color: ${palette.pink7};
     margin-top: 0.5rem;
     margin-bottom: 1rem;
-    h2 {
-      all: unset;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
   }
 
   .tags {
@@ -75,7 +72,6 @@ const Block = styled.div`
   .post-date {
     display: flex;
     flex-flow: row wrap;
-    font-size: 0.95rem;
     color: ${palette.gray6};
     margin-bottom: 1rem;
     span + span {
@@ -92,6 +88,16 @@ const Block = styled.div`
 
   .post-body {
     margin-bottom: 1rem;
+  }
+
+  ${media.xsmall} {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  ${media.medium} {
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 

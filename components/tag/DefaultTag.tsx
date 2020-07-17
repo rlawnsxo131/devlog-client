@@ -9,11 +9,17 @@ type DefaultTagProps = {
 
 function DefaultTag({ tag }: DefaultTagProps) {
   const { redirectTagPosts } = tagsRedirect({ tag });
-  return <Block onClick={redirectTagPosts}>{tag}</Block>;
+  return (
+    <Block onClick={redirectTagPosts}>
+      <span>{tag}</span>
+    </Block>
+  );
 }
 
 const Block = styled.div`
-  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   color: ${palette.gray9};
   background: ${palette.gray1};

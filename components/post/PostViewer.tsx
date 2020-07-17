@@ -28,7 +28,6 @@ function PostViewer({ content }: PostViewerProps) {
 const Block = styled.div`
   display: flex;
   flex-flow: row wrap;
-  overflow: auto;
   .tui-editor-contents {
     h1,
     h2,
@@ -38,18 +37,46 @@ const Block = styled.div`
     h6 {
       border-bottom: none;
     }
-
-    p,
-    code {
-      ${media.xsmall} {
-        font-size: 0.75rem;
+    ${media.xsmall} {
+      h2 {
+        font-weight: bold;
+        font-size: 1.125rem;
       }
+      h3 {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      span,
+      p,
+      code {
+        font-size: 0.85rem;
+      }
+    }
 
-      ${media.medium} {
+    ${media.medium} {
+      h2 {
+        font-size: 1.25rem;
+      }
+      h3 {
+        font-size: 1.125rem;
+      }
+      span,
+      p,
+      code {
         font-size: 0.875rem;
       }
+    }
 
-      ${media.xlarge} {
+    ${media.large} {
+      h2 {
+        font-size: 1.5rem;
+      }
+      h3 {
+        font-size: 1.25rem;
+      }
+      span,
+      p,
+      code {
         font-size: 1rem;
       }
     }

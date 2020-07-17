@@ -12,14 +12,16 @@ function CountTag({ tag, count }: CountTagProps) {
   const { redirectTagPosts } = tagsRedirect({ tag });
   return (
     <Block onClick={redirectTagPosts}>
-      {tag}
+      <span>{tag}</span>
       <span className="count">{count}</span>
     </Block>
   );
 }
 
 const Block = styled.div`
-  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   color: ${palette.gray9};
   background: ${palette.gray1};
@@ -32,7 +34,6 @@ const Block = styled.div`
     padding-left: 0.25rem;
     padding-right: 0.25rem;
     color: white;
-    font-size: 1rem;
     font-weight: bold;
   }
 

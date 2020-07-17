@@ -36,8 +36,8 @@ const Block = styled.nav`
   display: flex;
 
   ${media.xsmall} {
-    padding-bottom: 0.5rem;
     flex-flow: row wrap;
+    padding-bottom: 0.5rem;
     .active {
       border-bottom: 3px solid white;
       border-bottom: 3px solid ${palette.pink5};
@@ -45,8 +45,9 @@ const Block = styled.nav`
     }
   }
   ${media.medium} {
-    padding-bottom: 0;
     flex-direction: column;
+    padding-bottom: 0;
+    max-width: 12.5rem;
     .active {
       border-left: 3px solid white;
       border-bottom: none;

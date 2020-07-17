@@ -12,7 +12,6 @@ function Main({ children }: MainProps) {
     <Block>
       <Navigation />
       <div className="main-content">{children}</div>
-      <div className="fake-navigation"></div>
     </Block>
   );
 }
@@ -20,30 +19,19 @@ function Main({ children }: MainProps) {
 const Block = styled.main`
   flex: 1;
   display: flex;
-
+  .main-content {
+    flex: 1;
+  }
   ${media.xsmall} {
     flex-direction: column;
     padding-left: 3vw;
     padding-right: 3vw;
-    .main-content {
-      flex: 1;
-    }
-    .fake-navigation {
-      display: none;
-    }
   }
   ${media.medium} {
     flex-direction: row;
     padding-top: 1rem;
     padding-left: 10vw;
     padding-right: 10vw;
-    .main-content {
-      flex: 4.5;
-    }
-    .fake-navigation {
-      display: flex;
-      flex: 1;
-    }
   }
 `;
 

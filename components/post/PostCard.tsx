@@ -24,7 +24,9 @@ function PostCard({ post }: PostCardProps) {
       <div className="post-header">
         <h3>{post.post_header}</h3>
       </div>
-      <div className="short-description">{post.short_description}</div>
+      <div className="short-description">
+        <span>{post.short_description}</span>
+      </div>
       <div className="tag">
         <DefaultTags tags={post.tags} />
       </div>
@@ -58,8 +60,6 @@ const Block = styled.div`
   .short-description {
     display: flex;
     flex-flow: row wrap;
-    font-size: 1rem;
-    font-weight: bold;
     line-height: 1.5rem;
     margin-bottom: 2rem;
   }
@@ -71,7 +71,6 @@ const Block = styled.div`
   .post-date {
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
     span {
       margin-bottom: 0.5rem;
     }

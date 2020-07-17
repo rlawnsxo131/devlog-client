@@ -107,15 +107,17 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
         </div>
       </CommentCardHeader>
       <CommentCardBody>
-        {editMode ? (
-          <CommentEdit
-            comment_id={reply.id}
-            comment={reply.comment}
-            resetEditMode={resetEditMode}
-          />
-        ) : (
-          reply.comment
-        )}
+        <span>
+          {editMode ? (
+            <CommentEdit
+              comment_id={reply.id}
+              comment={reply.comment}
+              resetEditMode={resetEditMode}
+            />
+          ) : (
+            reply.comment
+          )}
+        </span>
       </CommentCardBody>
       <CommentCardFooter>
         {reply.level < 2 && (
@@ -173,13 +175,6 @@ const Block = styled.div<{ level: number }>`
     display: flex;
     flex-direction: column;
     background: ${palette.gray0};
-  }
-
-  ${media.xsmall} {
-    font-size: 0.875rem;
-  }
-  ${media.medium} {
-    font-size: 1rem;
   }
 
   & + & {
