@@ -22,7 +22,7 @@ function PostCard({ post }: PostCardProps) {
   return (
     <Block onClick={redirectPostDetail}>
       <div className="post-header">
-        <h3>{post.post_header}</h3>
+        <h2>{post.post_header}</h2>
       </div>
       <div className="short-description">
         <span>{post.short_description}</span>

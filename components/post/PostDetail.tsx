@@ -34,22 +34,24 @@ function PostDetail(props: PostDetailProps) {
       </Head>
       <div className="post-wrapper">
         <div className="post-header">
-          <h2>{data.post.post_header}</h2>
-        </div>
-        <div className="tags">
-          {data.post.tags.length ? <DefaultTags tags={data.post.tags} /> : null}
+          <h1>{data.post.post_header}</h1>
         </div>
         <div className="post-date">
           <span>작성: {formatDate(data.post.created_at)}</span>
           <span>수정: {formatDate(data.post.updated_at)}</span>
         </div>
-        <div className="short-description">{data.post.short_description}</div>
+        <div className="tags">
+          {data.post.tags.length ? <DefaultTags tags={data.post.tags} /> : null}
+        </div>
+        <div className="short-description">
+          <h3>{data.post.short_description}</h3>
+        </div>
         <div className="post-body">
           <PostViewer content={data.post.post_body} />
         </div>
-      </div>
-      <div className="comments">
-        <Comments comments_count={data.post.comments_count} />
+        <div className="comments">
+          <Comments comments_count={data.post.comments_count} />
+        </div>
       </div>
     </Block>
   );
@@ -58,16 +60,14 @@ function PostDetail(props: PostDetailProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-bottom: 10vh;
 
   .post-wrapper {
+    max-width: 48rem;
     .post-header {
       color: ${palette.pink7};
       margin-top: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .tags {
       margin-bottom: 1rem;
     }
 
@@ -81,6 +81,11 @@ const Block = styled.div`
       }
     }
 
+    .tags {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+
     .short-description {
       color: ${palette.gray8};
       font-size: 1rem;
@@ -91,11 +96,9 @@ const Block = styled.div`
     .post-body {
       margin-bottom: 1rem;
     }
-  }
-
-  .comments {
-    margin-top: 3rem;
-    max-width: 64rem;
+    .comments {
+      margin-top: 3rem;
+    }
   }
 
   ${media.xsmall} {

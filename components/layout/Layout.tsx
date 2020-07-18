@@ -48,6 +48,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ${media.xsmall} {
+    h1 {
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
     h2 {
       font-weight: bold;
       font-size: 1.125rem;
@@ -62,6 +66,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ${media.medium} {
+    h1 {
+      font-size: 1.5rem;
+    }
     h2 {
       font-size: 1.25rem;
     }
@@ -74,6 +81,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ${media.large} {
+    h1 {
+      font-size: 1.725rem
+    }
     h2 {
       font-size: 1.5rem;
     }

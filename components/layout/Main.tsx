@@ -10,30 +10,29 @@ type MainProps = {
 function Main({ children }: MainProps) {
   return (
     <Block>
-      <Navigation />
+      {/* <Navigation /> */}
       <div className="main-content">{children}</div>
     </Block>
   );
 }
 
 const Block = styled.main`
-  flex: 1;
   display: flex;
+  flex-direction: column;
+  padding-left: 3vw;
+  padding-right: 3vw;
+
   .main-content {
-    flex: 1;
-  }
-  ${media.xsmall} {
+    display: flex;
     flex-direction: column;
-    padding-left: 3vw;
-    padding-right: 3vw;
+    margin-top: 1rem;
   }
+
   ${media.medium} {
-    flex-direction: row;
-    padding-top: 1rem;
-  }
-  ${media.large} {
-    padding-left: 10vw;
-    padding-right: 10vw;
+    align-items: center;
+    .main-content {
+      width: 768px;
+    }
   }
 `;
 

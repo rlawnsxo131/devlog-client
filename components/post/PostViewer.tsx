@@ -38,6 +38,10 @@ const Block = styled.div`
       border-bottom: none;
     }
     ${media.xsmall} {
+      h1 {
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
       h2 {
         font-weight: bold;
         font-size: 1.125rem;
@@ -53,8 +57,15 @@ const Block = styled.div`
       }
     }
 
+    ${media.small} {
+      width: 43rem;
+    }
+
     ${media.medium} {
-      width: 768px;
+      width: 48rem;
+      h1 {
+        font-size: 1.5rem;
+      }
       h2 {
         font-size: 1.25rem;
       }
@@ -69,7 +80,9 @@ const Block = styled.div`
     }
 
     ${media.large} {
-      width: 800px;
+      h1 {
+        font-size: 1.725rem;
+      }
       h2 {
         font-size: 1.5rem;
       }
@@ -81,10 +94,6 @@ const Block = styled.div`
       code {
         font-size: 1rem;
       }
-    }
-
-    ${media.xlarge} {
-      width: 1024px;
     }
 
     pre {
