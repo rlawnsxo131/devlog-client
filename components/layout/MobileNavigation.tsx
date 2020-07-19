@@ -3,11 +3,10 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { useRouter } from 'next/dist/client/router';
-import media from '../../lib/styles/media';
 
-type NavigationProps = {};
+type MobileNavigationProps = {};
 
-function Navigation(props: NavigationProps) {
+function MobileNavigation(props: MobileNavigationProps) {
   const router = useRouter();
   const routerValue = router.pathname.split('/')[1];
   return (
@@ -18,17 +17,17 @@ function Navigation(props: NavigationProps) {
         </StyledLink>
       </Link>
       <Link href="/series">
-        <StyledLink className={routerValue === 'series' ? 'active' : 'default'}>
+        <StyledLink className={routerValue === 'series' ? 'active' : ''}>
           <h3>Series</h3>
         </StyledLink>
       </Link>
       <Link href="/tags">
-        <StyledLink className={routerValue === 'Tags' ? 'active' : ''}>
+        <StyledLink className={routerValue === 'tags' ? 'active' : ''}>
           <h3>Tags</h3>
         </StyledLink>
       </Link>
       <Link href="/info">
-        <StyledLink className={routerValue === 'Info' ? 'active' : ''}>
+        <StyledLink className={routerValue === 'info' ? 'active' : ''}>
           <h3>Info</h3>
         </StyledLink>
       </Link>
@@ -37,28 +36,25 @@ function Navigation(props: NavigationProps) {
 }
 
 const Block = styled.nav`
-  ${media.xsmall} {
-    display: none;
+  display: flex;
+  flex-flow: row wrap;
+  .default {
+    border-bottom: 3px solid white;
   }
-  ${media.large} {
-    display: flex;
-    flex-flow: row wrap;
-    .active {
-      color: ${palette.pink7};
-    }
+  .active {
+    border-bottom: 3px solid ${palette.pink5};
+    background: ${palette.pink0};
   }
 `;
 
 const StyledLink = styled.a`
   display: flex;
   flex-flow: row wrap;
+  padding: 0.725rem 1.125rem 0.725rem 1.125rem;
   color: ${palette.gray8};
   &:hover {
     cursor: pointer;
   }
-  & + & {
-    margin-left: 1.5rem;
-  }
 `;
 
-export default Navigation;
+export default MobileNavigation;

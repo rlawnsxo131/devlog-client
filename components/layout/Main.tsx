@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Navigation from './Navigation';
 import media from '../../lib/styles/media';
+import MobileNavigation from './MobileNavigation';
 
 type MainProps = {
   children: React.ReactNode;
@@ -10,8 +10,12 @@ type MainProps = {
 function Main({ children }: MainProps) {
   return (
     <Block>
-      {/* <Navigation /> */}
-      <div className="main-content">{children}</div>
+      <div className="main-content">
+        <div className="mobile-navigation">
+          <MobileNavigation />
+        </div>
+        {children}
+      </div>
     </Block>
   );
 }
@@ -25,13 +29,29 @@ const Block = styled.main`
   .main-content {
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+  }
+
+  ${media.xsmall} {
+    .mobile-navigation {
+      display: flex;
+      flex-flow: row wrap;
+      margin-bottom: 1rem;
+    }
   }
 
   ${media.medium} {
     align-items: center;
     .main-content {
-      width: 768px;
+      width: 48rem;
+    }
+  }
+
+  ${media.large} {
+    .main-content {
+      margin-top: 3rem;
+    }
+    .mobile-navigation {
+      display: none;
     }
   }
 `;
