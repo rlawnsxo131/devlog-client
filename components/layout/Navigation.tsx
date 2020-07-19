@@ -3,7 +3,6 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { useRouter } from 'next/dist/client/router';
-import media from '../../lib/styles/media';
 
 type NavigationProps = {};
 
@@ -18,7 +17,7 @@ function Navigation(props: NavigationProps) {
         </StyledLink>
       </Link>
       <Link href="/series">
-        <StyledLink className={routerValue === 'series' ? 'active' : 'default'}>
+        <StyledLink className={routerValue === 'series' ? 'active' : ''}>
           <h3>Series</h3>
         </StyledLink>
       </Link>
@@ -37,15 +36,10 @@ function Navigation(props: NavigationProps) {
 }
 
 const Block = styled.nav`
-  ${media.xsmall} {
-    display: none;
-  }
-  ${media.large} {
-    display: flex;
-    flex-flow: row wrap;
-    .active {
-      color: ${palette.pink7};
-    }
+  display: flex;
+  flex-flow: row wrap;
+  .active {
+    color: ${palette.pink7};
   }
 `;
 
@@ -53,6 +47,7 @@ const StyledLink = styled.a`
   display: flex;
   flex-flow: row wrap;
   color: ${palette.gray8};
+
   &:hover {
     cursor: pointer;
   }

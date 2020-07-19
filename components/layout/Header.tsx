@@ -16,7 +16,9 @@ function Header(props: HeaderProps) {
   return (
     <Block>
       <h1 onClick={redirectHome}>Development Log</h1>
-      <Navigation />
+      <div className="navigation">
+        <Navigation />
+      </div>
     </Block>
   );
 }
@@ -37,10 +39,19 @@ const Block = styled.header`
   ${media.xsmall} {
     padding-left: 1rem;
     padding-right: 1rem;
+    .navigation {
+      display: none;
+    }
   }
   ${media.medium} {
     padding-left: 3vw;
     padding-right: 20vw;
+  }
+  ${media.large} {
+    .navigation {
+      display: flex;
+      flex-flow: row wrap;
+    }
   }
 `;
 

@@ -38,9 +38,6 @@ function MobileNavigation(props: MobileNavigationProps) {
 const Block = styled.nav`
   display: flex;
   flex-flow: row wrap;
-  .default {
-    border-bottom: 3px solid white;
-  }
   .active {
     border-bottom: 3px solid ${palette.pink5};
     background: ${palette.pink0};
