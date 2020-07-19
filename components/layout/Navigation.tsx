@@ -23,12 +23,12 @@ function Navigation(props: NavigationProps) {
         </StyledLink>
       </Link>
       <Link href="/tags">
-        <StyledLink className={routerValue === 'Tags' ? 'active' : ''}>
+        <StyledLink className={routerValue === 'tags' ? 'active' : ''}>
           <h3>Tags</h3>
         </StyledLink>
       </Link>
       <Link href="/info">
-        <StyledLink className={routerValue === 'Info' ? 'active' : ''}>
+        <StyledLink className={routerValue === 'info' ? 'active' : ''}>
           <h3>Info</h3>
         </StyledLink>
       </Link>

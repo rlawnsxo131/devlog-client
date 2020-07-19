@@ -13,7 +13,6 @@ type ButtonProps = {
   ) => void | Promise<void>;
   color?: ColorType;
   size?: ButtonSize;
-  inline?: boolean;
   children: React.ReactNode;
 };
 
