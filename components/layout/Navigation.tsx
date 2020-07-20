@@ -40,7 +40,7 @@ const Block = styled.nav`
   ${media.xsmall} {
     display: none;
   }
-  ${media.large} {
+  ${media.medium} {
     display: flex;
     flex-flow: row wrap;
     .active {
