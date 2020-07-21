@@ -4,54 +4,77 @@ import palette from '../../lib/styles/palette';
 import media from '../../lib/styles/media';
 import { useRouter } from 'next/dist/client/router';
 import Navigation from './Navigation';
+import MobileNavigation from './MobileNavigation';
+import useThrottle from '../../lib/hooks/useThrottle';
 
 type HeaderProps = {};
-
-const { useCallback } = React;
+type ScrollDirectionType = 'UP' | 'DOWN';
+const { useRef, useState, useCallback, useEffect } = React;
 function Header(props: HeaderProps) {
+  const prevScroll = useRef<number>(0);
+  const [scrollDirection, setScrollDirection] = useState<
+    ScrollDirectionType | undefined
+  >(undefined);
   const router = useRouter();
   const redirectHome = useCallback(() => {
     router.push('/');
   }, []);
+
+  const handleScroll = useCallback(
+    useThrottle(() => {
+      const currentScroll = window.scrollY;
+      if (prevScroll.current < currentScroll && currentScroll > 0) {
+        setScrollDirection('DOWN');
+      } else {
+        setScrollDirection('UP');
+      }
+      prevScroll.current = currentScroll;
+    }, 300),
+    [],
+  );
+
+  useEffect(() => {
+    prevScroll.current = window.scrollY;
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <Block>
-      <h1 onClick={redirectHome}>Development Log</h1>
-      <div className="navigation">
-        <Navigation />
-      </div>
+    <Block scrollDirection={scrollDirection}>
+      <h2 onClick={redirectHome}>Development Log</h2>
+      <Navigation />
+      <MobileNavigation />
     </Block>
   );
 }
 
-const Block = styled.header`
+const Block = styled.header<{ scrollDirection?: ScrollDirectionType }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
+  padding-left: 3vw;
   box-shadow: 1px 1px 10px 2px ${palette.gray1};
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  h1 {
-    &:hover {
-      cursor: pointer;
-    }
+  background: white;
+  transition: top 0.25s;
+  h2:hover {
+    cursor: pointer;
   }
   ${media.xsmall} {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    .navigation {
-      display: none;
-    }
+    top: ${(props) => (props.scrollDirection === 'DOWN' ? '-5.75rem' : '0')};
+    height: 5.5rem;
+    flex-direction: column;
+    justify-content: space-around;
   }
   ${media.medium} {
-    padding-left: 3vw;
-    padding-right: 20vw;
-  }
-  ${media.large} {
-    .navigation {
-      display: flex;
-      flex-flow: row wrap;
-    }
+    top: ${(props) => (props.scrollDirection === 'DOWN' ? '-4rem' : '0')};
+    height: 3.75rem;
+    padding-right: 15vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 

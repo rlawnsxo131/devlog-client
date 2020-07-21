@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { useRouter } from 'next/dist/client/router';
+import media from '../../lib/styles/media';
 
 type MobileNavigationProps = {};
 
@@ -13,7 +14,7 @@ function MobileNavigation(props: MobileNavigationProps) {
     <Block>
       <Link href="/">
         <StyledLink className={!routerValue.length ? 'active' : ''}>
-          <h3>NEW</h3>
+          <h3>New</h3>
         </StyledLink>
       </Link>
       <Link href="/series">
@@ -36,21 +37,29 @@ function MobileNavigation(props: MobileNavigationProps) {
 }
 
 const Block = styled.nav`
-  display: flex;
-  flex-flow: row wrap;
-  .active {
-    border-bottom: 3px solid ${palette.pink5};
-    background: ${palette.pink0};
+  ${media.xsmall} {
+    justify-content: space-around;
+    display: flex;
+    flex-flow: row wrap;
+    background: white;
+    .active {
+      color: ${palette.pink5};
+    }
+  }
+  ${media.medium} {
+    display: none;
   }
 `;
 
 const StyledLink = styled.a`
   display: flex;
   flex-flow: row wrap;
-  padding: 0.725rem 1.125rem 0.725rem 1.125rem;
-  color: ${palette.gray8};
+  color: ${palette.gray9};
   &:hover {
     cursor: pointer;
+  }
+  & + & {
+    margin-left: 1rem;
   }
 `;
 

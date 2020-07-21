@@ -17,7 +17,7 @@ function PostViewer({ content }: PostViewerProps) {
   return (
     <Block>
       {typeof window === 'undefined' ? (
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <p className="fallback">{content}</p>
       ) : (
         <Viewer initialValue={content} plugins={[codeSyntaxHighlightPlugin]} />
       )}
@@ -28,6 +28,9 @@ function PostViewer({ content }: PostViewerProps) {
 const Block = styled.div`
   display: flex;
   flex-flow: row wrap;
+  .fallback {
+    display: none;
+  }
   .tui-editor-contents {
     h1,
     h2,

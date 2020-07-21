@@ -3,7 +3,7 @@ const mediaQuery = (minWidth: number) => `
 `;
 
 const media = {
-  xsmall: mediaQuery(320),
+  xsmall: mediaQuery(0),
   small: mediaQuery(768),
   medium: mediaQuery(1024),
   large: mediaQuery(1200),

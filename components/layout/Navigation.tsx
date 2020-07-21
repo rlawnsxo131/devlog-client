@@ -14,7 +14,7 @@ function Navigation(props: NavigationProps) {
     <Block>
       <Link href="/">
         <StyledLink className={!routerValue.length ? 'active' : ''}>
-          <h3>NEW</h3>
+          <h3>New</h3>
         </StyledLink>
       </Link>
       <Link href="/series">
@@ -44,7 +44,7 @@ const Block = styled.nav`
     display: flex;
     flex-flow: row wrap;
     .active {
-      color: ${palette.pink7};
+      color: ${palette.pink5};
     }
   }
 `;
@@ -52,8 +52,8 @@ const Block = styled.nav`
 const StyledLink = styled.a`
   display: flex;
   flex-flow: row wrap;
-  color: ${palette.gray8};
-
+  padding: 0.25rem 0.7rem 0.25rem 0.7rem;
+  color: ${palette.gray9};
   &:hover {
     cursor: pointer;
   }

@@ -10,6 +10,7 @@ import PostViewer from './PostViewer';
 import Comments from './comment/Comments';
 import Head from 'next/head';
 import PostDetailSkelleton from './PostDetailSkelleton';
+import media from '../../lib/styles/media';
 
 type PostDetailProps = {};
 
@@ -99,6 +100,18 @@ const Block = styled.div`
     }
     .comments {
       margin-top: 3rem;
+    }
+    ${media.xsmall} {
+      width: calc(100vw - 6vw);
+    }
+    ${media.small} {
+      width: 43rem;
+    }
+    ${media.medium} {
+      width: 47rem;
+    }
+    ${media.large} {
+      width: 63rem;
     }
   }
 `;

@@ -10,12 +10,7 @@ type MainProps = {
 function Main({ children }: MainProps) {
   return (
     <Block>
-      <div className="main-content">
-        <div className="mobile-navigation">
-          <MobileNavigation />
-        </div>
-        {children}
-      </div>
+      <div className="main-content">{children}</div>
     </Block>
   );
 }
@@ -32,21 +27,18 @@ const Block = styled.main`
   }
 
   ${media.xsmall} {
-    .mobile-navigation {
-      display: flex;
-      flex-flow: row wrap;
-      margin-bottom: 1rem;
+    margin-top: 5.5rem;
+    .main-content {
+      margin-top: 2rem;
     }
   }
 
   ${media.medium} {
+    margin-top: 3.75rem;
     align-items: center;
     .main-content {
-      width: 48rem;
       margin-top: 3rem;
-    }
-    .mobile-navigation {
-      display: none;
+      width: 48rem;
     }
   }
 
