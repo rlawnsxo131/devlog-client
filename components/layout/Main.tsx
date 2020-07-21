@@ -43,15 +43,16 @@ const Block = styled.main`
     align-items: center;
     .main-content {
       width: 48rem;
+      margin-top: 3rem;
+    }
+    .mobile-navigation {
+      display: none;
     }
   }
 
   ${media.large} {
     .main-content {
-      margin-top: 3rem;
-    }
-    .mobile-navigation {
-      display: none;
+      width: 64rem;
     }
   }
 `;

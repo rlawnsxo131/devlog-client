@@ -22,6 +22,7 @@ const Block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0.25rem;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   color: ${palette.gray9};
   background: ${palette.gray1};

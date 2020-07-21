@@ -122,17 +122,19 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
       <CommentCardFooter>
         {reply.level < 2 && (
           <div className="replies-trigger" onClick={handleShowReply}>
-            {reply.has_replies && reply.replies.length
-              ? `${
-                  showReply
-                    ? '숨기기'
-                    : `+${
-                        reply.level === 0
-                          ? repliesFullCount
-                          : reply.replies.length
-                      }개의 답글`
-                }`
-              : `${reply.deleted ? '' : '답글 남기기'}`}
+            <span>
+              {reply.has_replies && reply.replies.length
+                ? `${
+                    showReply
+                      ? '숨기기'
+                      : `+${
+                          reply.level === 0
+                            ? repliesFullCount
+                            : reply.replies.length
+                        }개의 답글`
+                  }`
+                : `${reply.deleted ? '' : '답글 남기기'}`}
+            </span>
           </div>
         )}
       </CommentCardFooter>
@@ -197,12 +199,6 @@ const CommentCardHeader = styled.div`
     }
     .date {
       color: ${palette.gray6};
-      ${media.xsmall} {
-        font-size: 0.75rem;
-      }
-      ${media.medium} {
-        font-size: 0.875rem;
-      }
     }
   }
 

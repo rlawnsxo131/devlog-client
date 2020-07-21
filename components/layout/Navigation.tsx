@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { useRouter } from 'next/dist/client/router';
+import media from '../../lib/styles/media';
 
 type NavigationProps = {};
 
@@ -36,10 +37,15 @@ function Navigation(props: NavigationProps) {
 }
 
 const Block = styled.nav`
-  display: flex;
-  flex-flow: row wrap;
-  .active {
-    color: ${palette.pink7};
+  ${media.xsmall} {
+    display: none;
+  }
+  ${media.medium} {
+    display: flex;
+    flex-flow: row wrap;
+    .active {
+      color: ${palette.pink7};
+    }
   }
 `;
 

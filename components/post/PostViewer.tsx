@@ -38,6 +38,7 @@ const Block = styled.div`
       border-bottom: none;
     }
     ${media.xsmall} {
+      width: calc(100vw - 6vw);
       h1 {
         font-weight: bold;
         font-size: 1.25rem;
@@ -62,7 +63,7 @@ const Block = styled.div`
     }
 
     ${media.medium} {
-      width: 48rem;
+      width: 47rem;
       h1 {
         font-size: 1.5rem;
       }
@@ -80,6 +81,7 @@ const Block = styled.div`
     }
 
     ${media.large} {
+      width: 63rem;
       h1 {
         font-size: 1.725rem;
       }
