@@ -78,7 +78,7 @@ const Block = styled.div`
 
   &:hover {
     cursor: pointer;
-    box-shadow: 1px 1px 10px 2px ${palette.gray3};
+    box-shadow: 1px 1px 10px 3px ${palette.gray3};
   }
 `;
 

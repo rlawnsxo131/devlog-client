@@ -1,14 +1,14 @@
-import * as React from "react";
-import styled from "styled-components";
-import palette from "../../lib/styles/palette";
-import media from "../../lib/styles/media";
-import { useRouter } from "next/dist/client/router";
-import Navigation from "./Navigation";
-import MobileNavigation from "./MobileNavigation";
-import useThrottle from "../../lib/hooks/useThrottle";
+import * as React from 'react';
+import styled from 'styled-components';
+import palette from '../../lib/styles/palette';
+import media from '../../lib/styles/media';
+import { useRouter } from 'next/dist/client/router';
+import Navigation from './Navigation';
+import MobileNavigation from './MobileNavigation';
+import useThrottle from '../../lib/hooks/useThrottle';
 
 type HeaderProps = {};
-type ScrollDirectionType = "UP" | "DOWN";
+type ScrollDirectionType = 'UP' | 'DOWN';
 const { useRef, useState, useCallback, useEffect } = React;
 function Header(props: HeaderProps) {
   const prevScroll = useRef<number>(0);
@@ -17,7 +17,7 @@ function Header(props: HeaderProps) {
   >(undefined);
   const router = useRouter();
   const redirectHome = useCallback(() => {
-    router.push("/");
+    router.push('/');
   }, []);
 
   const handleScroll = useCallback(
@@ -26,23 +26,25 @@ function Header(props: HeaderProps) {
 
       if (matchMedia(media.xsmall)) {
         if (
-          prevScroll.current < currentScroll && currentScroll > 88 &&
+          prevScroll.current < currentScroll &&
+          currentScroll > 88 &&
           currentScroll > 0
         ) {
-          setScrollDirection("DOWN");
+          setScrollDirection('DOWN');
         } else {
-          setScrollDirection("UP");
+          setScrollDirection('UP');
         }
       }
 
       if (!matchMedia(media.xsmall)) {
         if (
-          prevScroll.current < currentScroll && currentScroll > 60 &&
+          prevScroll.current < currentScroll &&
+          currentScroll > 60 &&
           currentScroll > 0
         ) {
-          setScrollDirection("DOWN");
+          setScrollDirection('DOWN');
         } else {
-          setScrollDirection("UP");
+          setScrollDirection('UP');
         }
       }
       prevScroll.current = currentScroll;
@@ -52,9 +54,9 @@ function Header(props: HeaderProps) {
 
   useEffect(() => {
     prevScroll.current = window.scrollY;
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   return (
@@ -80,13 +82,13 @@ const Block = styled.header<{ scrollDirection?: ScrollDirectionType }>`
     cursor: pointer;
   }
   ${media.xsmall} {
-    top: ${(props) => (props.scrollDirection === "DOWN" ? "-5.75rem" : "0")};
+    top: ${(props) => (props.scrollDirection === 'DOWN' ? '-5.75rem' : '0')};
     height: 5.5rem;
     flex-direction: column;
     justify-content: space-around;
   }
   ${media.medium} {
-    top: ${(props) => (props.scrollDirection === "DOWN" ? "-4rem" : "0")};
+    top: ${(props) => (props.scrollDirection === 'DOWN' ? '-4rem' : '0')};
     height: 3.75rem;
     padding-right: 15vw;
     flex-direction: row;
