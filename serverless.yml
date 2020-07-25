@@ -1,0 +1,4 @@
+myNextApplication:
+  component: serverless-next.js
+  inputs:
+    domain: "example.com" # sub-domain defaults to www

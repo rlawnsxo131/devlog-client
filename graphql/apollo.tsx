@@ -74,7 +74,7 @@ export function withApollo<PageProps>(
     apolloState,
     ...pageProps
   }) => {
-    const client = apolloClient || initApolloClient(apolloState);
+    const client: any = apolloClient || initApolloClient(apolloState);
     return (
       <ApolloProvider client={client}>
         <PageComponent {...((pageProps as any) as PageProps)} />

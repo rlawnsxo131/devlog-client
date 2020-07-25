@@ -10,6 +10,8 @@
 /build
 /dist
 .next
+.serverless
+.serverless_nextjs
 
 # misc
 .DS_Store
