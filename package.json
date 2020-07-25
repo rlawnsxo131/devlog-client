@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "next -p 8080",
+    "dev": "NODE_ENV=development next -p 8080",
     "build": "next build",
     "start": "next start -p 8080"
   },

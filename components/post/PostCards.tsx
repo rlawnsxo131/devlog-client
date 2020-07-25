@@ -10,7 +10,7 @@ import PostCardsSkelleton from './PostCardsSkelleton';
 type PostCardsProps = {};
 
 function PostCards(props: PostCardsProps) {
-  const { query } = useRouter();
+  const { query, basePath, pathname } = useRouter();
   const { loading, error, data } = useQuery(GET_POSTS, {
     variables: {
       tag: query.tag,
@@ -20,11 +20,25 @@ function PostCards(props: PostCardsProps) {
   if (loading) return <PostCardsSkelleton />;
   if (error) return <div>error</div>;
 
+  const url =
+    process.env.NODE_ENV === 'development'
+      ? `http://localhost:8080/posts/${query.tag}`
+      : `https://john.devlog.io/posts/${query.tag}`;
+
   return (
     <Block>
       <Head>
-        <title>Development Log{query.tag ? `: ${query.tag}` : ''}</title>
-        <meta name="description" content={`${query.tag}에 관한 글`} />
+        <title>Development Log {query.tag ? ` - ${query.tag}` : ''}</title>
+        <meta
+          name="description"
+          content={query.tag ? `${query.tag}에 관한 글목록` : '전체 글목록'}
+        />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={`Development Log ${query.tag ? ` - ${query.tag}` : ''}`}
+        />
       </Head>
       {data.posts.map((val: PostType, idx: number) => (
         <PostCard key={`${val.id}${idx}`} post={val} />
