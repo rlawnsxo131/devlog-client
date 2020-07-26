@@ -12,6 +12,7 @@ type CommentsProps = {
   comments_count: number;
 };
 
+const { memo } = React;
 function Comments({ comments_count }: CommentsProps) {
   const router = useRouter();
   const { loading, error, data } = useQuery(GET_COMMENTS, {
@@ -49,4 +50,4 @@ const Block = styled.div`
   }
 `;
 
-export default Comments;
+export default memo(Comments);

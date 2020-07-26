@@ -17,7 +17,7 @@ type CommentEditProps = {
   resetEditMode: () => void;
 };
 
-const { useCallback } = React;
+const { useCallback, memo } = React;
 function CommentEdit({
   comment_id,
   email,
@@ -84,4 +84,4 @@ const Block = styled.div`
   }
 `;
 
-export default CommentEdit;
+export default memo(CommentEdit);

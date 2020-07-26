@@ -14,6 +14,7 @@ import media from '../../lib/styles/media';
 
 type PostDetailProps = {};
 
+const { memo } = React;
 function PostDetail(props: PostDetailProps) {
   const { query } = useRouter();
   if (!query.id) return <div>not found id</div>;
@@ -124,4 +125,4 @@ const Block = styled.div`
   }
 `;
 
-export default PostDetail;
+export default memo(PostDetail);

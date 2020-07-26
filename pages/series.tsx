@@ -1,9 +1,11 @@
 import * as React from 'react';
+import Series from '../components/series/Series';
+import { withApollo } from '../graphql/apollo';
 
 type SeriesPageProps = {};
 
 function SeriesPage(props: SeriesPageProps) {
-  return <div>series</div>;
+  return <Series />;
 }
 
-export default SeriesPage;
+export default withApollo(SeriesPage);

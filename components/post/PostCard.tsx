@@ -10,7 +10,7 @@ type PostCardProps = {
   post: PostType;
 };
 
-const { useCallback } = React;
+const { useCallback, memo } = React;
 function PostCard({ post }: PostCardProps) {
   const router = useRouter();
   const redirectPostDetail = useCallback(() => {
@@ -23,6 +23,7 @@ function PostCard({ post }: PostCardProps) {
     <Block onClick={redirectPostDetail}>
       <div className="post-header">
         <h2>{post.post_header}</h2>
+        {post.series_id ? <span>series</span> : null}
       </div>
       <div className="short-description">
         <span>{post.short_description}</span>
@@ -51,10 +52,13 @@ const Block = styled.div`
   .post-header {
     display: flex;
     flex-flow: row wrap;
-    font-size: 1.5rem;
-    font-weight: bold;
+    justify-content: space-between;
     color: ${palette.pink7};
     margin-bottom: 1.5rem;
+    span {
+      font-weight: bold;
+      color: ${palette.teal5};
+    }
   }
 
   .short-description {
@@ -82,4 +86,4 @@ const Block = styled.div`
   }
 `;
 
-export default PostCard;
+export default memo(PostCard);

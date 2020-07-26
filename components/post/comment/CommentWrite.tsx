@@ -12,7 +12,7 @@ type CommentWriteProps = {
   setShowCommentWrite?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const { useCallback } = React;
+const { useCallback, memo } = React;
 function CommentWrite({
   reply_comment_id,
   setShowCommentWrite,
@@ -98,4 +98,4 @@ const Block = styled.div<{ reply_comment_id?: number }>`
   }
 `;
 
-export default CommentWrite;
+export default memo(CommentWrite);

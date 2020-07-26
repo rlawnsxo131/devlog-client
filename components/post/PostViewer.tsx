@@ -13,6 +13,7 @@ type PostViewerProps = {
   content: string;
 };
 
+const { memo } = React;
 function PostViewer({ content }: PostViewerProps) {
   return (
     <Block>
@@ -107,4 +108,4 @@ const Block = styled.div`
   }
 `;
 
-export default PostViewer;
+export default memo(PostViewer);

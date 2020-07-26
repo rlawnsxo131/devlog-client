@@ -9,8 +9,9 @@ import PostCardsSkelleton from './PostCardsSkelleton';
 
 type PostCardsProps = {};
 
+const { memo } = React;
 function PostCards(props: PostCardsProps) {
-  const { query, basePath, pathname } = useRouter();
+  const { query } = useRouter();
   const { loading, error, data } = useQuery(GET_POSTS, {
     variables: {
       tag: query.tag,
@@ -52,4 +53,4 @@ const Block = styled.div`
   flex-direction: column;
 `;
 
-export default PostCards;
+export default memo(PostCards);
