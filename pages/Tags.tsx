@@ -14,17 +14,17 @@ function TagsPage(props: TagsProps) {
   if (loading) return <TagsSkelleton />;
   if (error) return <div>error</div>;
 
-  const url =
-    process.env.NODE_ENV === 'development'
-      ? `http://localhost:8080/tags`
-      : `https://john.devlog.io/tags`;
+  // const url =
+  //   process.env.NODE_ENV === 'development'
+  //     ? `http://localhost:8080/tags`
+  //     : `https://john.devlog.io/tags`;
 
   return (
     <>
       <Head>
         <title>전체태그(Tags) - Development Log</title>
         <meta name="description" content="태그목록" />
-        <meta property="og:url" content={url} />
+        {/* <meta property="og:url" content={url} /> */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content="전체태그(Tags) - Development Log" />
       </Head>
