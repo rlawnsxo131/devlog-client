@@ -36,7 +36,6 @@ export default function commentCard({
     } catch (e) {
       alert('잘못된 비밀번호입니다');
       setEditMode(false);
-      console.error(e);
     }
   }, [password]);
 

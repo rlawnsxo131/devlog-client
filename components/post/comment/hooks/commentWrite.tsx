@@ -55,19 +55,15 @@ export default function commentWrite(): CommentWriteHook {
         comment,
       });
       if (!normalized) return alert('모든 항목을 입력해주세요!');
-      try {
-        await CreateComment({
-          variables: {
-            post_id,
-            reply_comment_id,
-            writer: normalized.writer,
-            password: normalized.password,
-            comment: normalized.comment,
-          },
-        });
-      } catch (e) {
-        console.error(e);
-      }
+      await CreateComment({
+        variables: {
+          post_id,
+          reply_comment_id,
+          writer: normalized.writer,
+          password: normalized.password,
+          comment: normalized.comment,
+        },
+      });
     },
     [],
   );
