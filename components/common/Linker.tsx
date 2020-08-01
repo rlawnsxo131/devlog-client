@@ -6,26 +6,33 @@ import Link from 'next/link';
 type LinkerProps = {
   href: string;
   expression: string;
+  color?: string;
+  hoverColor?: string;
 };
 
-function Linker({ href, expression }: LinkerProps) {
+function Linker({
+  href,
+  expression,
+  color = `${palette.pink7}`,
+  hoverColor = `${palette.pink3}`,
+}: LinkerProps) {
   return (
     <Link href={href}>
-      <StyledLink>
+      <StyledLink color={color} hoverColor={hoverColor}>
         <span>{expression}</span>
       </StyledLink>
     </Link>
   );
 }
 
-const StyledLink = styled.a`
+const StyledLink = styled.a<{ color: string; hoverColor: string }>`
   display: flex;
   flex-flow: row wrap;
-  color: ${palette.pink7};
+  color: ${(props) => props.color};
   font-weight: 600;
   &:hover {
     cursor: pointer;
-    color: ${palette.pink5};
+    color: ${(props) => props.hoverColor};
   }
   & + & {
     margin-top: 0.5rem;

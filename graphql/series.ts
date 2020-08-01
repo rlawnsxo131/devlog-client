@@ -15,8 +15,6 @@ export const GET_SERIES = gql`
     series {
       id
       series_name
-      created_at
-      updated_at
       posts {
         id
         post_header

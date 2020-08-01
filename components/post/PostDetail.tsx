@@ -11,6 +11,7 @@ import Comments from './comment/Comments';
 import Head from 'next/head';
 import PostDetailSkelleton from './PostDetailSkelleton';
 import media from '../../lib/styles/media';
+import SeriesPosts from './series/SeriesPosts';
 
 type PostDetailProps = {};
 
@@ -57,6 +58,9 @@ function PostDetail(props: PostDetailProps) {
         </div>
         <div className="post-body">
           <PostViewer content={data.post.post_body} />
+        </div>
+        <div className="series-posts">
+          <SeriesPosts series_posts={data.post.series_posts} />
         </div>
         <div className="comments">
           <Comments comments_count={data.post.comments_count} />
@@ -105,8 +109,13 @@ const Block = styled.div`
     }
 
     .post-body {
+      margin-bottom: 5rem;
+    }
+
+    .series-posts {
       margin-bottom: 1rem;
     }
+
     .comments {
       margin-top: 3rem;
     }

@@ -13,6 +13,13 @@ export type PostType = {
   comments_count: number;
 };
 
+export type SeriesPostType = {
+  series_id: number;
+  series_name: string;
+  post_id: number;
+  post_header: string;
+};
+
 export const GET_POST = gql`
   query GetPost($id: ID!) {
     post(id: $id) {
@@ -26,6 +33,12 @@ export const GET_POST = gql`
       updated_at
       tags
       comments_count
+      series_posts {
+        series_id
+        series_name
+        post_id
+        post_header
+      }
     }
   }
 `;
