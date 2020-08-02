@@ -37,7 +37,7 @@ function SeriesPosts({ series_posts }: SeriesPostsProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2rem 1rem 2rem 1rem;
+  padding: 1.5rem 1rem 1.5rem 1rem;
   border: 1px solid ${palette.gray3};
   border-radius: 0.25rem;
   p {
@@ -53,6 +53,7 @@ const Block = styled.div`
 
 const Background = styled.div<{ query_id: number; post_id: number }>`
   margin-top: 0.25rem;
+  padding-left: 0.5rem;
   ${(props) =>
     props.query_id === props.post_id &&
     css`
