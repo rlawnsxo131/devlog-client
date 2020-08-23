@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import palette from '../../lib/styles/palette';
-import tagsRedirect from './hooks/tagsRedirect';
 
 type CountTagProps = {
   tag: string;
@@ -9,16 +9,17 @@ type CountTagProps = {
 };
 
 function CountTag({ tag, count }: CountTagProps) {
-  const { redirectTagPosts } = tagsRedirect({ tag });
   return (
-    <Block onClick={redirectTagPosts}>
-      <span>{tag}</span>
-      <span className="count">{count}</span>
-    </Block>
+    <Link href={`/posts/${tag}`}>
+      <StyledLink>
+        <span>{tag}</span>
+        <span className="count">{count}</span>
+      </StyledLink>
+    </Link>
   );
 }
 
-const Block = styled.div`
+const StyledLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;

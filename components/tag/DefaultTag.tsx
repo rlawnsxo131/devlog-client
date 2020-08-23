@@ -1,22 +1,23 @@
 import * as React from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
-import tagsRedirect from './hooks/tagsRedirect';
 
 type DefaultTagProps = {
   tag: string;
 };
 
 function DefaultTag({ tag }: DefaultTagProps) {
-  const { redirectTagPosts } = tagsRedirect({ tag });
   return (
-    <Block onClick={redirectTagPosts}>
-      <span>{tag}</span>
-    </Block>
+    <Link href={`/posts/${tag}`}>
+      <StyledLink>
+        <span>{tag}</span>
+      </StyledLink>
+    </Link>
   );
 }
 
-const Block = styled.div`
+const StyledLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;

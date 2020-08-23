@@ -2,10 +2,10 @@ import * as React from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import media from '../../lib/styles/media';
-import { useRouter } from 'next/dist/client/router';
 import Navigation from './Navigation';
 import MobileNavigation from './MobileNavigation';
 import useThrottle from '../../lib/hooks/useThrottle';
+import WrappingLinker from '../common/WrappingLinker';
 
 type HeaderProps = {};
 type ScrollDirectionType = 'UP' | 'DOWN';
@@ -15,10 +15,6 @@ function Header(props: HeaderProps) {
   const [scrollDirection, setScrollDirection] = useState<
     ScrollDirectionType | undefined
   >(undefined);
-  const router = useRouter();
-  const redirectHome = useCallback(() => {
-    router.push('/');
-  }, []);
 
   const handleScroll = useCallback(
     useThrottle(() => {
@@ -61,7 +57,9 @@ function Header(props: HeaderProps) {
   }, []);
   return (
     <Block scrollDirection={scrollDirection}>
-      <h2 onClick={redirectHome}>Development Log</h2>
+      <WrappingLinker href="/">
+        <h2>Development Log</h2>
+      </WrappingLinker>
       <Navigation />
       <MobileNavigation />
     </Block>
