@@ -32,17 +32,14 @@ function PostDetail(props: PostDetailProps) {
     <Block>
       <Head>
         <title>{`${data.post.post_header} - DevLog`}</title>
-        <meta
-          name="description"
-          content={`${data.post.short_description} - DevLog`}
-        />
+        <meta name="description" content={`${data.post.short_description}`} />
         <meta
           property="og:title"
           content={`${data.post.post_header} - DevLog`}
         />
         <meta
           property="og:description"
-          content={`${data.post.short_description} - DevLog`}
+          content={`${data.post.short_description}`}
         />
         <meta
           property="og:url"

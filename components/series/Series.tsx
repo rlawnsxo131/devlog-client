@@ -18,10 +18,10 @@ function Series(props: SeriesProps) {
   return (
     <Block>
       <Head>
-        <title>DevLog Series</title>
-        <meta name="description" content="시리즈 글목록" />
-        <meta property="og:title" content="Series - DevLog" />
-        <meta property="og:description" content="시리즈 글목록" />
+        <title>DevLog - Series</title>
+        <meta name="description" content="시리즈 글 목록" />
+        <meta property="og:title" content="DevLog" />
+        <meta property="og:description" content="시리즈 글 목록" />
         <meta property="og:url" content="https://devlog.juntae.kim/series" />
         <meta property="og:type" content="article" />
       </Head>

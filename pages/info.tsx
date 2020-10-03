@@ -10,10 +10,10 @@ function InfoPage(props: InfoProps) {
   return (
     <Block>
       <Head>
-        <title>DevLog 소개</title>
-        <meta name="description" content="블로그 소개" />
-        <meta property="og:title" content="DevLog 소개" />
-        <meta property="og:description" content="Devlog 소개" />
+        <title>DevLog - Info</title>
+        <meta name="description" content="DevLog 소개" />
+        <meta property="og:title" content="DevLog" />
+        <meta property="og:description" content="DevLog 소개" />
         <meta property="og:url" content="https://devlog.juntae.kim/info" />
         <meta property="og:type" content="article" />
       </Head>
