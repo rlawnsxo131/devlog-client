@@ -10,7 +10,7 @@ function InfoPage(props: InfoProps) {
   return (
     <Block>
       <Head>
-        <title>DevLog - Info</title>
+        <title>Info - DevLog</title>
         <meta name="description" content="DevLog 소개" />
         <meta property="og:title" content="DevLog" />
         <meta property="og:description" content="DevLog 소개" />

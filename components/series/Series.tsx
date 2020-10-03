@@ -18,7 +18,7 @@ function Series(props: SeriesProps) {
   return (
     <Block>
       <Head>
-        <title>DevLog - Series</title>
+        <title>시리즈 - DevLog</title>
         <meta name="description" content="시리즈 글 목록" />
         <meta property="og:title" content="DevLog" />
         <meta property="og:description" content="시리즈 글 목록" />
