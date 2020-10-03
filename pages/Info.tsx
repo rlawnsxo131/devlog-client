@@ -12,9 +12,10 @@ function InfoPage(props: InfoProps) {
       <Head>
         <title>DevLog 소개</title>
         <meta name="description" content="블로그 소개" />
+        <meta property="og:title" content="DevLog 소개" />
+        <meta property="og:description" content="Devlog 소개" />
         <meta property="og:url" content="https://devlog.juntae.kim/info" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="DevLog 소개" />
       </Head>
       <ItemWrapper direction>
         <Item>Blog Tech stack</Item>
