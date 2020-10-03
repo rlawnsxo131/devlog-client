@@ -33,7 +33,7 @@ function PostCards(props: PostCardsProps) {
         <meta property="og:type" content="article" />
         <meta
           property="og:title"
-          content={`Development Log ${query.tag ? ` - ${query.tag}` : ''}`}
+          content={`DevLog ${query.tag ? ` - ${query.tag}` : ''}`}
         />
       </Head>
       {data.posts.map((val: PostType, idx: number) => (

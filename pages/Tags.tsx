@@ -17,7 +17,7 @@ function TagsPage(props: TagsProps) {
   return (
     <>
       <Head>
-        <title>전체태그(Tags) - Development Log</title>
+        <title>전체태그(Tags) - DevLog</title>
         <meta name="description" content="태그목록" />
         <meta property="og:url" content="https://devlog.juntae.kim" />
         <meta property="og:type" content="article" />
