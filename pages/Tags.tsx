@@ -19,9 +19,10 @@ function TagsPage(props: TagsProps) {
       <Head>
         <title>전체태그(Tags) - DevLog</title>
         <meta name="description" content="태그목록" />
-        <meta property="og:url" content="https://devlog.juntae.kim" />
+        <meta property="og:title" content="전체태그(Tags) - DevLog" />
+        <meta property="og:description" content="Devlog 전체 글 태그목록" />
+        <meta property="og:url" content="https://devlog.juntae.kim/tags" />1
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="전체태그(Tags) - Development Log" />
       </Head>
       <CountTags tags={data.tags} />
     </>

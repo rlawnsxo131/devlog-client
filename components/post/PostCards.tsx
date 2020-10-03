@@ -24,17 +24,26 @@ function PostCards(props: PostCardsProps) {
   return (
     <Block>
       <Head>
-        <title>DevLog {query.tag ? ` - ${query.tag}` : ''}</title>
+        <title>{query.tag ? `${query.tag} - DevLog` : 'DevLog'}</title>
         <meta
           name="description"
           content={query.tag ? `${query.tag}에 관한 글목록` : '전체 글목록'}
         />
-        <meta property="og:url" content="https://devlog.juntae.kim" />
-        <meta property="og:type" content="article" />
         <meta
           property="og:title"
-          content={`DevLog ${query.tag ? ` - ${query.tag}` : ''}`}
+          content={`DevLog${query.tag ? ` - ${query.tag}` : ''}`}
         />
+        <meta
+          property="og:description"
+          content={query.tag ? `${query.tag}에 관한 글목록` : '전체 글목록'}
+        />
+        <meta
+          property="og:url"
+          content={`https://devlog.juntae.kim${
+            query.tag ? `posts/${query.tag}` : ''
+          }`}
+        />
+        <meta property="og:type" content="article" />
       </Head>
       {data.posts.map((val: PostType, idx: number) => (
         <PostCard key={`${val.id}${idx}`} post={val} />

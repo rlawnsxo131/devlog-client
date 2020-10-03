@@ -20,9 +20,10 @@ function Series(props: SeriesProps) {
       <Head>
         <title>DevLog Series</title>
         <meta name="description" content="시리즈 글목록" />
-        <meta property="og:url" content="https://devlog.juntae.kim/info" />
+        <meta property="og:title" content="Series - DevLog" />
+        <meta property="og:description" content="시리즈 글목록" />
+        <meta property="og:url" content="https://devlog.juntae.kim/series" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="DevLog - Series" />
       </Head>
       {data?.series.map((v, i) => (
         <SeriesItem key={v.series_name} series={v} />

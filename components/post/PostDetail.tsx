@@ -32,13 +32,23 @@ function PostDetail(props: PostDetailProps) {
     <Block>
       <Head>
         <title>{`${data.post.post_header} - DevLog`}</title>
-        <meta name="description" content={data.post.short_description} />
+        <meta
+          name="description"
+          content={`${data.post.short_description} - DevLog`}
+        />
+        <meta
+          property="og:title"
+          content={`${data.post.post_header} - DevLog`}
+        />
+        <meta
+          property="og:description"
+          content={`${data.post.short_description} - DevLog`}
+        />
         <meta
           property="og:url"
           content={`https://devlog.juntae.kim/posts/${data.post.post_header}?id=${query.id}`}
         />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={data.post.post_header} />
       </Head>
       <div className="post-wrapper">
         <div className="post-header">
