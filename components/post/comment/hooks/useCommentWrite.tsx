@@ -6,7 +6,7 @@ import {
   normalizedInputChange,
 } from '../../../../lib/utils';
 
-type CommentWriteHook = {
+type useCommentWriteHook = {
   createComment: ({
     post_id,
     reply_comment_id,
@@ -15,13 +15,13 @@ type CommentWriteHook = {
     comment,
   }: CreateCommentType) => Promise<void>;
 };
-type CommentWriteNormalized = {
+type CommentWriteNormalizedParams = {
   writer: string;
   password: string;
   comment: string;
 };
 
-export default function commentWrite(): CommentWriteHook {
+export default function useCommentWrite(): useCommentWriteHook {
   const [CreateComment] = useMutation<{
     createComment: { id: number };
     variables: CreateCommentType;
@@ -30,7 +30,7 @@ export default function commentWrite(): CommentWriteHook {
   });
 
   const commentNormalizedCheck = useCallback(
-    ({ writer, password, comment }: CommentWriteNormalized) => {
+    ({ writer, password, comment }: CommentWriteNormalizedParams) => {
       if (
         !normalizedInputCheck(writer) ||
         !normalizedInputCheck(password) ||

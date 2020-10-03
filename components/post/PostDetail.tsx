@@ -28,17 +28,15 @@ function PostDetail(props: PostDetailProps) {
   if (loading) return <PostDetailSkelleton />;
   if (error) return <div>error</div>;
 
-  const url =
-    process.env.NODE_ENV === 'development'
-      ? `http://localhost:8080/post/${data.post.post_header}?id=${query.id}`
-      : `https://john.devlog.io/posts/${data.post.post_header}?id=${query.id}`;
-
   return (
     <Block>
       <Head>
         <title>{data.post.post_header}</title>
         <meta name="description" content={data.post.short_description} />
-        <meta property="og:url" content={url} />
+        <meta
+          property="og:url"
+          content={`https://devlog.juntae.kim/posts/${data.post.post_header}?id=${query.id}`}
+        />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={data.post.post_header} />
       </Head>

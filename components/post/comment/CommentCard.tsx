@@ -2,14 +2,13 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 import { CommentType } from '../../../graphql/comment';
 import { formatDate } from '../../../lib/utils';
-import media from '../../../lib/styles/media';
 import palette from '../../../lib/styles/palette';
 import CommentCards from './CommentCards';
 import CommentWrite from './CommentWrite';
 import Button from '../../common/Button';
 import Input from '../../common/Input';
 import useInputs from '../../../lib/hooks/useInputs';
-import commentCard from './hooks/commentCard';
+import useCommentCard from './hooks/useCommentCard';
 import CommentEdit from './CommentEdit';
 
 type CommentCardProps = {
@@ -27,11 +26,13 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
   });
   const [showEditPassword, setShowEditPassword] = useState<boolean>(false);
   // data -> email 기능 추가시 필요
-  const { data, editMode, setEditMode, handleConfirmPassword } = commentCard({
-    comment_id: reply.id,
-    password: state.password,
-    setShowEditPassword,
-  });
+  const { data, editMode, setEditMode, handleConfirmPassword } = useCommentCard(
+    {
+      comment_id: reply.id,
+      password: state.password,
+      setShowEditPassword,
+    },
+  );
 
   const handleShowReply = useCallback(() => {
     if (showReply && reply.has_replies) {

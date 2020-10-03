@@ -2,22 +2,22 @@ import { useState, useCallback, SetStateAction } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { CONFIRM_PASSWORD } from '../../../../graphql/comment';
 
-type CommentCardHookProps = {
+type useCommentCardHookProps = {
   comment_id: number;
   password: string;
   setShowEditPassword: React.Dispatch<SetStateAction<boolean>>;
 };
-type CommentCardHook = {
+type useCommentCardHook = {
   data?: { email?: string };
   editMode: boolean;
   setEditMode: React.Dispatch<React.SetStateAction<boolean>>;
   handleConfirmPassword: () => Promise<void>;
 };
-export default function commentCard({
+export default function useCommentCard({
   comment_id,
   password,
   setShowEditPassword,
-}: CommentCardHookProps): CommentCardHook {
+}: useCommentCardHookProps): useCommentCardHook {
   const [editMode, setEditMode] = useState<boolean>(false);
   const confirmPassword = useQuery(CONFIRM_PASSWORD, {
     skip: true,

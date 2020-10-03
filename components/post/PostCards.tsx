@@ -21,11 +21,6 @@ function PostCards(props: PostCardsProps) {
   if (loading) return <PostCardsSkelleton />;
   if (error) return <div>error</div>;
 
-  const url =
-    process.env.NODE_ENV === 'development'
-      ? `http://localhost:8080/posts/${query.tag}`
-      : `https://john.devlog.io/posts/${query.tag}`;
-
   return (
     <Block>
       <Head>
@@ -34,7 +29,7 @@ function PostCards(props: PostCardsProps) {
           name="description"
           content={query.tag ? `${query.tag}에 관한 글목록` : '전체 글목록'}
         />
-        <meta property="og:url" content={url} />
+        <meta property="og:url" content="https://devlog.juntae.kim" />
         <meta property="og:type" content="article" />
         <meta
           property="og:title"

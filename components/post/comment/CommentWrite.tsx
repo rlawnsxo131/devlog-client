@@ -5,7 +5,7 @@ import useInputs from '../../../lib/hooks/useInputs';
 import Textarea from '../../common/Textarea';
 import { useRouter } from 'next/dist/client/router';
 import Button from '../../common/Button';
-import commentWrite from './hooks/commentWrite';
+import useCommentWrite from './hooks/useCommentWrite';
 
 type CommentWriteProps = {
   reply_comment_id?: number;
@@ -24,7 +24,7 @@ function CommentWrite({
     password: '',
     comment: '',
   });
-  const { createComment } = commentWrite();
+  const { createComment } = useCommentWrite();
   const handleCreateComment = useCallback(() => {
     createComment({
       post_id: Number(post_id),
