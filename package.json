@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "NODE_ENV=development next -p 8080",
     "build": "next build",
-    "start": "next start -p 8080"
+    "start": "next start -p 8080",
+    "deploy:production": "NODE_ENV=production serverless deploy --stage production --force",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id E30Y1WORVDQFOJ --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
@@ -18,6 +20,7 @@
     "apollo-link": "^1.2.14",
     "apollo-link-http": "^1.5.17",
     "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
     "next": "^9.5.3",
@@ -33,6 +36,8 @@
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.3",
     "babel-plugin-styled-components": "^1.11.1",
+    "serverless-dotenv-plugin": "^3.0.0",
+    "serverless-nextjs-plugin": "^2.5.2-alpha.0",
     "typescript": "^4.0.2"
   }
 }

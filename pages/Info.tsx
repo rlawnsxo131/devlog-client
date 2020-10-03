@@ -22,8 +22,8 @@ function InfoPage(props: InfoProps) {
           <Item>- GraphQL(Apollo Server, Client)</Item>
           <Item>- Typescript</Item>
           <Item>- MySQL</Item>
-          <Item>- AWS</Item>
-          <Item>- Serverless</Item>
+          <Item>- AWS(Lambda, APIGateway, EC2, Route53, CloudFront ...)</Item>
+          <Item>- Serverless Framework</Item>
         </div>
       </ItemWrapper>
       <ItemWrapper>

@@ -58,7 +58,7 @@ function Header(props: HeaderProps) {
   return (
     <Block scrollDirection={scrollDirection}>
       <WrappingLinker href="/">
-        <h2>Development Log</h2>
+        <h2>DevLog</h2>
       </WrappingLinker>
       <Navigation />
       <MobileNavigation />

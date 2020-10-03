@@ -10,18 +10,17 @@ import { ApolloLink } from 'apollo-link';
 
 // CreateHttpLink
 function initHttpLink(headers: { cookie?: string } | undefined): ApolloLink {
-  const graphqlURI = 'http://localhost:3001/graphql';
   let httpLink: ApolloLink;
   if (typeof window === 'undefined') {
     httpLink = createHttpLink({
-      uri: graphqlURI,
+      uri: process.env.API_URI,
       credentials: 'include',
       fetch: fetch as any,
       headers,
     });
   } else {
     httpLink = createHttpLink({
-      uri: graphqlURI,
+      uri: process.env.NEXT_PUBLIC_API_URI,
       credentials: 'include',
       headers,
     });

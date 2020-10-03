@@ -24,7 +24,7 @@ function PostCards(props: PostCardsProps) {
   return (
     <Block>
       <Head>
-        <title>Development Log {query.tag ? ` - ${query.tag}` : ''}</title>
+        <title>DevLog {query.tag ? ` - ${query.tag}` : ''}</title>
         <meta
           name="description"
           content={query.tag ? `${query.tag}에 관한 글목록` : '전체 글목록'}

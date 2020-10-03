@@ -1,4 +1,23 @@
-myNextApplication:
-  component: serverless-next.js
-  inputs:
-    domain: "example.com" # sub-domain defaults to www
+service: devlog-client
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-northeast-2
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-nextjs-plugin
+
+custom:
+  name: devlog-client
+  serverless-nextjs:
+    assetsBucketName: "devlog-client-${env:NODE_ENV}"
+    cloudFront: true
+
+package:
+  # exclude everything
+  # page handlers are automatically included by the plugin
+  exclude:
+    - ./**
