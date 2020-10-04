@@ -21,7 +21,7 @@ function TagsPage(props: TagsProps) {
         <meta name="description" content="전체 태그목록" />
         <meta property="og:title" content="DevLog" />
         <meta property="og:description" content="전체 태그목록" />
-        <meta property="og:url" content="https://devlog.juntae.kim/tags" />1
+        <meta property="og:url" content="https://devlog.juntae.kim/tags" />
         <meta property="og:type" content="article" />
       </Head>
       <CountTags tags={data.tags} />
