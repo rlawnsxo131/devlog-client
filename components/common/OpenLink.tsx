@@ -22,8 +22,9 @@ const Block = styled.div`
   display: inline-flex;
   flex-flow: row wrap;
   align-items: center;
+  margin-left: 0.5rem;
   span {
-    font-weight: bold;
+    font-weight: 500;
     color: ${palette.pink7};
     &:hover {
       cursor: pointer;

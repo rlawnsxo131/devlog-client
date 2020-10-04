@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { SeriesType } from '../../graphql/series';
 import styled from 'styled-components';
-import palette from '../../lib/styles/palette';
 import Linker from '../common/Linker';
 
 type SeriesItemProps = {
@@ -17,7 +16,7 @@ function SeriesItem({ series }: SeriesItemProps) {
         {series.posts.map((v, i) => (
           <Linker
             key={`series_post${i}`}
-            href={`/post/[title]/?id=${v.id}`}
+            href={`/post/${v.post_header}/?id=${v.id}`}
             expression={v.post_header}
           />
         ))}

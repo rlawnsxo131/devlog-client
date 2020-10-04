@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import OpenLink from '../components/common/OpenLink';
 import palette from '../lib/styles/palette';
+import media from '../lib/styles/media';
 
 type InfoProps = {};
 
@@ -17,27 +18,53 @@ function InfoPage(props: InfoProps) {
         <meta property="og:url" content="https://devlog.juntae.kim/info" />
         <meta property="og:type" content="article" />
       </Head>
-      <ItemWrapper direction>
-        <Item>Blog Tech stack</Item>
-        <div className="list">
-          <Item>- Node.js</Item>
-          <Item>- Koa.js</Item>
-          <Item>- React.js(Next.js)</Item>
-          <Item>- GraphQL(Apollo Server, Client)</Item>
-          <Item>- Typescript</Item>
-          <Item>- MySQL</Item>
-          <Item>- AWS(Lambda, APIGateway, EC2, Route53, CloudFront ...)</Item>
-          <Item>- Serverless Framework</Item>
-        </div>
-      </ItemWrapper>
-      <ItemWrapper>
-        <Item>Blog Server:</Item>
-        <OpenLink link="https://github.com/rlawnsxo131/devlog-server" />
-      </ItemWrapper>
-      <ItemWrapper>
-        <Item>Blog Client:</Item>
-        <OpenLink link="https://github.com/rlawnsxo131/devlog-client" />
-      </ItemWrapper>
+      <h3>DevLog Tech Stack</h3>
+      <ul className="wrapper">
+        <li>Typescript</li>
+        <li>MySQL</li>
+        <li>Serverless Framework</li>
+        <li>
+          NodeJS
+          <ul>
+            <li>Koa</li>
+          </ul>
+        </li>
+        <li>
+          React
+          <ul>
+            <li>NextJS</li>
+          </ul>
+        </li>
+        <li>
+          GraphQL
+          <ul>
+            <li>Apollo Server</li>
+            <li>Apollo Client</li>
+          </ul>
+        </li>
+        <li>
+          AWS
+          <ul>
+            <li>EC2</li>
+            <li>S3</li>
+            <li>Lambda</li>
+            <li>API Gateway</li>
+            <li>Route53</li>
+            <li>CloudFront</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>Repository</h3>
+      <ul className="wrapper">
+        <li>
+          Server:
+          <OpenLink link="https://github.com/rlawnsxo131/devlog-server" />
+        </li>
+        <li>
+          Client:
+          <OpenLink link="https://github.com/rlawnsxo131/devlog-client" />
+        </li>
+      </ul>
     </Block>
   );
 }
@@ -46,29 +73,29 @@ const Block = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-`;
-
-const ItemWrapper = styled.div<{ direction?: boolean }>`
-  display: flex;
-  flex-flow: ${(props) => (props.direction ? 'column' : 'row wrap')};
-  .list {
-    display: flex;
-    flex-direction: column;
-    margin-left: 2rem;
+  ul[class='wrapper'] {
     margin-top: 0.5rem;
+    margin-left: 2rem;
   }
-  & + & {
+  ul + h3 {
     margin-top: 1rem;
   }
-`;
-
-const Item = styled.span`
-  display: inline-flex;
-  font-weight: bold;
-  color: ${palette.gray9};
-  margin-right: 0.3rem;
-  & + & {
-    margin-top: 0.5rem;
+  ul {
+    font-weight: 500;
+    line-height: 1.5;
+    ul {
+      font-weight: 400;
+      margin-left: 2rem;
+    }
+    ${media.xsmall} {
+      font-size: 0.85rem;
+    }
+    ${media.medium} {
+      font-size: 0.875rem;
+    }
+    ${media.large} {
+      font-size: 1rem;
+    }
   }
 `;
 

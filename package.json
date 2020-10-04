@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start -p 8080",
     "deploy:production": "NODE_ENV=production serverless deploy --stage production --force",
-    "invalidate": "aws cloudfront create-invalidation --distribution-id E7Y888TVWHEM9 --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico"
+    "invalidate": "aws cloudfront create-invalidation --distribution-id E3V0DJ9LLL72KY --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",

@@ -35,7 +35,7 @@ const StyledLink = styled.a<{ color: string; hoverColor: string }>`
     color: ${(props) => props.hoverColor};
   }
   & + & {
-    margin-top: 0.5rem;
+    margin-top: 0.725rem;
   }
 `;
 
