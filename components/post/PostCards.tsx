@@ -32,9 +32,7 @@ function PostCards(props: PostCardsProps) {
         <meta property="og:title" content="DevLog" />
         <meta
           property="og:description"
-          content={
-            query.tag ? `DevLog: ${query.tag}에 관한 글목록` : '전체 글목록'
-          }
+          content={query.tag ? `${query.tag}에 관한 글목록` : '전체 글목록'}
         />
         <meta
           property="og:url"

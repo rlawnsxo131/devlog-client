@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 import OpenLink from '../components/common/OpenLink';
-import palette from '../lib/styles/palette';
 import media from '../lib/styles/media';
 
 type InfoProps = {};
