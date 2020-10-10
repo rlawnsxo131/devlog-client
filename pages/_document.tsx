@@ -38,7 +38,10 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="shortcut icon" href="/static/favicon.ico" />
-          <meta property="og:image" content="" />
+          <meta
+            property="og:image"
+            content="https://image-devlog.juntae.kim/logo/devlog_second.jpeg"
+          />
         </Head>
         <body>
           <Main />
