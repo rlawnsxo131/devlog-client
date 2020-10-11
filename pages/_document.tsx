@@ -40,7 +40,7 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <meta
             property="og:image"
-            content="https://image-devlog.juntae.kim/logo/devlog_second(800).jpeg"
+            content="https://image-devlog.juntae.kim/logo/devlog.png"
           />
         </Head>
         <body>
