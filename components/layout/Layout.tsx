@@ -4,6 +4,7 @@ import Main from './Main';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import media from '../../lib/styles/media';
+import palette from '../../lib/styles/palette';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ function Layout({ children }: LayoutProps) {
       <GlobalStyle />
       <Header />
       <Main>{children}</Main>
+      <div className="copyright">© 2020 · DevLog</div>
     </Block>
   );
 }
@@ -22,8 +24,21 @@ function Layout({ children }: LayoutProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+  ${media.xsmall} {
+    .copyright {
+      display: none;
+    }
+  }
   ${media.medium} {
     min-height: 100vh;
+    .copyright {
+      display: block;
+      position: fixed;
+      bottom: 1rem;
+      right: 0.5rem;
+      font-size: 0.8rem;
+      color: ${palette.gray6};
+    }
   }
 `;
 
