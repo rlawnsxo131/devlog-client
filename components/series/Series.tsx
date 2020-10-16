@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_SERIES, SeriesType } from '../../graphql/series';
 import SeriesItem from './SeriesItem';
+import SeriesSkelleton from './SeriesSkelleton';
 
 type SeriesProps = {};
 
@@ -12,7 +13,7 @@ function Series(props: SeriesProps) {
   const { loading, error, data } = useQuery<{ series: Array<SeriesType> }>(
     GET_SERIES,
   );
-  if (loading) return <div>loading</div>;
+  if (loading) return <SeriesSkelleton />;
   if (error) return <div>error</div>;
 
   return (

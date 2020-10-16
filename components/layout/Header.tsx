@@ -76,6 +76,7 @@ const Block = styled.header<{ scrollDirection?: ScrollDirectionType }>`
   box-shadow: 1px 1px 10px 2px ${palette.gray1};
   background: white;
   transition: top 0.25s;
+  z-index: 10;
   h2:hover {
     cursor: pointer;
   }
