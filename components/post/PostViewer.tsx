@@ -3,6 +3,7 @@ import 'highlight.js';
 import codeSyntaxHighlightPlugin from '@toast-ui/editor-plugin-code-syntax-highlight';
 import styled from 'styled-components';
 import media from '../../lib/styles/media';
+import palette from '../../lib/styles/palette';
 
 let Viewer: any = null;
 if (typeof window !== 'undefined') {
@@ -40,6 +41,14 @@ const Block = styled.div`
     h5,
     h6 {
       border-bottom: none;
+    }
+    blockquote {
+      padding: 1rem;
+      background: ${palette.gray0};
+      border-left: 4px solid ${palette.pink5};
+      & > * {
+        color: ${palette.gray9};
+      }
     }
     ${media.xsmall} {
       width: calc(100vw - 6vw);
