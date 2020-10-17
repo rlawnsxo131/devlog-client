@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { Pharagraph } from '../common/Pharagraph';
 import { LengthPharagraph } from '../common/Pharagraph';
 
-type SereisItemSkelletonProps = {
+type SeriesItemSkelletonProps = {
   seriesKey: number;
 };
 
 const { useRef } = React;
-function SereisItemSkelleton({ seriesKey }: SereisItemSkelletonProps) {
+function SeriesItemSkelleton({ seriesKey }: SeriesItemSkelletonProps) {
   const array = useRef<Array<number>>([1, 2, 3, 4, 5]);
   return (
     <Block>
@@ -36,4 +36,4 @@ const Block = styled.div`
   }
 `;
 
-export default SereisItemSkelleton;
+export default SeriesItemSkelleton;

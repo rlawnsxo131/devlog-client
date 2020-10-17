@@ -53,11 +53,25 @@ export const LengthPharagraph = memo(({ length }: LengthPharagraphProps) => {
     <LengthPharagraphBlock>{lengthPharagraph.current}</LengthPharagraphBlock>
   );
 });
-
 const LengthPharagraphBlock = styled.div`
   display: flex;
   flex-flow: row wrap;
   div {
     margin-bottom: 1rem;
   }
+`;
+
+type BlockPharagraphProps = {
+  height: number;
+};
+export const BlockPharagraph = memo(({ height }: BlockPharagraphProps) => {
+  return <BlockPharagraphBlock height={height} />;
+});
+const BlockPharagraphBlock = styled.div<BlockPharagraphProps>`
+  height: ${(props) => `${props.height}rem`};
+  background: ${palette.gray1};
+  animation: ${shining} 1s ease-in-out infinite;
+  display: block;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
 `;

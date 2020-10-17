@@ -2,6 +2,7 @@ import * as React from 'react';
 import { SeriesType } from '../../graphql/series';
 import styled from 'styled-components';
 import Linker from '../common/Linker';
+import palette from '../../lib/styles/palette';
 
 type SeriesItemProps = {
   series: SeriesType;
@@ -28,6 +29,9 @@ function SeriesItem({ series }: SeriesItemProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+  border: 1px solid ${palette.gray2};
+  padding: 1rem;
+  border-radius: 1rem;
   .posts {
     margin-top: 0.5rem;
     margin-left: 1.5rem;

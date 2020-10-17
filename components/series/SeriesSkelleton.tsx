@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import SereisItemSkelleton from './SereisItemSkelleton';
+import SeriesItemSkelleton from './SeriesItemSkelleton';
 
 type SeriesSkelletonProps = {};
 
@@ -10,7 +10,7 @@ function SeriesSkelleton(props: SeriesSkelletonProps) {
   return (
     <Block>
       {array.current.map((v, i) => (
-        <SereisItemSkelleton key={`series${i}`} seriesKey={i} />
+        <SeriesItemSkelleton key={`series${i}`} seriesKey={i} />
       ))}
     </Block>
   );

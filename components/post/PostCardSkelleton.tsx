@@ -23,7 +23,7 @@ function PostCardSkelleton(props: PostCardSkelletonProps) {
           <Pharagraph key={`tag${i}`} width={v} height={1.25} />
         ))}
       </div>
-      <div>
+      <div className="post-content">
         <LengthPharagraph length={12} />
       </div>
     </Block>

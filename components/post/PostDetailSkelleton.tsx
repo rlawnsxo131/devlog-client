@@ -1,6 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Pharagraph, LengthPharagraph } from '../common/Pharagraph';
+import {
+  Pharagraph,
+  LengthPharagraph,
+  BlockPharagraph,
+} from '../common/Pharagraph';
 
 type PostDetailSkelletonProps = {};
 
@@ -29,6 +33,9 @@ function PostDetailSkelleton(props: PostDetailSkelletonProps) {
       </div>
       <div className="post-body">
         <LengthPharagraph length={250} />
+      </div>
+      <div className="comment-write">
+        <BlockPharagraph height={7.5} />
       </div>
     </Block>
   );

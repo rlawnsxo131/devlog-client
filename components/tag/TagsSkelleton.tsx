@@ -4,34 +4,24 @@ import { Pharagraph } from '../common/Pharagraph';
 
 type TagsSkelletonProps = {};
 
+function Item() {
+  return (
+    <>
+      {[6, 5, 6, 4, 6, 5, 3, 5, 6, 5].map((v, i) => (
+        <Pharagraph key={`tag${i}`} width={v} height={1.25} />
+      ))}
+    </>
+  );
+}
+
+const { useRef } = React;
 function TagsSkelleton(props: TagsSkelletonProps) {
+  const array = useRef<Array<number>>(Array.from({ length: 30 }, (v, i) => i));
   return (
     <Block>
-      <div className="block">
-        {[6, 5, 6, 4, 7, 5].map((v, i) => (
-          <Pharagraph key={`tag1${i}`} width={v} height={1.5} />
-        ))}
-      </div>
-      <div className="block">
-        {[6, 4, 6, 4, 7, 5].map((v, i) => (
-          <Pharagraph key={`tag2${i}`} width={v} height={1.5} />
-        ))}
-      </div>
-      <div className="block">
-        {[6, 5, 5, 4, 7, 5].map((v, i) => (
-          <Pharagraph key={`tag3${i}`} width={v} height={1.5} />
-        ))}
-      </div>
-      <div className="block">
-        {[6, 5, 3, 4, 7, 5].map((v, i) => (
-          <Pharagraph key={`tag4${i}`} width={v} height={1.5} />
-        ))}
-      </div>
-      <div className="block">
-        {[6, 5, 6, 4, 6, 5].map((v, i) => (
-          <Pharagraph key={`tag5${i}`} width={v} height={1.5} />
-        ))}
-      </div>
+      {array.current.map((v, i) => (
+        <Item key={i} />
+      ))}
     </Block>
   );
 }
