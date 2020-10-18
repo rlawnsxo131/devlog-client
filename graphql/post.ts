@@ -7,8 +7,7 @@ export type PostType = {
   short_description: string;
   open_yn: boolean;
   series_id: number;
-  created_at: Date;
-  updated_at: Date;
+  released_at: Date;
   tags: Array<string>;
   comments_count: number;
 };
@@ -29,8 +28,7 @@ export const GET_POST = gql`
       short_description
       open_yn
       series_id
-      created_at
-      updated_at
+      released_at
       tags
       comments_count
       series_posts {
@@ -51,8 +49,7 @@ export const GET_POSTS = gql`
       short_description
       open_yn
       series_id
-      created_at
-      updated_at
+      released_at
       tags
     }
   }

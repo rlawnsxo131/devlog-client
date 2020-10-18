@@ -43,7 +43,7 @@ const Block = styled.div`
       border-bottom: none;
     }
     blockquote {
-      padding: 1rem;
+      padding: 0.5rem 1rem 0.5rem 1rem;
       background: ${palette.gray0};
       border-left: 4px solid ${palette.pink5};
       & > * {

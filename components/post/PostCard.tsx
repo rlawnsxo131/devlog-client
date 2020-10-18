@@ -32,8 +32,7 @@ function PostCard({ post }: PostCardProps) {
         <DefaultTags tags={post.tags} />
       </div>
       <div className="post-date">
-        <span>작성: {formatDate(post.created_at)}</span>
-        <span>수정: {formatDate(post.updated_at)}</span>
+        <span>{formatDate(post.released_at)}</span>
       </div>
     </Block>
   );
@@ -42,7 +41,7 @@ function PostCard({ post }: PostCardProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
-  height: 18rem;
+  height: 16rem;
   margin-bottom: 1rem;
   padding: 2rem;
   border-radius: 0.25rem;
@@ -69,14 +68,14 @@ const Block = styled.div`
   }
 
   .tag {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .post-date {
     display: flex;
     flex-direction: column;
     span {
-      margin-bottom: 0.5rem;
+      color: ${palette.gray6};
     }
   }
 

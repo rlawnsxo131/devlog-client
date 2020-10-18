@@ -4,8 +4,6 @@ import gql from 'graphql-tag';
 export type SeriesType = {
   id: number;
   series_name: string;
-  created_at: string;
-  updated_at: string;
   posts: Array<PostType>;
   __typename?: string;
 };

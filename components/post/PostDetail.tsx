@@ -52,8 +52,7 @@ function PostDetail(props: PostDetailProps) {
           <h1>{data.post.post_header}</h1>
         </div>
         <div className="post-date">
-          <span>작성: {formatDate(data.post.created_at)}</span>
-          <span>수정: {formatDate(data.post.updated_at)}</span>
+          <span>{formatDate(data.post.released_at)}</span>
         </div>
         <div className="tags">
           {data.post.tags.length ? <DefaultTags tags={data.post.tags} /> : null}
@@ -95,22 +94,19 @@ const Block = styled.div`
       display: flex;
       flex-flow: row wrap;
       color: ${palette.gray6};
-      margin-bottom: 1rem;
-      span + span {
-        margin-left: 1rem;
-      }
+      margin-bottom: 1.5rem;
     }
 
     .tags {
       display: flex;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
 
     .short-description {
       color: ${palette.gray8};
       font-size: 1rem;
       font-weight: bold;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     .post-body {
