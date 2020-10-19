@@ -37,10 +37,13 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="shortcut icon" href="/static/favicons/favicon-32x32.png" />
+          <link
+            rel="shortcut icon"
+            href={`${process.env.PUBLIC_URL}/static/favicons/favicon-32x32.png`}
+          />
           <meta
             property="og:image"
-            content="https://image-devlog.juntae.kim/logo/devlog.png"
+            content={`${process.env.PUBLIC_IMAGE_URL}/logo/devlog.png`}
           />
         </Head>
         <body>

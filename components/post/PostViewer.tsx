@@ -39,18 +39,19 @@ const Block = styled.div`
     display: none;
   }
   .tui-editor-contents {
-    * {
-      font-family: Consolas, Courier, 'Apple SD 산돌고딕 Neo', -apple-system,
-        'Lucida Grande', 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic',
-        'Segoe UI', '돋움', dotum, sans-serif;
-    }
     h1,
     h2,
     h3,
     h4,
     h5,
-    h6 {
+    h6,
+    p,
+    span {
       border-bottom: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+        'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 나눔고딕,
+        'Nanum Gothic', 'Noto Sans KR', 'Noto Sans CJK KR', arial, 돋움, Dotum,
+        Tahoma, Geneva, sans-serif;
     }
     blockquote {
       padding: 0.5rem 1rem 0.5rem 1rem;
@@ -59,6 +60,11 @@ const Block = styled.div`
       & > * {
         color: ${palette.gray9};
       }
+    }
+    code > * {
+      font-family: Consolas, Courier, 'Apple SD 산돌고딕 Neo', -apple-system,
+        'Lucida Grande', 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic',
+        'Segoe UI', '돋움', dotum, sans-serif;
     }
     ${media.xsmall} {
       width: calc(100vw - 6vw);
