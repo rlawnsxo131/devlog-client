@@ -61,11 +61,19 @@ const Block = styled.div`
         color: ${palette.gray9};
       }
     }
-    code > * {
-      font-family: Consolas, Courier, 'Apple SD 산돌고딕 Neo', -apple-system,
-        'Lucida Grande', 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic',
-        'Segoe UI', '돋움', dotum, sans-serif;
+    pre {
+      overflow-x: auto;
+      background: rgb(251, 252, 253);
+      code {
+        white-space: unset;
+      }
+      code > * {
+        font-family: Consolas, Courier, 'Apple SD 산돌고딕 Neo', -apple-system,
+          'Lucida Grande', 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic',
+          'Segoe UI', '돋움', dotum, sans-serif;
+      }
     }
+
     ${media.xsmall} {
       width: calc(100vw - 6vw);
       h1 {
@@ -125,10 +133,6 @@ const Block = styled.div`
       code {
         font-size: 1rem;
       }
-    }
-
-    pre {
-      background: rgb(251, 252, 253);
     }
   }
 `;
