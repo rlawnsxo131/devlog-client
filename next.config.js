@@ -17,6 +17,7 @@ module.exports = {
   },
   target: process.env.BUILD_TARGET,
   assetPrefix: prod ? process.env.PUBLIC_URL : '',
+  compress: true,
   webpack: (config) => {
     return {
       ...config,
