@@ -8,11 +8,12 @@ require('dotenv').config({
       : '.env.production',
   ),
 });
+const prod = process.env.NODE_ENV === 'production';
 
 module.exports = {
   target: process.env.BUILD_TARGET,
+  assetPrefix: prod ? process.env.ASSET_PREFIX : '',
   webpack: (config) => {
-    const prod = process.env.NODE_ENV === 'production';
     return {
       ...config,
       devtool: prod ? 'hidden-source-map' : 'eval',
