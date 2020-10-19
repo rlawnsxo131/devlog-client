@@ -6,7 +6,9 @@ import media from '../../lib/styles/media';
 import palette from '../../lib/styles/palette';
 
 let Viewer: any = null;
+let colorSyntaxPlugin: any = null;
 if (typeof window !== 'undefined') {
+  colorSyntaxPlugin = require('@toast-ui/editor-plugin-color-syntax');
   Viewer = require('@toast-ui/react-editor').Viewer;
 }
 
@@ -21,7 +23,10 @@ function PostViewer({ content }: PostViewerProps) {
       {typeof window === 'undefined' ? (
         <p className="fallback">{content}</p>
       ) : (
-        <Viewer initialValue={content} plugins={[codeSyntaxHighlightPlugin]} />
+        <Viewer
+          initialValue={content}
+          plugins={[codeSyntaxHighlightPlugin, colorSyntaxPlugin]}
+        />
       )}
     </Block>
   );
@@ -34,6 +39,11 @@ const Block = styled.div`
     display: none;
   }
   .tui-editor-contents {
+    * {
+      font-family: Consolas, Courier, 'Apple SD 산돌고딕 Neo', -apple-system,
+        'Lucida Grande', 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic',
+        'Segoe UI', '돋움', dotum, sans-serif;
+    }
     h1,
     h2,
     h3,

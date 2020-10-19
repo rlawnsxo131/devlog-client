@@ -4,9 +4,8 @@ import { AppContext, AppInitialProps, AppProps } from 'next/app';
 import { AppContextType } from 'next/dist/next-server/lib/utils';
 import { Router } from 'next/dist/client/router';
 import Layout from '../components/layout/Layout';
-import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import 'highlight.js/styles/atom-one-light.css';
-import 'codemirror/lib/codemirror.css';
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
