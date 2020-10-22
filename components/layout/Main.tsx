@@ -16,12 +16,14 @@ function Main({ children }: MainProps) {
 }
 
 const Block = styled.main`
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding-left: 3vw;
   padding-right: 3vw;
 
   .main-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
   }

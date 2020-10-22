@@ -13,24 +13,24 @@ function Navigation(props: NavigationProps) {
   return (
     <Block>
       <Link href="/">
-        <StyledLink className={!routerValue.length ? 'active' : ''}>
+        <CustomAnchor className={!routerValue.length ? 'active' : ''}>
           <h3>New</h3>
-        </StyledLink>
+        </CustomAnchor>
       </Link>
       <Link href="/series">
-        <StyledLink className={routerValue === 'series' ? 'active' : ''}>
+        <CustomAnchor className={routerValue === 'series' ? 'active' : ''}>
           <h3>Series</h3>
-        </StyledLink>
+        </CustomAnchor>
       </Link>
       <Link href="/tags">
-        <StyledLink className={routerValue === 'tags' ? 'active' : ''}>
+        <CustomAnchor className={routerValue === 'tags' ? 'active' : ''}>
           <h3>Tags</h3>
-        </StyledLink>
+        </CustomAnchor>
       </Link>
       <Link href="/info">
-        <StyledLink className={routerValue === 'info' ? 'active' : ''}>
+        <CustomAnchor className={routerValue === 'info' ? 'active' : ''}>
           <h3>Info</h3>
-        </StyledLink>
+        </CustomAnchor>
       </Link>
     </Block>
   );
@@ -49,7 +49,7 @@ const Block = styled.nav`
   }
 `;
 
-const StyledLink = styled.a`
+const CustomAnchor = styled.a`
   display: flex;
   flex-flow: row wrap;
   padding: 0.25rem 0.7rem 0.25rem 0.7rem;

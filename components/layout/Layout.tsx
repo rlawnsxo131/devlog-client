@@ -24,13 +24,13 @@ function Layout({ children }: LayoutProps) {
 const Block = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   ${media.xsmall} {
     .copyright {
       display: none;
     }
   }
   ${media.medium} {
-    min-height: 100vh;
     .copyright {
       display: block;
       position: fixed;

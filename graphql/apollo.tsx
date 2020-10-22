@@ -13,7 +13,7 @@ function initHttpLink(headers: { cookie?: string } | undefined): ApolloLink {
   let httpLink: ApolloLink;
   if (typeof window === 'undefined') {
     httpLink = createHttpLink({
-      uri: process.env.API_URI,
+      uri: process.env.PUBLIC_API_URI,
       credentials: 'include',
       fetch: fetch as any,
       headers,

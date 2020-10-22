@@ -3,7 +3,7 @@ import { useRouter } from 'next/dist/client/router';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_POST } from '../../graphql/post';
 import styled from 'styled-components';
-import { formatDate } from '../../lib/utils';
+import { formatDate, getErrorCode } from '../../lib/utils';
 import palette from '../../lib/styles/palette';
 import DefaultTags from '../tag/DefaultTags';
 import PostViewer from './PostViewer';
@@ -12,13 +12,20 @@ import Head from 'next/head';
 import PostDetailSkelleton from './PostDetailSkelleton';
 import media from '../../lib/styles/media';
 import SeriesPosts from './series/SeriesPosts';
+import Custom404 from '../../pages/404';
+import ErrorPageWrapper from '../common/ErrorPageWrapper';
 
 type PostDetailProps = {};
 
-const { memo } = React;
+const { memo, useEffect } = React;
 function PostDetail(props: PostDetailProps) {
   const { query } = useRouter();
-  if (!query.id) return <div>not found id</div>;
+  if (!query.id) return <ErrorPageWrapper code={404} />;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { loading, error, data } = useQuery(GET_POST, {
     variables: {
       id: query.id,
@@ -26,7 +33,10 @@ function PostDetail(props: PostDetailProps) {
   });
 
   if (loading) return <PostDetailSkelleton />;
-  if (error) return <div>error</div>;
+  if (error) {
+    const code = getErrorCode(error);
+    return <ErrorPageWrapper code={code} />;
+  }
 
   return (
     <Block>
