@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_SERIES, SeriesType } from '../../graphql/series';
 import SeriesItem from './SeriesItem';
 import SeriesSkelleton from './SeriesSkelleton';
+import HeadWrapper from '../common/HeadWrapper';
 
 type SeriesProps = {};
 
@@ -18,6 +19,11 @@ function Series(props: SeriesProps) {
 
   return (
     <Block>
+      <HeadWrapper
+        title="시리즈 - DevLog"
+        description="시리즈 글 목록"
+        url="series"
+      />
       <Head>
         <title>시리즈 - DevLog</title>
         <meta name="description" content="시리즈 글 목록" />

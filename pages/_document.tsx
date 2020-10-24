@@ -6,6 +6,7 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { GA_TRAKING_ID } from '../lib/gtag';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -34,17 +35,36 @@ class MyDocument extends Document {
   }
 
   render() {
+    const { NODE_ENV, PUBLIC_URL } = process.env;
+    const prod = NODE_ENV === 'production';
     return (
       <Html>
         <Head>
-          <link
-            rel="shortcut icon"
-            href={`${process.env.PUBLIC_URL}/static/favicons/favicon-32x32.png`}
-          />
-          <meta
-            property="og:image"
-            content={`${process.env.PUBLIC_IMAGE_URL}/logo/devlog.png`}
-          />
+          {prod && (
+            <>
+              {/* Global Site Tag (gtag.js) - Google Analytics */}
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRAKING_ID}`}
+              ></script>
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  
+                  gtag('config', '${GA_TRAKING_ID}', {
+                    page_path: window.location.pathname,
+                  });`,
+                }}
+              ></script>
+              <link
+                rel="shortcut icon"
+                href={`${PUBLIC_URL}/static/favicons/favicon-32x32.png`}
+              />
+            </>
+          )}
         </Head>
         <body>
           <Main />

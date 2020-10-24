@@ -20,8 +20,8 @@ export type SeriesPostType = {
 };
 
 export const GET_POST = gql`
-  query GetPost($id: ID!) {
-    post(id: $id) {
+  query GetPost($id: ID!, $post_header: String!) {
+    post(id: $id, post_header: $post_header) {
       id
       post_header
       post_body

@@ -1,22 +1,15 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Head from 'next/head';
 import OpenLink from '../components/common/OpenLink';
 import media from '../lib/styles/media';
+import HeadWrapper from '../components/common/HeadWrapper';
 
 type InfoProps = {};
 
 function InfoPage(props: InfoProps) {
   return (
     <Block>
-      <Head>
-        <title>Info - DevLog</title>
-        <meta name="description" content="DevLog 소개" />
-        <meta property="og:title" content="DevLog" />
-        <meta property="og:description" content="DevLog 소개" />
-        <meta property="og:url" content="https://devlog.juntae.kim/info" />
-        <meta property="og:type" content="article" />
-      </Head>
+      <HeadWrapper title="DevLog - Info" description="DevLog 소개" url="info" />
       <h3>DevLog Tech Stack</h3>
       <ul className="wrapper">
         <li>Typescript</li>

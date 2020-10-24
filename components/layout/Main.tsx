@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import media from '../../lib/styles/media';
-import MobileNavigation from './MobileNavigation';
 
 type MainProps = {
   children: React.ReactNode;

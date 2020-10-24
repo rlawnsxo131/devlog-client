@@ -5,6 +5,8 @@ import { withApollo } from '../graphql/apollo';
 import CountTags from '../components/tag/CountTags';
 import Head from 'next/head';
 import TagsSkelleton from '../components/tag/TagsSkelleton';
+import ErrorPageWrapper from '../components/common/ErrorPageWrapper';
+import { getErrorCode } from '../lib/utils';
 
 type TagsProps = {};
 
@@ -12,7 +14,10 @@ function TagsPage(props: TagsProps) {
   const { loading, error, data } = useQuery(GET_TAGS);
 
   if (loading) return <TagsSkelleton />;
-  if (error) return <div>error</div>;
+  if (error) {
+    const code = getErrorCode(error);
+    return <ErrorPageWrapper code={code} />;
+  }
 
   return (
     <>
@@ -21,8 +26,12 @@ function TagsPage(props: TagsProps) {
         <meta name="description" content="전체 태그목록" />
         <meta property="og:title" content="DevLog" />
         <meta property="og:description" content="전체 태그목록" />
-        <meta property="og:url" content="https://devlog.juntae.kim/tags" />
+        <meta
+          property="og:url"
+          content={`${process.env.DEVLOG_SERVICE_URL}/tags`}
+        />
         <meta property="og:type" content="article" />
+        <link rel="canonical" href={`${process.env.DEVLOG_SERVICE_URL}/tags`} />
       </Head>
       <CountTags tags={data.tags} />
     </>

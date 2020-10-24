@@ -4,8 +4,10 @@ import PostCard from './PostCard';
 import { useRouter } from 'next/dist/client/router';
 import { GET_POSTS, PostType } from '../../graphql/post';
 import { useQuery } from '@apollo/react-hooks';
-import Head from 'next/head';
 import PostCardsSkelleton from './PostCardsSkelleton';
+import ErrorPageWrapper from '../common/ErrorPageWrapper';
+import { getErrorCode } from '../../lib/utils';
+import HeadWrapper from '../common/HeadWrapper';
 
 type PostCardsProps = {};
 
@@ -19,28 +21,18 @@ function PostCards(props: PostCardsProps) {
   });
 
   if (loading) return <PostCardsSkelleton />;
-  if (error) return <div>error</div>;
+  if (error) {
+    const code = getErrorCode(error);
+    return <ErrorPageWrapper code={code} />;
+  }
 
   return (
     <Block>
-      <Head>
-        <title>{query.tag ? `${query.tag} - ` : ''}DevLog</title>
-        <meta name="description" content="DevLog" />
-        <meta property="og:title" content="DevLog" />
-        <meta
-          property="og:url"
-          content={`https://devlog.juntae.kim${
-            query.tag ? `posts/${query.tag}` : ''
-          }`}
-        />
-        <meta property="og:type" content="article" />
-        {query.tag && (
-          <meta
-            property="og:description"
-            content={`${query.tag}에 관한 글목록`}
-          />
-        )}
-      </Head>
+      <HeadWrapper
+        title={query.tag ? `DevLog - ${query.tag}` : 'DevLog'}
+        description={query.tag ? `${query.tag}에 관한 글목록` : ''}
+        url={`${query.tag ? `posts/${query.tag}` : ''}`}
+      />
       {data.posts.map((val: PostType, idx: number) => (
         <PostCard key={`${val.id}${idx}`} post={val} />
       ))}

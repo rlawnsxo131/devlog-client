@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { getRandomInt } from '../../lib/utils';
 

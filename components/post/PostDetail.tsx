@@ -8,19 +8,19 @@ import palette from '../../lib/styles/palette';
 import DefaultTags from '../tag/DefaultTags';
 import PostViewer from './PostViewer';
 import Comments from './comment/Comments';
-import Head from 'next/head';
 import PostDetailSkelleton from './PostDetailSkelleton';
 import media from '../../lib/styles/media';
 import SeriesPosts from './series/SeriesPosts';
-import Custom404 from '../../pages/404';
 import ErrorPageWrapper from '../common/ErrorPageWrapper';
+import HeadWrapper from '../common/HeadWrapper';
 
 type PostDetailProps = {};
 
 const { memo, useEffect } = React;
 function PostDetail(props: PostDetailProps) {
   const { query } = useRouter();
-  if (!query.id) return <ErrorPageWrapper code={404} />;
+  const { id, title: post_header } = query;
+  if (!id || !post_header) return <ErrorPageWrapper code={404} />;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,7 +28,8 @@ function PostDetail(props: PostDetailProps) {
 
   const { loading, error, data } = useQuery(GET_POST, {
     variables: {
-      id: query.id,
+      id,
+      post_header,
     },
   });
 
@@ -40,23 +41,11 @@ function PostDetail(props: PostDetailProps) {
 
   return (
     <Block>
-      <Head>
-        <title>{`${data.post.post_header} - DevLog`}</title>
-        <meta name="description" content={`${data.post.short_description}`} />
-        <meta
-          property="og:title"
-          content={`${data.post.post_header} - DevLog`}
-        />
-        <meta
-          property="og:description"
-          content={`${data.post.short_description}`}
-        />
-        <meta
-          property="og:url"
-          content={`https://devlog.juntae.kim/posts/${data.post.post_header}?id=${query.id}`}
-        />
-        <meta property="og:type" content="article" />
-      </Head>
+      <HeadWrapper
+        title={data.post.post_header}
+        description={data.post.short_desription}
+        url={`post/${post_header}?id=${id}`}
+      />
       <div className="post-wrapper">
         <div className="post-header">
           <h1>{data.post.post_header}</h1>

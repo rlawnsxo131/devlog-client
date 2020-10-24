@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import palette from '../lib/styles/palette';
 import RedirectHomeLink from '../components/common/RedirectHomeLink';
 
 type Custom404Props = {};

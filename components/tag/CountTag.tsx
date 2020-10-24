@@ -11,15 +11,15 @@ type CountTagProps = {
 function CountTag({ tag, count }: CountTagProps) {
   return (
     <Link href={`/posts/${tag}`}>
-      <StyledLink>
+      <CustomAnchor>
         <span>{tag}</span>
         <span className="count">{count}</span>
-      </StyledLink>
+      </CustomAnchor>
     </Link>
   );
 }
 
-const StyledLink = styled.a`
+const CustomAnchor = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;

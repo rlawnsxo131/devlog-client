@@ -26,13 +26,11 @@ function CommentCard({ reply, repliesFullCount }: CommentCardProps) {
   });
   const [showEditPassword, setShowEditPassword] = useState<boolean>(false);
   // data -> email 기능 추가시 필요
-  const { data, editMode, setEditMode, handleConfirmPassword } = useCommentCard(
-    {
-      comment_id: reply.id,
-      password: state.password,
-      setShowEditPassword,
-    },
-  );
+  const { editMode, setEditMode, handleConfirmPassword } = useCommentCard({
+    comment_id: reply.id,
+    password: state.password,
+    setShowEditPassword,
+  });
 
   const handleShowReply = useCallback(() => {
     if (showReply && reply.has_replies) {

@@ -13,8 +13,8 @@
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@apollo/react-ssr": "^4.0.0",
-    "@toast-ui/editor-plugin-color-syntax": "^1.0.1",
     "@toast-ui/editor-plugin-code-syntax-highlight": "^1.0.0",
+    "@toast-ui/editor-plugin-color-syntax": "^1.0.1",
     "@toast-ui/react-editor": "^2.4.0",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
@@ -30,6 +30,7 @@
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.3",
     "@types/next": "^9.0.0",
     "@types/node": "^14.11.10",
     "@types/node-fetch": "^2.5.7",
