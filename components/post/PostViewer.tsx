@@ -46,7 +46,8 @@ const Block = styled.div`
     h5,
     h6,
     p,
-    span {
+    span,
+    li {
       border-bottom: none;
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
         'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 나눔고딕,
@@ -74,6 +75,21 @@ const Block = styled.div`
       }
     }
 
+    ol > li::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: ${palette.pink8};
+      font-weight: bold;
+    }
+
+    ul > li::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: ${palette.pink8};
+    }
+
     ${media.xsmall} {
       width: calc(100vw - 6vw);
       h1 {
@@ -90,7 +106,8 @@ const Block = styled.div`
       }
       span,
       p,
-      code {
+      code,
+      li {
         font-size: 0.85rem;
       }
     }
@@ -112,7 +129,8 @@ const Block = styled.div`
       }
       span,
       p,
-      code {
+      code,
+      li {
         font-size: 0.875rem;
       }
     }
@@ -130,7 +148,8 @@ const Block = styled.div`
       }
       span,
       p,
-      code {
+      code,
+      li {
         font-size: 1rem;
       }
     }
