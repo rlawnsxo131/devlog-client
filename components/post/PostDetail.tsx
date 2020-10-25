@@ -31,6 +31,7 @@ function PostDetail(props: PostDetailProps) {
       id,
       post_header,
     },
+    fetchPolicy: 'cache-and-network',
   });
 
   if (loading) return <PostDetailSkelleton />;
