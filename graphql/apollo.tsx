@@ -13,14 +13,14 @@ function initHttpLink(headers: { cookie?: string } | undefined): ApolloLink {
   let httpLink: ApolloLink;
   if (typeof window === 'undefined') {
     httpLink = createHttpLink({
-      uri: process.env.PUBLIC_API_URI,
+      uri: `${process.env.PUBLIC_API_URI}/graphql`,
       credentials: 'include',
       fetch: fetch as any,
       headers,
     });
   } else {
     httpLink = createHttpLink({
-      uri: process.env.NEXT_PUBLIC_API_URI,
+      uri: `${process.env.NEXT_PUBLIC_API_URI}/graphql`,
       credentials: 'include',
       headers,
     });

@@ -4,45 +4,44 @@ import palette from '../../lib/styles/palette';
 import DefaultTags from '../tag/DefaultTags';
 import { PostType } from '../../graphql/post';
 import { formatDate } from '../../lib/utils';
-
-import Link from 'next/link';
+import { useRouter } from 'next/dist/client/router';
 
 type PostCardProps = {
   post: PostType;
 };
 
-const { memo } = React;
+const { memo, useCallback } = React;
 function PostCard({ post }: PostCardProps) {
+  const router = useRouter();
+  const handlePostDetail = useCallback(() => {
+    router.push({
+      pathname: `/post/${post.post_header}`,
+      query: { id: post.id },
+    });
+  }, []);
   return (
-    <Link
-      href={{
-        pathname: `/post/${post.post_header}`,
-        query: { id: post.id },
-      }}
-    >
-      <CustomAnchor>
-        <div className="post-header">
-          <h2>{post.post_header}</h2>
-          {post.series_id ? <span>series</span> : null}
-        </div>
-        <div className="short-description">
-          <span>{post.short_description}</span>
-        </div>
-        <div className="tag">
-          <DefaultTags tags={post.tags} />
-        </div>
-        <div className="post-date">
-          <span>{formatDate(post.released_at)}</span>
-        </div>
-      </CustomAnchor>
-    </Link>
+    <Block onClick={handlePostDetail}>
+      <div className="post-header">
+        <h2>{post.post_header}</h2>
+        {post.series_id ? <span>series</span> : null}
+      </div>
+      <div className="short-description">
+        <span>{post.short_description}</span>
+      </div>
+      <div className="tag">
+        <DefaultTags tags={post.tags} />
+      </div>
+      <div className="post-date">
+        <span>{formatDate(post.released_at)}</span>
+      </div>
+    </Block>
   );
 }
 
-const CustomAnchor = styled.a`
+const Block = styled.div`
   display: flex;
   flex-direction: column;
-  height: 12rem;
+  height: 16rem;
   margin-bottom: 1rem;
   padding: 2rem;
   border-radius: 0.25rem;

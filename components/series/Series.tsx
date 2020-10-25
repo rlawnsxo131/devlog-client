@@ -6,6 +6,8 @@ import { GET_SERIES, SeriesType } from '../../graphql/series';
 import SeriesItem from './SeriesItem';
 import SeriesSkelleton from './SeriesSkelleton';
 import HeadWrapper from '../common/HeadWrapper';
+import ErrorPageWrapper from '../common/ErrorPageWrapper';
+import { getErrorCode } from '../../lib/utils';
 
 type SeriesProps = {};
 
@@ -15,7 +17,10 @@ function Series(props: SeriesProps) {
     GET_SERIES,
   );
   if (loading) return <SeriesSkelleton />;
-  if (error) return <div>error</div>;
+  if (error) {
+    const code = getErrorCode(error);
+    return <ErrorPageWrapper code={code} />;
+  }
 
   return (
     <Block>
