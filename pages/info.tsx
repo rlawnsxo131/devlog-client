@@ -11,7 +11,28 @@ function InfoPage(props: InfoProps) {
   return (
     <Block>
       <HeadWrapper title="DevLog - Info" description="DevLog 소개" url="info" />
-      <h2 className="description">Personal Development blog by John</h2>
+      <div className="description">
+        <div className="greeting">
+          <h2>Personal Development blog by John</h2>
+          <p>
+            2018년 1월, 28살이 되던해 int 가 무엇인지 배운 늦깎이 개발자 입니다.
+          </p>
+          <p>
+            판교에 있는 한 스타트업에서 웹, 앱의 서버와 웹 프론트엔드 개발을하고
+            있습니다.
+          </p>
+          <p>새로운걸 이것저것 해보고 싶은 개발자 입니다.</p>
+        </div>
+        <div className="email-contact">
+          <a
+            href="mailto: public.juntae@gmail.com"
+            title="email"
+            target="_blank"
+          >
+            public.juntae@gmail.com
+          </a>
+        </div>
+      </div>
       <h3>DevLog Tech Stack</h3>
       <ul className="wrapper">
         <li>Typescript</li>
@@ -68,15 +89,45 @@ const Block = styled.div`
   flex-direction: column;
   padding: 1rem;
 
+  .description {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid ${palette.gray3};
+    .greeting {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.5rem;
+      h2 {
+        margin-bottom: 1rem;
+      }
+      p {
+        font-weight: 500;
+        color: ${palette.gray7};
+        line-height: 2rem;
+      }
+    }
+    .email-contact {
+      display: flex;
+      align-items: center;
+      border-left: 3px solid ${palette.pink8};
+      padding: 0.5rem 0.5rem 0.725rem 0.5rem;
+      background: ${palette.pink0};
+      a {
+        font-weight: 500;
+        color: ${palette.pink6};
+        &:hover {
+          cursor: pointer;
+          color: ${palette.pink5};
+        }
+      }
+    }
+  }
+
   h2,
   h3 {
     color: ${palette.gray9};
-  }
-
-  .description {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid ${palette.gray3};
   }
 
   ul[class='wrapper'] {
