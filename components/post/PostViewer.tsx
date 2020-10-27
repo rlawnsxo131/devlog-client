@@ -79,7 +79,7 @@ const Block = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      color: ${palette.pink8};
+      color: ${palette.gray9};
       font-weight: bold;
     }
 
@@ -87,7 +87,8 @@ const Block = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      background: ${palette.pink8};
+      background: ${palette.gray9};
+      font-weight: bold;
     }
 
     ${media.xsmall} {
