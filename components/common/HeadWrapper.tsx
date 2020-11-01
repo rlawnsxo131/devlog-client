@@ -8,7 +8,6 @@ type HeadWrapperProps = {
 };
 
 function HeadWrapper({ title, description, url }: HeadWrapperProps) {
-  console.log(description);
   return (
     <Head>
       <title>{title}</title>
