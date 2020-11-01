@@ -44,7 +44,7 @@ function PostDetail(props: PostDetailProps) {
     <Block>
       <HeadWrapper
         title={data.post.post_header}
-        description={data.post.short_desription}
+        description={data.post.short_description}
         url={`post/${post_header}?id=${id}`}
       />
       <div className="post-wrapper">

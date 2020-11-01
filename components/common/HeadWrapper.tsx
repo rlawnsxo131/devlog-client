@@ -8,10 +8,14 @@ type HeadWrapperProps = {
 };
 
 function HeadWrapper({ title, description, url }: HeadWrapperProps) {
+  console.log(description);
   return (
     <Head>
       <title>{title}</title>
-      <meta name="description" content={description} />
+      <meta
+        name="description"
+        content={description ? description : '준태의 개인적인 DevLog'}
+      />
       <meta property="og:title" content={title} />
       <meta
         property="og:image"
