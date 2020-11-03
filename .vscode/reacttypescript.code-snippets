@@ -31,5 +31,15 @@
 			"",
 			"export default ${TM_FILENAME_BASE};"
 		]
+	},
+	"TypescriptReactHooks": {
+		"prefix": "ho",
+		"body": [
+			"type ${TM_FILENAME_BASE} = {}",
+			"",
+			"export default function ${TM_FILENAME_BASE}(): ${TM_FILENAME_BASE} {",
+			"  return {};",
+			"}"
+		]
 	}
 }
