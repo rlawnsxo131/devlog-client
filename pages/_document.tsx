@@ -61,7 +61,15 @@ class MyDocument extends Document {
               ></script>
               <link
                 rel="shortcut icon"
+                href={`${PUBLIC_URL}/static/favicons/favicon-16x16.png`}
+              />
+              <link
+                rel="shortcut icon"
                 href={`${PUBLIC_URL}/static/favicons/favicon-32x32.png`}
+              />
+              <link
+                rel="shortcut icon"
+                href={`${PUBLIC_URL}/static/favicons/favicon-96x96.png`}
               />
             </>
           )}
