@@ -13,7 +13,7 @@ function HeadWrapper({ title, description, url }: HeadWrapperProps) {
       <title>{title}</title>
       <meta
         name="description"
-        content={description ? description : '준태의 개인적인 DevLog'}
+        content={description ? description : '김준태 블로그(DevLog)'}
       />
       <meta property="og:title" content={title} />
       <meta
