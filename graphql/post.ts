@@ -5,6 +5,7 @@ export type PostType = {
   post_header: string;
   post_body: string;
   short_description: string;
+  thumnail?: string;
   open_yn: boolean;
   series_id: number;
   released_at: Date;
@@ -26,6 +27,7 @@ export const GET_POST = gql`
       post_header
       post_body
       short_description
+      thumnail
       open_yn
       series_id
       released_at
@@ -47,6 +49,7 @@ export const GET_POSTS = gql`
       id
       post_header
       short_description
+      thumnail
       open_yn
       series_id
       released_at

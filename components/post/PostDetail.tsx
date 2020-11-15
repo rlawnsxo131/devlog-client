@@ -13,6 +13,7 @@ import media from '../../lib/styles/media';
 import SeriesPosts from './series/SeriesPosts';
 import ErrorPageWrapper from '../common/ErrorPageWrapper';
 import HeadWrapper from '../common/HeadWrapper';
+import optimizeImage from '../../lib/optimizeImage';
 
 type PostDetailProps = {};
 
@@ -46,6 +47,7 @@ function PostDetail(props: PostDetailProps) {
         title={data.post.post_header}
         description={data.post.short_description}
         url={`post/${post_header}?id=${id}`}
+        thumnail={optimizeImage(data.post.thumnail, 800)}
       />
       <div className="post-wrapper">
         <div className="post-header">
@@ -59,6 +61,17 @@ function PostDetail(props: PostDetailProps) {
         </div>
         <div className="short-description">
           <h3>{data.post.short_description}</h3>
+        </div>
+        <div className="thumnail">
+          {data.post.thumnail && (
+            <img
+              src={optimizeImage(
+                data.post.thumnail,
+                globalThis.innerWidth > 1024 ? 1024 : globalThis.innerWidth,
+              )}
+              alt="post-thumnail"
+            />
+          )}
         </div>
         <div className="post-body">
           <PostViewer content={data.post.post_body} />
@@ -99,14 +112,29 @@ const Block = styled.div`
 
     .tags {
       display: flex;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .short-description {
       color: ${palette.gray8};
       font-size: 1rem;
       font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .thumnail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 2rem;
+      img {
+        max-width: 100%;
+        max-height: 100vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
     }
 
     .post-body {
