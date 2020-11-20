@@ -47,7 +47,7 @@ function PostDetail(props: PostDetailProps) {
         title={data.post.post_header}
         description={data.post.short_description}
         url={`post/${post_header}?id=${id}`}
-        thumnail={optimizeImage(data.post.thumnail, 800)}
+        thumnail={data.post.thumnail && optimizeImage(data.post.thumnail, 800)}
       />
       <div className="post-wrapper">
         <div className="post-header">
@@ -62,8 +62,8 @@ function PostDetail(props: PostDetailProps) {
         <div className="short-description">
           <h3>{data.post.short_description}</h3>
         </div>
-        <div className="thumnail">
-          {data.post.thumnail && (
+        {data.post.thumnail && (
+          <div className="thumnail">
             <img
               src={optimizeImage(
                 data.post.thumnail,
@@ -71,8 +71,8 @@ function PostDetail(props: PostDetailProps) {
               )}
               alt="post-thumnail"
             />
-          )}
-        </div>
+          </div>
+        )}
         <div className="post-body">
           <PostViewer content={data.post.post_body} />
         </div>

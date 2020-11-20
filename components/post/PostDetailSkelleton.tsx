@@ -1,35 +1,14 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import {
-  Pharagraph,
-  LengthPharagraph,
-  BlockPharagraph,
-} from '../common/Pharagraph';
+import { LengthPharagraph, BlockPharagraph } from '../common/Pharagraph';
 
 type PostDetailSkelletonProps = {};
 
 function PostDetailSkelleton(props: PostDetailSkelletonProps) {
   return (
     <Block>
-      <div className="post-header">
-        {[3, 5, 7, 5, 6].map((v, i) => (
-          <Pharagraph key={`header${i}`} width={v} height={1.5} />
-        ))}
-      </div>
-      <div className="tags">
-        {[5, 4, 6].map((v, i) => (
-          <Pharagraph key={`tags${i}`} width={v} height={1.25} />
-        ))}
-      </div>
-      <div className="post-date">
-        {[5, 2, 3].map((v, i) => (
-          <Pharagraph key={`date${i}`} width={v} height={0.95} />
-        ))}
-      </div>
-      <div className="short-description">
-        {[5, 3, 4, 7, 4, 6].map((v, i) => (
-          <Pharagraph key={`description${i}`} width={v} height={1} />
-        ))}
+      <div className="thumnail">
+        <BlockPharagraph height={20} />
       </div>
       <div className="post-body">
         <LengthPharagraph length={250} />

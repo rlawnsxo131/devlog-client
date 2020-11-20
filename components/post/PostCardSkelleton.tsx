@@ -1,38 +1,51 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import media from '../../lib/styles/media';
 import palette from '../../lib/styles/palette';
-import { Pharagraph, LengthPharagraph } from '../common/Pharagraph';
+import { StylePharagraph } from '../common/Pharagraph';
 
 type PostCardSkelletonProps = {};
 
 function PostCardSkelleton(props: PostCardSkelletonProps) {
   return (
     <Block>
-      <div className="post-title">
-        {[3, 5, 4, 2, 5].map((v, i) => (
-          <Pharagraph key={`title_${i}`} width={v} height={1.5} />
-        ))}
-      </div>
-      <div className="short-description">
-        {[5, 3, 2, 7, 4, 3].map((v, i) => (
-          <Pharagraph key={`description${i}`} width={v} height={1} />
-        ))}
-      </div>
-      <div className="tag">
-        {[7, 5, 6].map((v, i) => (
-          <Pharagraph key={`tag${i}`} width={v} height={1.25} />
-        ))}
-      </div>
       <div className="post-content">
-        <LengthPharagraph length={12} />
+        <StylePharagraph
+          styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
+        />
+        <StylePharagraph
+          styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
+        />
+        <StylePharagraph
+          styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
+        />
+        <StylePharagraph
+          styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
+        />
+        <StylePharagraph
+          styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
+        />
+        <StylePharagraph
+          styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
+        />
       </div>
+      <Thumnail>
+        <StylePharagraph
+          styles={`position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;`}
+        />
+      </Thumnail>
     </Block>
   );
 }
 
 const Block = styled.div`
   display: flex;
-  flex-direction: column;
   height: 14rem;
   margin-bottom: 1rem;
   padding: 2rem;
@@ -40,28 +53,40 @@ const Block = styled.div`
   box-shadow: 1px 1px 10px 2px ${palette.gray1};
   overflow: auto;
 
-  .post-title {
+  .post-content {
+    flex: 1 1 0%;
     display: flex;
-    flex-flow: row wrap;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+    div {
+      margin-bottom: 1rem;
+    }
   }
 
-  .short-description {
-    display: flex;
-    flex-flow: row wrap;
-    font-weight: bold;
-    line-height: 1.5rem;
-    margin-bottom: 2rem;
+  ${media.xsmall} {
+    flex-direction: column-reverse;
+    height: 25rem;
   }
-
-  .tag {
-    margin-bottom: 1.5rem;
+  ${media.small} {
+    flex-direction: row;
+    height: 16rem;
   }
+`;
 
-  .post-date {
-    display: flex;
-    margin-bottom: 0.5rem;
+const Thumnail = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  height: 100%;
+
+  ${media.xsmall} {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  ${media.small} {
+    width: 20rem;
+    margin-bottom: 0;
   }
 `;
 

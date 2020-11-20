@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { getRandomInt } from '../../lib/utils';
 
@@ -74,4 +74,22 @@ const BlockPharagraphBlock = styled.div<BlockPharagraphProps>`
   display: block;
   border-radius: 0.25rem;
   margin-bottom: 0.5rem;
+`;
+
+type StylePharagraphProps = {
+  styles?: string;
+};
+export const StylePharagraph = memo(({ styles }: StylePharagraphProps) => {
+  return <StylePharagraphBlock styles={styles} />;
+});
+const StylePharagraphBlock = styled.div<StylePharagraphProps>`
+  ${(props) =>
+    props.styles &&
+    css`
+      ${props.styles}
+    `}
+  background: ${palette.gray1};
+  animation: ${shining} 1s ease-in-out infinite;
+  display: block;
+  border-radius: 0.25rem;
 `;
