@@ -23,11 +23,6 @@ function PostCard({ post }: PostCardProps) {
   }, []);
   return (
     <Block onClick={handlePostDetail}>
-      <MobileThumnail>
-        {post.thumnail && (
-          <img src={optimizeImage(post.thumnail, 320)} alt="post-thumnail" />
-        )}
-      </MobileThumnail>
       <div className="post-content">
         <div className="post-header">
           <h2>{post.post_header}</h2>
@@ -43,11 +38,11 @@ function PostCard({ post }: PostCardProps) {
           <span>{formatDate(post.released_at)}</span>
         </div>
       </div>
-      <Thumnail>
-        {post.thumnail && (
-          <img src={optimizeImage(post.thumnail, 320)} alt="post-thumnail" />
-        )}
-      </Thumnail>
+      {post.thumnail && (
+        <Thumnail>
+          <img src={optimizeImage(post.thumnail, 320)} alt="post-thumnail" />d
+        </Thumnail>
+      )}
     </Block>
   );
 }
@@ -106,7 +101,7 @@ const Block = styled.div`
   }
 
   ${media.xsmall} {
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: 25rem;
   }
   ${media.small} {
@@ -115,37 +110,12 @@ const Block = styled.div`
   }
 `;
 
-const MobileThumnail = styled.div`
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 1rem;
-  img {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    display: block;
-    margin: auto;
-    object-fit: cover;
-  }
-  ${media.xsmall} {
-    display: flex;
-  }
-  ${media.small} {
-    display: none;
-  }
-`;
-
 const Thumnail = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15rem;
+  align-self: center;
   height: 100%;
   margin-bottom: 0;
   img {
@@ -159,10 +129,10 @@ const Thumnail = styled.div`
     object-fit: cover;
   }
   ${media.xsmall} {
-    display: none;
+    width: 100%;
   }
   ${media.small} {
-    display: flex;
+    width: 20rem;
   }
 `;
 
