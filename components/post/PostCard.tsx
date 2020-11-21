@@ -117,7 +117,6 @@ const Thumnail = styled.div`
   align-items: center;
   align-self: center;
   height: 100%;
-  margin-bottom: 0;
   img {
     position: absolute;
     top: 0px;
@@ -130,9 +129,11 @@ const Thumnail = styled.div`
   }
   ${media.xsmall} {
     width: 100%;
+    margin-bottom: 1rem;
   }
   ${media.small} {
     width: 20rem;
+    margin-bottom: 0;
   }
 `;
 
