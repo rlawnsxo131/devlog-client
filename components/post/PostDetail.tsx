@@ -129,7 +129,7 @@ const Block = styled.div`
       margin-bottom: 1.5rem;
       img {
         max-width: 100%;
-        max-height: 100vh;
+        max-height: 100%;
         width: auto;
         height: auto;
         object-fit: contain;
