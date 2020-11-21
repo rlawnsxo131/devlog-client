@@ -126,7 +126,7 @@ const Block = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       img {
         max-width: 100%;
         max-height: 100vh;
