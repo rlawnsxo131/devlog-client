@@ -57,7 +57,7 @@ const Block = styled.div`
   overflow: auto;
 
   .post-content {
-    flex: 1 1 0%;
+    flex: 1 1 100%;
     display: flex;
     flex-direction: column;
     .post-header {
@@ -102,6 +102,7 @@ const Block = styled.div`
 
   ${media.xsmall} {
     flex-direction: column-reverse;
+    justify-content: center;
     height: 25rem;
   }
   ${media.small} {
