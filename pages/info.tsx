@@ -37,6 +37,7 @@ function InfoPage(props: InfoProps) {
       <ul className="wrapper">
         <li>Typescript</li>
         <li>MySQL</li>
+        <li>Docker</li>
         <li>Serverless Framework</li>
         <li>
           NodeJS
