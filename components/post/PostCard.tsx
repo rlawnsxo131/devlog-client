@@ -40,7 +40,7 @@ function PostCard({ post }: PostCardProps) {
       </div>
       {post.thumnail && (
         <Thumnail>
-          <img src={optimizeImage(post.thumnail, 320)} alt="post-thumnail" />
+          <img src={optimizeImage(post.thumnail, 640)} alt="post-thumnail" />
         </Thumnail>
       )}
     </Block>

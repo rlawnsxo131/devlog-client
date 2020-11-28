@@ -65,10 +65,7 @@ function PostDetail(props: PostDetailProps) {
         {data.post.thumnail && (
           <div className="thumnail">
             <img
-              src={optimizeImage(
-                data.post.thumnail,
-                globalThis.innerWidth > 1024 ? 1024 : globalThis.innerWidth,
-              )}
+              src={optimizeImage(data.post.thumnail, 768)}
               alt="post-thumnail"
             />
           </div>
@@ -128,7 +125,7 @@ const Block = styled.div`
       align-items: center;
       margin-bottom: 1.5rem;
       img {
-        max-width: 100%;
+        width: 100%;
         max-height: 100%;
         width: auto;
         height: auto;
