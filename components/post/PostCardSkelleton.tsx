@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import media from '../../lib/styles/media';
 import palette from '../../lib/styles/palette';
-import { StylePharagraph } from '../common/Pharagraph';
+import { StyleParagraph } from '../common/Paragraph';
 
 type PostCardSkelletonProps = {};
 
@@ -10,27 +10,27 @@ function PostCardSkelleton(props: PostCardSkelletonProps) {
   return (
     <Block>
       <div className="post-content">
-        <StylePharagraph
+        <StyleParagraph
           styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
         />
-        <StylePharagraph
+        <StyleParagraph
           styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
         />
-        <StylePharagraph
+        <StyleParagraph
           styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
         />
-        <StylePharagraph
+        <StyleParagraph
           styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
         />
-        <StylePharagraph
+        <StyleParagraph
           styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
         />
-        <StylePharagraph
+        <StyleParagraph
           styles={'height: 1rem; margin-left: 0.5rem; margin-right: 0.5rem;'}
         />
       </div>
       <Thumnail>
-        <StylePharagraph
+        <StyleParagraph
           styles={`position: absolute;
     top: 0px;
     left: 0px;

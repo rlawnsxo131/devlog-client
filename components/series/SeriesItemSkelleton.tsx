@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Pharagraph } from '../common/Pharagraph';
-import { LengthPharagraph } from '../common/Pharagraph';
+import { Paragraph } from '../common/Paragraph';
+import { LengthParagraph } from '../common/Paragraph';
 
 type SeriesItemSkelletonProps = {
   seriesKey: number;
@@ -13,11 +13,11 @@ function SeriesItemSkelleton({ seriesKey }: SeriesItemSkelletonProps) {
   return (
     <Block>
       <div className="title">
-        <Pharagraph width={20} height={1.5} />
+        <Paragraph width={20} height={1.5} />
       </div>
       <div className="content">
         {array.current.map((v, i) => (
-          <LengthPharagraph key={`${seriesKey}${i}`} length={7.5} />
+          <LengthParagraph key={`${seriesKey}${i}`} length={7.5} />
         ))}
       </div>
     </Block>

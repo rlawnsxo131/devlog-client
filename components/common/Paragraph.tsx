@@ -5,12 +5,12 @@ import { getRandomInt } from '../../lib/utils';
 
 const { useRef, memo } = React;
 
-type PharagraphProps = {
+type ParagraphProps = {
   width: number;
   height: number;
 };
-export const Pharagraph = memo(({ width, height }: PharagraphProps) => {
-  return <PharagraphBlock width={width} height={height} />;
+export const Paragraph = memo(({ width, height }: ParagraphProps) => {
+  return <ParagraphBlock width={width} height={height} />;
 });
 const shining = keyframes`
    0% {
@@ -23,7 +23,7 @@ const shining = keyframes`
     opacity: 0.5;
   }
 `;
-const PharagraphBlock = styled.div<PharagraphProps>`
+const ParagraphBlock = styled.div<ParagraphProps>`
   width: ${(props) => `${props.width}rem`};
   height: ${(props) => `${props.height}rem`};
   background: ${palette.gray1};
@@ -34,26 +34,22 @@ const PharagraphBlock = styled.div<PharagraphProps>`
   margin-right: 0.5rem;
 `;
 
-type LengthPharagraphProps = {
+type LengthParagraphProps = {
   length: number;
 };
-export const LengthPharagraph = memo(({ length }: LengthPharagraphProps) => {
-  const lengthPharagraph = useRef<Array<React.ReactNode> | undefined>(
-    undefined,
-  );
+export const LengthParagraph = memo(({ length }: LengthParagraphProps) => {
+  const lengthParagraph = useRef<Array<React.ReactNode> | undefined>(undefined);
   (() => {
     const result = [];
     for (let i = 0; i < length; i++) {
       const width = getRandomInt(0, 7);
-      result.push(<Pharagraph key={`${i}`} width={width} height={1} />);
+      result.push(<Paragraph key={`${i}`} width={width} height={1} />);
     }
-    lengthPharagraph.current = result;
+    lengthParagraph.current = result;
   })();
-  return (
-    <LengthPharagraphBlock>{lengthPharagraph.current}</LengthPharagraphBlock>
-  );
+  return <LengthParagraphBlock>{lengthParagraph.current}</LengthParagraphBlock>;
 });
-const LengthPharagraphBlock = styled.div`
+const LengthParagraphBlock = styled.div`
   display: flex;
   flex-flow: row wrap;
   div {
@@ -61,13 +57,13 @@ const LengthPharagraphBlock = styled.div`
   }
 `;
 
-type BlockPharagraphProps = {
+type BlockParagraphProps = {
   height: number;
 };
-export const BlockPharagraph = memo(({ height }: BlockPharagraphProps) => {
-  return <BlockPharagraphBlock height={height} />;
+export const BlockParagraph = memo(({ height }: BlockParagraphProps) => {
+  return <BlockParagraphBlock height={height} />;
 });
-const BlockPharagraphBlock = styled.div<BlockPharagraphProps>`
+const BlockParagraphBlock = styled.div<BlockParagraphProps>`
   height: ${(props) => `${props.height}rem`};
   background: ${palette.gray1};
   animation: ${shining} 1s ease-in-out infinite;
@@ -76,13 +72,13 @@ const BlockPharagraphBlock = styled.div<BlockPharagraphProps>`
   margin-bottom: 0.5rem;
 `;
 
-type StylePharagraphProps = {
+type StyleParagraphProps = {
   styles?: string;
 };
-export const StylePharagraph = memo(({ styles }: StylePharagraphProps) => {
-  return <StylePharagraphBlock styles={styles} />;
+export const StyleParagraph = memo(({ styles }: StyleParagraphProps) => {
+  return <StyleParagraphBlock styles={styles} />;
 });
-const StylePharagraphBlock = styled.div<StylePharagraphProps>`
+const StyleParagraphBlock = styled.div<StyleParagraphProps>`
   ${(props) =>
     props.styles &&
     css`

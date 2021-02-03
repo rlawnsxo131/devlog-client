@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { LengthPharagraph, BlockPharagraph } from '../common/Pharagraph';
+import { LengthParagraph, BlockParagraph } from '../common/Paragraph';
 
 type PostDetailSkelletonProps = {};
 
@@ -8,13 +8,13 @@ function PostDetailSkelleton(props: PostDetailSkelletonProps) {
   return (
     <Block>
       <div className="thumnail">
-        <BlockPharagraph height={20} />
+        <BlockParagraph height={20} />
       </div>
       <div className="post-body">
-        <LengthPharagraph length={250} />
+        <LengthParagraph length={250} />
       </div>
       <div className="comment-write">
-        <BlockPharagraph height={7.5} />
+        <BlockParagraph height={7.5} />
       </div>
     </Block>
   );
