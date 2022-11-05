@@ -1,5 +1,4 @@
 # devlog-client (Deprecated)
-<https://devlog.juntae.kim>
 
 ### Currently active repository
 <https://github.com/rlawnsxo131/devlog-v3>
